@@ -1,14 +1,27 @@
+import Image from "next/image";
+
 export default function RandomMovie({ response }) {
   function getRandomMovie(response) {
-    const randomNumber = Math.floor(Math.random() * response.length);
-    return response[randomNumber];
+    const randomNumber = Math.floor(Math.random() * response.results.length);
+    console.log("response: ", response);
+    console.log("response.length: ", response.results.length);
+    return response.results[randomNumber];
   }
+
   const randomMovie = getRandomMovie(response);
   console.log("randomMovie: ", randomMovie);
 
+  const imagePath = "https://image.tmdb.org/t/p/original";
+
   return (
     <div>
-      <h1>Random Movie</h1>
+      <h1>{randomMovie.title}</h1>
+      <Image
+        src={imagePath + randomMovie.poster_path}
+        width={400}
+        height={400}
+        alt={randomMovie.title}
+      />
     </div>
   );
 }
