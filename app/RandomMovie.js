@@ -15,7 +15,7 @@ export default function RandomMovie({ response }) {
 
   return (
     <div>
-      <h1>{randomMovie.title}</h1>
+      <h2>{randomMovie.title}</h2>
       <Image
         src={imagePath + randomMovie.poster_path}
         width={400}
