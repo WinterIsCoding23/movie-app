@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Movie from "./Movie";
 
-export default async function Home({ title, imagePath, poster_path }) {
+export default async function Home() {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
@@ -13,7 +13,12 @@ export default async function Home({ title, imagePath, poster_path }) {
     <main>
       <h1>Movie-App</h1>
       {response.results.map((movie) => (
-        <Movie title={title} imagePath={imagePath} poster_path={poster_path} />
+        <Movie
+          key={movie.id}
+          id={movie.id}
+          title={movie.title}
+          poster_path={movie.poster_path}
+        />
       ))}
     </main>
   );

@@ -1,9 +1,8 @@
-"use client";
 import Image from "next/image";
 
-export default function Movie({ title, imagePath, poster_path }) {
+export default function Movie({ title, id, poster_path }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
-
+  
   return (
     <div>
       <h2>{title}</h2>
