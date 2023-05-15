@@ -1,8 +1,9 @@
 import Image from "next/image";
 
 import Movie from "./Movie";
+import RandomMovie from "./RandomMovie";
 import Watchlist from "./Watchlist";
-import Footer from "./Footer";
+import NavBar from "./NavBar";
 
 export default async function Home({ id, title }) {
   const data = await fetch(
@@ -15,21 +16,22 @@ export default async function Home({ id, title }) {
     <body>
       <main>
         <h1>Movie-App</h1>
-        {response.results.map((movie) => (
+        <RandomMovie response={response} />
+        {/* {response.results.map((movie) => (
           <Movie
             key={movie.id}
             id={movie.id}
             title={movie.title}
             poster_path={movie.poster_path}
           />
-        ))}
+        ))} */}
         <button type="button">Search</button>
         <Watchlist response={response} id={id} title={title} />
       </main>
       <footer>
         <p>Copyright 2023</p>
       </footer>
-      <Footer />
+      <NavBar />
     </body>
   );
 }
