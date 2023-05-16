@@ -8,9 +8,17 @@ const StyledNavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+
+  // position: relative;
+  // min-height: 100vh;
+
+  position: sticky;
+  z-index: 30;
+  bottom: 0;
   background-color: rgb(255, 255, 255);
-  height: 100px;
 `;
+
+const imageStyle = {};
 
 export default function NavBar() {
   return (
@@ -20,18 +28,21 @@ export default function NavBar() {
         width={50}
         height={50}
         alt="home-button"
+        style={imageStyle}
       />
       <Image
         src={"/../public/play-button.png"}
         width={50}
         height={50}
         alt="placeholder"
+        style={imageStyle}
       />
       <Image
         src={"/../public/back-button.png"}
         width={50}
         height={50}
         alt="back-button"
+        style={imageStyle}
       />
     </StyledNavBar>
   );
