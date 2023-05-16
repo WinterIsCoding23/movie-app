@@ -7,7 +7,7 @@ export default function Watchlist({ response, data, id, title }) {
 
   return (
     <div>
-      <h2>My Watchlist</h2>
+      <h2 className={styles.watchlistHeader}>My Watchlist</h2>
       <ul className={styles.watchlistContainer}>
         {response.results.map((movie) => (
           <li key={movie.id}>

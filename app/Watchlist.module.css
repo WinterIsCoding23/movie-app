@@ -5,6 +5,10 @@
   list-style: none;
 }
 
+.watchlistHeader {
+  text-align: center;
+}
+
 .imageContainer {
   width: 30%;
   height: auto;
