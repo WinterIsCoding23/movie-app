@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import "./page.module.css";
-
 import Movie from "./Movie";
 import RandomMovie from "./RandomMovie";
 import SearchButton from "./SearchButton";
