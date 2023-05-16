@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import "./page.module.css";
+
 import Movie from "./Movie";
 import RandomMovie from "./RandomMovie";
 import SearchButton from "./SearchButton";
@@ -16,7 +18,7 @@ export default async function Home({ id, title }) {
   return (
     <body>
       <main>
-        <h1>Movie-App</h1>
+        <h1 style={{ textAlign: "center" }}>Movie-App</h1>
         <RandomMovie response={response} />
         {/* {response.results.map((movie) => (
           <Movie
