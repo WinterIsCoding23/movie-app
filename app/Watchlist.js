@@ -8,17 +8,16 @@ export default function Watchlist({ response, data, id, title }) {
   return (
     <div>
       <h2>My Watchlist</h2>
-      <ul>
+      <ul className={styles.watchlistContainer}>
         {response.results.map((movie) => (
           <li key={movie.id}>
             <h3>{movie.title}</h3>
             <Image
               className={styles.imageContainer}
               src={imagePath + movie.poster_path}
-              width={50}
-              height={50}
+              width={100}
+              height={100}
               alt={movie.title}
-              priority={true}
             />
           </li>
         ))}
