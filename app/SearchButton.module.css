@@ -1,0 +1,14 @@
+.button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5em;
+
+  background-color: rgb(115, 95, 50);
+}
+
+.buttonText {
+  font-weight: 900;
+  padding: 0.5em;
+  color: rgb(0, 0, 0);
+}
