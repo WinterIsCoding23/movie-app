@@ -1,8 +1,20 @@
+"use client";
+
 import Image from "next/image";
+import styled from "styled-components";
+
+const StyledNavBar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  height: 100px;
+`;
 
 export default function NavBar() {
   return (
-    <nav>
+    <StyledNavBar>
       <Image
         src={"/../public/home-button.png"}
         width={50}
@@ -21,6 +33,6 @@ export default function NavBar() {
         height={50}
         alt="back-button"
       />
-    </nav>
+    </StyledNavBar>
   );
 }
