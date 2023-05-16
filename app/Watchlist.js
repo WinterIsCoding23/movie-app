@@ -11,7 +11,7 @@ export default function Watchlist({ response, data, id, title }) {
       <ul>
         {response.results.map((movie) => (
           <li key={movie.id}>
-            {movie.title}
+            <h3>{movie.title}</h3>
             <Image
               className={styles.imageContainer}
               src={imagePath + movie.poster_path}
