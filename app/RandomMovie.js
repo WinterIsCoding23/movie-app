@@ -25,6 +25,7 @@ export default function RandomMovie({ response }) {
         width={250}
         height={250}
         alt={randomMovie.title}
+        priority={true}
       />
     </div>
   );
