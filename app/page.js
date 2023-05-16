@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Movie from "./Movie";
 import RandomMovie from "./RandomMovie";
+import SearchButton from "./SearchButton";
 import Watchlist from "./Watchlist";
 import NavBar from "./NavBar";
 
@@ -25,7 +26,7 @@ export default async function Home({ id, title }) {
             poster_path={movie.poster_path}
           />
         ))} */}
-        <button type="button">Search</button>
+        <SearchButton />
         <Watchlist response={response} id={id} title={title} />
       </main>
       <footer>
