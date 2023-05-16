@@ -17,7 +17,7 @@ export default function RandomMovie({ response }) {
 
   return (
     <div className={styles.randomMovieContainer}>
-      <h2>Random movie suggestion:</h2>
+      <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovie.title}</h3>
       <Image
         className={styles.moviePoster}

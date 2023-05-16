@@ -3,6 +3,10 @@
   border-radius: 10px;
 }
 
+.randomHeader {
+  text-align: center;
+}
+
 .movieTitle {
   text-align: center;
 }
