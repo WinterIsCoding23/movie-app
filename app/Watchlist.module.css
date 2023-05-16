@@ -1,7 +1,7 @@
 .watchlistContainer {
   /* display: grid;
   grid-template-columns: repeat (auto-fit, minmax(15rem, 1fr));
-  gap: 16px; */
+  gap: 1rem; */
   list-style: none;
 }
 
