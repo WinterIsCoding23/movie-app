@@ -22,8 +22,8 @@ export default function RandomMovie({ response }) {
       <Image
         className={styles.moviePoster}
         src={imagePath + randomMovie.poster_path}
-        width={400}
-        height={400}
+        width={250}
+        height={250}
         alt={randomMovie.title}
       />
     </div>
