@@ -8,7 +8,7 @@ const StyledNavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: solid 0.5em black;
+  border: solid 0.2em black;
   border-radius: 2em;
 
   // position: relative;
