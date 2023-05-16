@@ -16,8 +16,9 @@ export default function RandomMovie({ response }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div>
-      <h2 className={styles.movieTitle}>{randomMovie.title}</h2>
+    <div className={styles.randomMovieContainer}>
+      <h2>Random movie suggestion:</h2>
+      <h3 className={styles.movieTitle}>{randomMovie.title}</h3>
       <Image
         className={styles.moviePoster}
         src={imagePath + randomMovie.poster_path}
