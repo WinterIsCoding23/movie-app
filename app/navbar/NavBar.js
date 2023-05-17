@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const StyledNavBar = styled.nav`
   display: flex;
@@ -24,15 +26,19 @@ const StyledNavBar = styled.nav`
 // const imageStyle = {};
 
 export default function NavBar() {
+  // const router = useRouter();
+
   return (
     <StyledNavBar>
-      <Image
-        src={"/../public/home-button.png"}
-        width={50}
-        height={50}
-        alt="home-button"
-        // style={imageStyle}
-      />
+      <Link href="/">
+        <Image
+          src={"/../public/home-button.png"}
+          width={50}
+          height={50}
+          alt="home-button"
+          // style={imageStyle}
+        />
+      </Link>
       <Image
         src={"/../public/play-button.png"}
         width={50}
