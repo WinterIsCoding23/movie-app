@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import useSWR from "swr";
 
 import styles from "./page.module.css";
 
@@ -8,18 +11,26 @@ import SearchButton from "./search-button/SearchButton";
 import Watchlist from "./watchlist/Watchlist";
 import NavBar from "./navbar/NavBar";
 
-export default async function Home({ id, title }) {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
-  );
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`;
 
-  const response = await data.json();
+export default async function Home({ id, title }) {
+  // Worked without SWR:
+  // const data = await fetch(
+  //   `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
+  // );
+
+  // const response = await data.json();
+
+  const { data: results } = useSWR(URL, fetcher);
+  console.log(results);
 
   return (
     <body className={styles.body}>
       <main>
         <h1 className={styles.title}>Movie-App</h1>
-        <RandomMovie response={response} />
+        <h1>{results}</h1>
+        {/* <RandomMovie data={data} /> */}
         {/* {response.results.map((movie) => (
           <Movie
             key={movie.id}
@@ -29,7 +40,7 @@ export default async function Home({ id, title }) {
           />
         ))} */}
         <SearchButton />
-        <Watchlist response={response} id={id} title={title} />
+        {/* <Watchlist data={data} id={id} title={title} /> */}
       </main>
       <footer>
         <p>Copyright 2023</p>
