@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import Movie from "./Movie";
-import RandomMovie from "./RandomMovie";
-import SearchButton from "./SearchButton";
-import Watchlist from "./Watchlist";
-import NavBar from "./NavBar";
+import RandomMovie from "./random-movie/RandomMovie";
+import SearchButton from "./search-button/SearchButton";
+import Watchlist from "./watchlist/Watchlist";
+import NavBar from "./navbar/NavBar";
 
 export default async function Home({ id, title }) {
   const data = await fetch(

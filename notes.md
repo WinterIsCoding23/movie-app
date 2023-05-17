@@ -13,3 +13,5 @@ rgb(0, 0, 0)
 rgb(40, 42, 58)
 rgb(115, 95, 50)
 rgb(198, 151, 73)
+
+https://upmostly.com/next-js/how-to-level-up-your-next-js-app-with-scroll-animations
