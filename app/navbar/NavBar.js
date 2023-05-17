@@ -3,33 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-const StyledNavBar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 1rem;
-  border: solid 0.2em black;
-  border-radius: 2em;
-
-  // position: relative;
-  // min-height: 100vh;
-
-  position: sticky;
-  z-index: 30;
-  bottom: 0;
-  background-color: rgb(115, 95, 50);
-`;
-
-// const imageStyle = {};
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
-  // const router = useRouter();
+  const router = useRouter();
 
   return (
-    <StyledNavBar>
+    <nav className={styles.navBarContainer}>
       <Link href="/">
         <Image
           src={"/../public/home-button.png"}
@@ -46,13 +28,15 @@ export default function NavBar() {
         alt="placeholder"
         // style={imageStyle}
       />
+      {/* <button className={styles.backButton} type="button" onClick={() => router.back()}> */}
       <Image
+        onClick={() => router.back()}
         src={"/../public/back-button.png"}
         width={50}
         height={50}
         alt="back-button"
         // style={imageStyle}
       />
-    </StyledNavBar>
+    </nav>
   );
 }
