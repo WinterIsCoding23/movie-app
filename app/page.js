@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styles from "./page.module.css";
 
-import Movie from "./Movie";
+import Movie from "./movie/Movie";
 import RandomMovie from "./random-movie/RandomMovie";
 import SearchButton from "./search-button/SearchButton";
 import Watchlist from "./watchlist/Watchlist";
