@@ -20,7 +20,7 @@ export default function RandomMovie({ response }) {
     <div className={styles.randomMovieContainer}>
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovie.title}</h3>
-      {/* Here we want to link to the detail-page of the random movie: */}
+      {/* Here we want to dynamically link to the detail-page of the random movie instead: */}
       <Link href="/movie-details">
         <Image
           className={styles.moviePoster}
