@@ -1,4 +1,6 @@
-import NavBar from "../../navbar/NavBar";
+import styles from "./MovieDetail.module.css";
+
+import NavBar from "../navbar/NavBar";
 // import { Inter } from "next/font/google";
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -12,7 +14,7 @@ export default function Layout({ children }) {
   return (
     <>
       <div>{children}</div>
-      <NavBar />
+      {/* <NavBar /> */}
     </>
   );
 }
