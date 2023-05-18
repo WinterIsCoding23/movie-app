@@ -17,17 +17,20 @@ export default async function MoviePage({ params: { id } }) {
   const [movie] = await Promise.all([movieData]);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
+  console.log("genres", [movie.genre_ids]);
 
   return (
     <>
       <h2>{movie.title}</h2>
+      <p>Release-date: {movie.release_date}</p>
+      {/* <p>Genres: {movie.genre_ids.map((genre) => genre)}</p> */}
       <Image
         src={imagePath + movie.poster_path}
         width={250}
         height={250}
         alt={movie.title}
       />
-      <p>{movie.overview}</p>
+      <p>Synopsis: {movie.overview}</p>
     </>
   );
 }
