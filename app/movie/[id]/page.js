@@ -20,7 +20,6 @@ export default async function MoviePage({ params: { id } }) {
 
   return (
     <>
-      <div>Movie Detail Page</div>
       <h2>{movie.title}</h2>
       <Image
         src={imagePath + movie.poster_path}
