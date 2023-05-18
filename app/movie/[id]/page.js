@@ -1,5 +1,7 @@
 import Image from "next/image";
+
 import NavBar from "../../navbar/NavBar";
+import styles from "./Movie.module.css";
 
 async function getMovie(id) {
   const res = await fetch(
@@ -20,8 +22,8 @@ export default async function MoviePage({ params: { id } }) {
   console.log("genres", [movie.genre_ids]);
 
   return (
-    <div>
-      <h2>{movie.title}</h2>
+    <div className={styles.movieContainer}>
+      <h2 className={styles.movieTitle}>{movie.title}</h2>
       <p>Release-date: {movie.release_date}</p>
       {/* <p>Genres: {movie.genre_ids.map((genre) => genre)}</p> */}
       <Image

@@ -9,7 +9,9 @@ import NavBar from "./navbar/NavBar";
 
 export default async function Home({ id, title }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`,
+    // To fetch fresh data on every fetch request:
+    { cache: "no-store" }
   );
 
   const response = await data.json();
