@@ -33,7 +33,7 @@ export default async function Home({ id, title }) {
       <footer>
         <p>Copyright 2023</p>
       </footer>
-      {/* <NavBar /> */}
+      <NavBar />
     </body>
   );
 }

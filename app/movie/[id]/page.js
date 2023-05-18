@@ -31,6 +31,7 @@ export default async function MoviePage({ params: { id } }) {
         alt={movie.title}
       />
       <p>Synopsis: {movie.overview}</p>
+      <NavBar />
     </>
   );
 }

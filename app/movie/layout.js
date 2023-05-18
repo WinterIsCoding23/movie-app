@@ -1,5 +1,3 @@
-import styles from "./MovieDetail.module.css";
-
 import NavBar from "../navbar/NavBar";
 // import { Inter } from "next/font/google";
 
