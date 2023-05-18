@@ -1,25 +1,33 @@
 import Image from "next/image";
 import NavBar from "../../navbar/NavBar";
 
-export default async function MoviePage({ params }) {
-  console.log("params ", params);
-
-  const movieId = params.id;
-  console.log("movieId ", movieId);
-
+async function getMovie(id) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
   );
-  console.log("res ", res);
+  return res.json();
+}
 
-  const movie = await res.json();
-  console.log("movie ", movie);
+export default async function MoviePage({ params: { id } }) {
+  console.log("id ", id);
+
+  const movieData = getMovie(id);
+  console.log("movieData ", movieData);
+
+  const [movie] = await Promise.all([movieData]);
+
+  const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
     <>
       <div>Movie Detail Page</div>
       <h2>{movie.title}</h2>
-      <Image src={movie.poster_path} />
+      <Image
+        src={imagePath + movie.poster_path}
+        width={250}
+        height={250}
+        alt={movie.title}
+      />
       <p>{movie.overview}</p>
       <NavBar />
     </>

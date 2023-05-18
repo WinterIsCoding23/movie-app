@@ -21,9 +21,7 @@ export default function RandomMovie({ response }) {
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovie.title}</h3>
       {/* Here we want to dynamically link to the detail-page of the random movie instead: */}
-      <Link
-        href={`https://api.themoviedb.org/3/movie/${randomMovie.id}?api_key=${process.env.API_KEY}`}
-      >
+      <Link href={`/movie/${randomMovie.id}`}>
         <Image
           className={styles.moviePoster}
           src={imagePath + randomMovie.poster_path}
