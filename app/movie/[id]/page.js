@@ -20,7 +20,7 @@ export default async function MoviePage({ params: { id } }) {
   console.log("genres", [movie.genre_ids]);
 
   return (
-    <>
+    <div>
       <h2>{movie.title}</h2>
       <p>Release-date: {movie.release_date}</p>
       {/* <p>Genres: {movie.genre_ids.map((genre) => genre)}</p> */}
@@ -32,6 +32,6 @@ export default async function MoviePage({ params: { id } }) {
       />
       <p>Synopsis: {movie.overview}</p>
       <NavBar />
-    </>
+    </div>
   );
 }
