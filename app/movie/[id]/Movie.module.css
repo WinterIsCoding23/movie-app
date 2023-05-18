@@ -1,6 +1,14 @@
+.body {
+  min-height: 100vh;
+}
+
 .movieContainer {
   background-color: rgb(40, 42, 58);
   color: rgb(198, 151, 73);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .movieTitle {
@@ -10,4 +18,20 @@
   background-color: rgb(115, 95, 50);
   color: rgb(0, 0, 0);
   border-radius: 10px;
+}
+
+.movieImage {
+  border-radius: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+  height: auto;
+}
+
+.movieSynopsis {
+}
+
+.movieRelease {
+  align-self: flex-start;
 }

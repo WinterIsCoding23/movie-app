@@ -1,7 +1,7 @@
 .body {
   background-color: rgb(40, 42, 58);
   color: rgb(198, 151, 73);
-  height: 100%;
+  height: 100vh;
 }
 
 .title {

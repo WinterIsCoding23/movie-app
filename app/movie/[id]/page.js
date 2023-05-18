@@ -24,15 +24,16 @@ export default async function MoviePage({ params: { id } }) {
   return (
     <div className={styles.movieContainer}>
       <h2 className={styles.movieTitle}>{movie.title}</h2>
-      <p>Release-date: {movie.release_date}</p>
       {/* <p>Genres: {movie.genre_ids.map((genre) => genre)}</p> */}
       <Image
+        className={styles.movieImage}
         src={imagePath + movie.poster_path}
         width={250}
         height={250}
         alt={movie.title}
       />
-      <p>Synopsis: {movie.overview}</p>
+      <p className={styles.movieSynopsis}>Synopsis: {movie.overview}</p>
+      <p className={styles.movieRelease}>Release-date: {movie.release_date}</p>
       <NavBar />
     </div>
   );
