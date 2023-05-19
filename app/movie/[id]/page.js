@@ -44,9 +44,9 @@ export default async function MoviePage({ params: { id } }) {
           {movie.original_language.toUpperCase()}
         </p>
       </div>
-      <div className={styles.streamingContainer}>
+      {/* <div className={styles.streamingContainer}>
         <h4>Streaming-options:</h4>
-      </div>
+      </div> */}
       <NavBar />
     </div>
   );
