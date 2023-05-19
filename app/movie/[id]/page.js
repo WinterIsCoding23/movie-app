@@ -38,6 +38,15 @@ export default async function MoviePage({ params: { id } }) {
         <h4 className={styles.releaseTitle}>Release-date:</h4>
         <p className={styles.releaseDate}>{movie.release_date}</p>
       </div>
+      <div className={styles.languageContainer}>
+        <h4 className={styles.languageTitle}>Original language:</h4>
+        <p className={styles.languageInfo}>
+          {movie.original_language.toUpperCase()}
+        </p>
+      </div>
+      <div className={styles.streamingContainer}>
+        <h4>Streaming-options:</h4>
+      </div>
       <NavBar />
     </div>
   );

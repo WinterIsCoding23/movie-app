@@ -16,6 +16,20 @@ export default async function Home({ id, title }) {
 
   const response = await data.json();
 
+  // Streaming-providers:
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     accept: "application/json",
+  //     Authorization: "Bearer d093465b55cd2b394c2b5f7dd5c6e8e7",
+  //   },
+  // };
+
+  // fetch("https://api.themoviedb.org/3/movie/movie_id/watch/providers", options)
+  //   .then((response) => response.json())
+  //   .then((response) => console.log(response))
+  //   .catch((err) => console.error(err));
+
   return (
     <body className={styles.body}>
       <main>

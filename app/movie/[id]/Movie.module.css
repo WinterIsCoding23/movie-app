@@ -52,3 +52,19 @@
   margin: 0 10px;
   align-self: flex-start;
 }
+
+.languageContainer {
+}
+
+.languageTitle {
+  margin: 20px 10px;
+  align-self: flex-start;
+}
+
+.languageInfo {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.streamingContainer {
+}
