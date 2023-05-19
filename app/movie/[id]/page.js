@@ -40,9 +40,14 @@ export default async function MoviePage({ params: { id } }) {
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
     );
 
-    const jsonData = await res.json();
-    const castData = jsonData.cast;
-    const cast = castData.map((element) => element.name + ", ");
+    const jsonData = await res.json(); //json-object
+    const castData =
+      jsonData.cast.length > 9 ? jsonData.cast.slice(0, 10) : jsonData.cast; //array
+    const cast = castData.map((element) =>
+      element === castData[castData.length - 1]
+        ? element.name
+        : element.name + ", "
+    );
 
     return cast;
   }
