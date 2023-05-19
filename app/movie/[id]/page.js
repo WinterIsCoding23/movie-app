@@ -32,6 +32,12 @@ export default async function MoviePage({ params: { id } }) {
         height={250}
         alt={movie.title}
       />
+
+      <h4 className={styles.directorTitle}>Director:</h4>
+      <p className={styles.directorInfo}>{movie.crew}</p>
+
+      <h4 className={styles.castTitle}>Cast:</h4>
+      <p className={styles.castInfo}>{movie.credits}</p>
       <h4 className={styles.synopsisTitle}>Synopsis:</h4>
       <p className={styles.synopsisText}>{movie.overview}</p>
       <div className={styles.releaseContainer}>
@@ -44,9 +50,10 @@ export default async function MoviePage({ params: { id } }) {
           {movie.original_language.toUpperCase()}
         </p>
       </div>
-      {/* <div className={styles.streamingContainer}>
-        <h4>Streaming-options:</h4>
-      </div> */}
+      <div className={styles.streamingContainer}>
+        <h4 className={styles.streamingTitle}>Streaming-options:</h4>
+        {/* <p className={styles.streamingInfo}>{movie.}</p> */}
+      </div>
     </div>
   );
 }
