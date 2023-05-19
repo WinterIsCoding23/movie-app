@@ -42,7 +42,7 @@ export default async function MoviePage({ params: { id } }) {
 
     const jsonData = await res.json();
     const castData = jsonData.cast;
-    const cast = castData.map((element) => element.name);
+    const cast = castData.map((element) => element.name + ", ");
 
     return cast;
   }
