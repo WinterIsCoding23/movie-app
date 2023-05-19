@@ -1,14 +1,10 @@
-.body {
-  min-height: 100vh;
-}
-
 .movieContainer {
   background-color: rgb(40, 42, 58);
   color: rgb(198, 151, 73);
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   /* align-items: center; */
-  justify-content: center;
   /* margin-left: 10px;
   margin-right: 10px; */
 }

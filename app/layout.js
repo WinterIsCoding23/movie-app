@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./global.css";
 import NavBar from "./navbar/NavBar";
 // import { Inter } from "next/font/google";
 
@@ -12,7 +12,10 @@ import NavBar from "./navbar/NavBar";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <NavBar />
+      </body>
     </html>
   );
 }

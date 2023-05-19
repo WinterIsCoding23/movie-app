@@ -31,7 +31,7 @@ export default async function Home({ id, title }) {
   //   .catch((err) => console.error(err));
 
   return (
-    <body className={styles.body}>
+    <>
       <main>
         <h1 className={styles.title}>Movie-App</h1>
         <RandomMovie response={response} />
@@ -49,7 +49,6 @@ export default async function Home({ id, title }) {
       <footer>
         <p>Copyright 2023</p>
       </footer>
-      <NavBar />
-    </body>
+    </>
   );
 }

@@ -47,7 +47,6 @@ export default async function MoviePage({ params: { id } }) {
       {/* <div className={styles.streamingContainer}>
         <h4>Streaming-options:</h4>
       </div> */}
-      <NavBar />
     </div>
   );
 }
