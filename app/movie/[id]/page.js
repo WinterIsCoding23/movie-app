@@ -69,7 +69,6 @@ export default async function MoviePage({ params: { id } }) {
 
     return streamingSource ? (
       <Image
-        className={styles.streamingInfo}
         src={await getStreaming(movie.id)}
         width={250}
         height={250}
@@ -113,7 +112,7 @@ export default async function MoviePage({ params: { id } }) {
       </div>
       <div className={styles.streamingContainer}>
         <h4 className={styles.streamingTitle}>Streaming-options:</h4>
-        {await getStreaming(id)}
+        <div className={styles.streamingInfo}>{await getStreaming(id)}</div>
       </div>
     </div>
   );

@@ -88,4 +88,6 @@
 }
 
 .streamingInfo {
+  margin: 0 10px;
+  align-self: flex-start;
 }
