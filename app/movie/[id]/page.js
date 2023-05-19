@@ -32,7 +32,6 @@ export default async function MoviePage({ params: { id } }) {
 
     return director;
   }
-  //End of getDirector
 
   // Get cast:
   async function getCast(id) {
@@ -43,6 +42,7 @@ export default async function MoviePage({ params: { id } }) {
     const jsonData = await res.json(); //json-object
     const castData =
       jsonData.cast.length > 9 ? jsonData.cast.slice(0, 10) : jsonData.cast; //array
+    // add distinction between jsonData.cast.length > 9 + "and others" and jsonData.cast.length < 9!!!
     const cast = castData.map((element) =>
       element === castData[castData.length - 1]
         ? element.name
@@ -51,7 +51,6 @@ export default async function MoviePage({ params: { id } }) {
 
     return cast;
   }
-  //End of getCast
 
   // Get streaming:
   async function getStreaming(id) {
@@ -78,8 +77,6 @@ export default async function MoviePage({ params: { id } }) {
       unavailable
     );
   }
-  //End of getStreaming
-  console.log("streamingSource: ", await getStreaming(id));
 
   return (
     <div className={styles.movieContainer}>
