@@ -7,11 +7,13 @@
   color: rgb(198, 151, 73);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+  /* margin-left: 10px;
+  margin-right: 10px; */
 }
 
-.movieTitle {
+.title {
   margin: 0;
   padding: 1rem;
   text-align: center;
@@ -20,7 +22,7 @@
   border-radius: 10px;
 }
 
-.movieImage {
+.poster {
   border-radius: 10px;
   border: 5px solid rgb(0, 0, 0);
   display: block;
@@ -29,9 +31,24 @@
   height: auto;
 }
 
-.movieSynopsis {
+.synopsisTitle {
+  margin: 20px 10px;
+  align-self: flex-start;
 }
 
-.movieRelease {
+.synopsisText {
+  margin: 0 10px;
+}
+
+.releaseContainer {
+}
+
+.releaseTitle {
+  margin: 20px 10px;
+  align-self: flex-start;
+}
+
+.releaseDate {
+  margin: 0 10px;
   align-self: flex-start;
 }
