@@ -11,15 +11,42 @@ async function getMovie(id) {
 }
 
 export default async function MoviePage({ params: { id } }) {
-  console.log("id ", id);
+  // console.log("id ", id);
 
   const movieData = getMovie(id);
-  console.log("movieData ", movieData);
+  // console.log("movieData ", movieData);
 
   const [movie] = await Promise.all([movieData]);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
-  console.log("genres", [movie.genre_ids]);
+
+  // Get director:
+  async function getDirector(id) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
+    );
+
+    const jsonData = await res.json();
+    const directorData = jsonData.crew.filter(({ job }) => job === "Director");
+    const director = directorData[0].original_name;
+
+    return director;
+  }
+  //End of getDirector
+
+  // Get cast:
+  async function getCast(id) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
+    );
+
+    const jsonData = await res.json();
+    const castData = jsonData.cast;
+    const cast = castData.map((element) => element.name);
+
+    return cast;
+  }
+  //End of getCast
 
   return (
     <div className={styles.movieContainer}>
@@ -34,10 +61,10 @@ export default async function MoviePage({ params: { id } }) {
       />
 
       <h4 className={styles.directorTitle}>Director:</h4>
-      <p className={styles.directorInfo}>{movie.crew}</p>
+      <p className={styles.directorInfo}>{await getDirector(movie.id)}</p>
 
       <h4 className={styles.castTitle}>Cast:</h4>
-      <p className={styles.castInfo}>{movie.credits}</p>
+      <p className={styles.castInfo}>{await getCast(movie.id)}</p>
       <h4 className={styles.synopsisTitle}>Synopsis:</h4>
       <p className={styles.synopsisText}>{movie.overview}</p>
       <div className={styles.releaseContainer}>
