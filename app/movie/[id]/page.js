@@ -36,9 +36,7 @@ export default async function MoviePage({ params: { id } }) {
       <p className={styles.synopsisText}>{movie.overview}</p>
       <div className={styles.releaseContainer}>
         <h4 className={styles.releaseTitle}>Release-date:</h4>
-        <p className={styles.releaseDate}>
-          {movie.release_date.moment().format("D/MM/YYYY")}
-        </p>
+        <p className={styles.releaseDate}>{movie.release_date}</p>
       </div>
       <div className={styles.languageContainer}>
         <h4 className={styles.languageTitle}>Original language:</h4>
