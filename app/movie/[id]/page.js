@@ -53,6 +53,24 @@ export default async function MoviePage({ params: { id } }) {
   }
   //End of getCast
 
+  // Get streaming:
+  async function getStreaming(id) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.API_KEY}`
+    );
+
+    const jsonData = await res.json(); //json-object
+    //const providerLogoPath =
+    const streaming = jsonData?.results?.DE?.flatrate
+      ? jsonData?.results?.DE?.flatrate.map(
+          (element) => element.provider_name + " "
+        )
+      : "Unfortunately this movie is currently not being streamed in Germany."; //array
+
+    return streaming;
+  }
+  //End of getStreaming
+
   return (
     <div className={styles.movieContainer}>
       <h2 className={styles.title}>{movie.title}</h2>
@@ -84,7 +102,7 @@ export default async function MoviePage({ params: { id } }) {
       </div>
       <div className={styles.streamingContainer}>
         <h4 className={styles.streamingTitle}>Streaming-options:</h4>
-        {/* <p className={styles.streamingInfo}>{movie.}</p> */}
+        <p className={styles.streamingInfo}>{await getStreaming(id)}</p>
       </div>
     </div>
   );
