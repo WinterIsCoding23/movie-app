@@ -59,17 +59,28 @@ export default async function MoviePage({ params: { id } }) {
       `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.API_KEY}`
     );
 
-    const jsonData = await res.json(); //json-object
-    //const providerLogoPath =
-    const streaming = jsonData?.results?.DE?.flatrate
-      ? jsonData?.results?.DE?.flatrate.map(
-          (element) => element.provider_name + " "
-        )
-      : "Unfortunately this movie is currently not being streamed in Germany."; //array
+    const jsonData = await res.json();
+    const streamingSource = jsonData?.results?.DE?.flatrate?.map(
+      (element) => imagePath + element.logo_path
+    );
 
-    return streaming;
+    const unavailable =
+      "Unfortunately this movie is currently not being streamed in Germany.";
+
+    return streamingSource ? (
+      <Image
+        className={styles.streamingInfo}
+        src={await getStreaming(movie.id)}
+        width={250}
+        height={250}
+        alt={movie.title}
+      />
+    ) : (
+      unavailable
+    );
   }
   //End of getStreaming
+  console.log("streamingSource: ", await getStreaming(id));
 
   return (
     <div className={styles.movieContainer}>
@@ -102,7 +113,7 @@ export default async function MoviePage({ params: { id } }) {
       </div>
       <div className={styles.streamingContainer}>
         <h4 className={styles.streamingTitle}>Streaming-options:</h4>
-        <p className={styles.streamingInfo}>{await getStreaming(id)}</p>
+        {await getStreaming(id)}
       </div>
     </div>
   );
