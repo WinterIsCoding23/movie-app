@@ -28,14 +28,6 @@ export default async function Home({ id, title }) {
       <main>
         <h1 className={styles.title}>Movie-App</h1>
         <RandomMovie response={response} />
-        {/* {response.results.map((movie) => (
-          <Movie
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            poster_path={movie.poster_path}
-          />
-        ))} */}
         <SearchButton />
         <Watchlist response={response} id={id} title={title} />
       </main>
