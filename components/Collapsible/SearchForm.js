@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./SearchForm.module.css";
 
 export default function SearchForm() {
@@ -26,7 +28,9 @@ export default function SearchForm() {
           placeholder={"Please write here"}
         />
       </form>
-      <button className={styles.submitButton}>Submit search</button>
+      <Link href={`/search-results`}>
+        <button className={styles.submitButton}>Submit search</button>
+      </Link>
     </div>
   );
 }
