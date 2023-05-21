@@ -7,14 +7,23 @@ import SearchButton from "../components/search-button/SearchButton";
 import Watchlist from "../components/watchlist/Watchlist";
 import NavBar from "../components/navbar/NavBar";
 
-export default async function Home({ id, title }) {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`,
-    // To fetch fresh data on every fetch request:
-    { cache: "no-store" }
+async function getData() {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
 
-  const response = await data.json();
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export default async function Home({ id, title }) {
+  const response = await getData();
+  // To fetch fresh data on every fetch request:
+  // { cache: "no-store" }
+
+  // const response = await data.json();
 
   // Streaming-providers:
   // const options = {
