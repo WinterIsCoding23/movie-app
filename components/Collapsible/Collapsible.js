@@ -18,11 +18,13 @@ export default function Collapsible(props) {
       <button onClick={toggle} className={styles.button} type="button">
         <div className={styles.buttonText}>Search</div>
       </button>
-      {open && (
-        <div className={styles.searchForm}>
-          <SearchForm />
-        </div>
-      )}
+      <div className={styles.searchForm}>
+        {open && (
+          <div>
+            <SearchForm />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
