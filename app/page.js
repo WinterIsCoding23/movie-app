@@ -11,6 +11,8 @@ async function getData() {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
+  // To fetch fresh data on every fetch request, include inside fetch:
+  // { cache: "no-store" }
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -20,24 +22,6 @@ async function getData() {
 
 export default async function Home({ id, title }) {
   const response = await getData();
-  // To fetch fresh data on every fetch request:
-  // { cache: "no-store" }
-
-  // const response = await data.json();
-
-  // Streaming-providers:
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     accept: "application/json",
-  //     Authorization: "Bearer d093465b55cd2b394c2b5f7dd5c6e8e7",
-  //   },
-  // };
-
-  // fetch("https://api.themoviedb.org/3/movie/movie_id/watch/providers", options)
-  //   .then((response) => response.json())
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.error(err));
 
   return (
     <>
