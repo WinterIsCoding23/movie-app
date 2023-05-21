@@ -12,6 +12,7 @@ export default function SearchForm() {
           id={"title"}
           name={"title"}
           placeholder={"Please write here"}
+          autoFocus
         />
         <label htmlFor={"director"}>by director</label>
         <input
