@@ -5,7 +5,6 @@ import styles from "./page.module.css";
 import RandomMovie from "../components/random-movie/RandomMovie";
 import SearchButton from "../components/search-button/SearchButton";
 import Watchlist from "../components/watchlist/Watchlist";
-import NavBar from "../components/navbar/NavBar";
 
 async function getData() {
   const res = await fetch(
