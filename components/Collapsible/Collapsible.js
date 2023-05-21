@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 
-import styles from "./SearchButton.module.css";
+import styles from "./Collapsible.module.css";
 
 import SearchForm from "./SearchForm";
 
-export default function SearchButton(props) {
+export default function Collapsible(props) {
   const [open, setOpen] = useState(false);
 
   const toggle = () => {
@@ -19,7 +19,7 @@ export default function SearchButton(props) {
         <div className={styles.buttonText}>Search</div>
       </button>
       {open && (
-        <div className={styles.toggle}>
+        <div className={styles.searchForm}>
           <SearchForm />
         </div>
       )}

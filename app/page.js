@@ -3,8 +3,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import RandomMovie from "../components/random-movie/RandomMovie";
-import SearchButton from "../components/search-button/SearchButton";
+import SearchButton from "../components/Collapsible/Collapsible";
 import Watchlist from "../components/watchlist/Watchlist";
+import Collapsible from "../components/Collapsible/Collapsible";
 
 async function getData() {
   const res = await fetch(
@@ -27,7 +28,7 @@ export default async function Home({ id, title }) {
       <main>
         <h1 className={styles.title}>Movie-App</h1>
         <RandomMovie response={response} />
-        <SearchButton label={"searchForm"} />
+        <Collapsible label={"searchForm"} />
         <Watchlist response={response} id={id} title={title} />
       </main>
       <footer>

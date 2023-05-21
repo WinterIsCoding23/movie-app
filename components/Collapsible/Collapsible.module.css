@@ -7,6 +7,16 @@
   background-color: rgb(115, 95, 50);
 }
 
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+}
+
 .buttonText {
   font-weight: 900;
   padding: 0.5em;
