@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import NavBar from "../../../components/navbar/NavBar";
 import styles from "./Movie.module.css";
 
 async function getMovie(id) {
