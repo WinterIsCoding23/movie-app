@@ -29,7 +29,9 @@ export default function SearchForm() {
         />
       </form>
       <Link href={`/search-results`}>
-        <button className={styles.submitButton}>Submit search</button>
+        <button className={styles.submitButton}>
+          <h6>Submit search</h6>
+        </button>
       </Link>
     </div>
   );

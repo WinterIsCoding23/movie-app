@@ -13,6 +13,13 @@
 }
 
 .submitButton {
-  width: 90%;
+  height: auto;
+  width: auto;
+  background-color: rgb(115, 95, 50);
+  border-radius: 10px;
+}
+
+.submitButton > * {
   padding: 5px;
+  text-align: center;
 }
