@@ -1,5 +1,17 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.submitButton {
+  width: 80%;
 }
