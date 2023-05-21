@@ -27,7 +27,7 @@ export default async function Home({ id, title }) {
       <main>
         <h1 className={styles.title}>Movie-App</h1>
         <RandomMovie response={response} />
-        <SearchButton />
+        <SearchButton label={"searchForm"} />
         <Watchlist response={response} id={id} title={title} />
       </main>
       <footer>
