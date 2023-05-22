@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
 import useSWR from "swr";
 
 import styles from "./RandomMovie.module.css";
@@ -17,12 +16,12 @@ export default function RandomMovie({ url }) {
     return <h1>Loading...</h1>;
   }
 
+  // Rename data to be able to use it in the components as response (like before using SWR)
   const response = data;
 
   function getRandomMovie(response) {
     const randomNumber = Math.floor(Math.random() * response.results.length);
     console.log("response: ", response);
-
     return response.results[randomNumber];
   }
 
