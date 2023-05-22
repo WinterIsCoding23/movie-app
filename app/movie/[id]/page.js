@@ -69,14 +69,15 @@ export default async function MoviePage({ params: { id } }) {
     if (streamingSources) {
       // console.log("streamingSource: ", streamingSource);
       return (
-        <ul>
+        <ul style={{ listStyle: "none" }}>
           <li key={movie.id}>
             {streamingSources.map((streamingSource) => (
               <Image
                 src={streamingSource}
-                width={50}
-                height={50}
+                width={80}
+                height={80}
                 alt={movie.title}
+                style={{ borderRadius: 20, padding: 10 }}
               />
             ))}
           </li>
@@ -85,16 +86,6 @@ export default async function MoviePage({ params: { id } }) {
     } else {
       return unavailable;
     }
-
-    //return (
-    // old code:
-    //   streamingSource ? (
-    //   <Image src={streamingSource} width={250} height={250} alt={movie.title} />
-    // ) : (
-    //   unavailable
-    // )
-
-    //)
   }
 
   return (
