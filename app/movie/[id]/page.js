@@ -70,12 +70,12 @@ export default async function MoviePage({ params: { id } }) {
       // console.log("streamingSource: ", streamingSource);
       return (
         <ul>
-          <li>
+          <li key={movie.id}>
             {streamingSources.map((streamingSource) => (
               <Image
                 src={streamingSource}
-                width={250}
-                height={250}
+                width={50}
+                height={50}
                 alt={movie.title}
               />
             ))}
