@@ -3,8 +3,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import RandomMovie from "../components/random-movie/RandomMovie";
-import SearchButton from "../components/Collapsible/Collapsible";
-import Watchlist from "../components/watchlist/Watchlist";
+import Watchlist from "../components/Watchlist/Watchlist";
 import Collapsible from "../components/Collapsible/Collapsible";
 
 async function getData() {

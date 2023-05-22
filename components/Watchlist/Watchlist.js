@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./Watchlist.module.css";
-import Link from "next/link";
 
 export default function Watchlist({ response, data, id, title }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
