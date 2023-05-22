@@ -1,13 +1,11 @@
-"use client";
-
-import useSWR from "swr";
-
 import styles from "./page.module.css";
 
+import FetchUrl from "../utils/FetchUrl";
 import RandomMovie from "../components/random-movie/RandomMovie";
 import Watchlist from "../components/Watchlist/Watchlist";
 import Collapsible from "../components/Collapsible/Collapsible";
 
+// Data-fetching BEFORE SWR:
 // async function getData() {
 //   const res = await fetch(
 //     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
@@ -21,23 +19,18 @@ import Collapsible from "../components/Collapsible/Collapsible";
 //   return res.json();
 // }
 
-// Data-fetching with SWR:
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`;
-
-export default async function Home({ id, title }) {
-  const { data, error, isLoading } = useSWR(URL, fetcher);
+export default async function Home() {
   // Data-fetching BEFORE SWR:
   // const response = await getData();
-  console.log("data: ", data);
-  
+  // console.log("data: ", data);
+
   return (
     <>
       <main>
         <h1 className={styles.title}>Movie-App</h1>
-        <RandomMovie response={data} />
+        <RandomMovie url={await FetchUrl()} />
         <Collapsible label={"searchForm"} />
-        <Watchlist response={data} id={id} title={title} />
+        <Watchlist url={await FetchUrl()} />
       </main>
       <footer>
         <p>Copyright 2023</p>

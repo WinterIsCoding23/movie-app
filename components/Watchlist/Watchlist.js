@@ -1,10 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
 
 import styles from "./Watchlist.module.css";
 
-export default function Watchlist({ response, data, id, title }) {
+export default function Watchlist({ url }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
+
+  // Fetching data with SWR:
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const URL = url;
+  const { data } = useSWR(URL, fetcher);
+
+  if (!data) {
+    return <h1>Loading...</h1>;
+  }
+
+  const response = data;
 
   return (
     <div>

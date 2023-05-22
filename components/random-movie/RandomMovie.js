@@ -1,18 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
+import useSWR from "swr";
+
 import styles from "./RandomMovie.module.css";
 
-export default function RandomMovie({ response }) {
+export default function RandomMovie({ url }) {
+  // Fetching data with SWR:
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const URL = url;
+  const { data } = useSWR(URL, fetcher);
+
+  if (!data) {
+    return <h1>Loading...</h1>;
+  }
+
+  const response = data;
+
   function getRandomMovie(response) {
     const randomNumber = Math.floor(Math.random() * response.results.length);
-    //console.log("response: ", response);
-    //console.log("response.length: ", response.results.length);
+    console.log("response: ", response);
+
     return response.results[randomNumber];
   }
 
   const randomMovie = getRandomMovie(response);
-  //console.log("randomMovie: ", randomMovie);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
