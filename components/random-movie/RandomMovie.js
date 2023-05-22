@@ -10,8 +10,14 @@ export default function RandomMovie({ url }) {
   // Fetching data with SWR:
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const URL = url;
-  const { data } = useSWR(URL, fetcher);
+  const { data, error, isLoading } = useSWR(URL, fetcher);
 
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   if (!data) {
     return <h1>Loading...</h1>;
   }

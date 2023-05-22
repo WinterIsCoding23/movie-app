@@ -56,25 +56,45 @@ export default async function MoviePage({ params: { id } }) {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.API_KEY}`
     );
-
+    // console.log("fetched getStreaming: ", res);
     const jsonData = await res.json();
-    const streamingSource = jsonData?.results?.DE?.flatrate?.map(
+    // console.log("jsonData: ", jsonData);
+    const streamingSources = jsonData?.results?.DE?.flatrate?.map(
       (element) => imagePath + element.logo_path
     );
 
     const unavailable =
       "Unfortunately this movie is currently not being streamed in Germany.";
 
-    return streamingSource ? (
-      <Image
-        src={await getStreaming(movie.id)}
-        width={250}
-        height={250}
-        alt={movie.title}
-      />
-    ) : (
-      unavailable
-    );
+    if (streamingSources) {
+      // console.log("streamingSource: ", streamingSource);
+      return (
+        <ul>
+          <li>
+            {streamingSources.map((streamingSource) => (
+              <Image
+                src={streamingSource}
+                width={250}
+                height={250}
+                alt={movie.title}
+              />
+            ))}
+          </li>
+        </ul>
+      );
+    } else {
+      return unavailable;
+    }
+
+    //return (
+    // old code:
+    //   streamingSource ? (
+    //   <Image src={streamingSource} width={250} height={250} alt={movie.title} />
+    // ) : (
+    //   unavailable
+    // )
+
+    //)
   }
 
   return (
