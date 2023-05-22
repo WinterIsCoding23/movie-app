@@ -88,12 +88,15 @@
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  align-self: flex-start;
+  /* align-self: flex-start; */
 }
 
 .streamingInfo {
-  display: flex;
-  /* margin: 0 10px; */
+  /* display: flex;
+  margin: 0 10px;
   align-self: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+
+  display: grid;
+  grid-template-columns: auto auto;
 }
