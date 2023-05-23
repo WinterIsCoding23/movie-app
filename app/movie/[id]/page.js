@@ -4,6 +4,7 @@ import styles from "./Movie.module.css";
 import GetDirector from "../../../components/MovieDetails/GetDirector";
 import GetCast from "../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../components/MovieDetails/GetStreaming";
+import GetGenres from "@/components/MovieDetails/GetGenres";
 
 async function getMovie(id) {
   const res = await fetch(
@@ -21,7 +22,6 @@ export default async function MoviePage({ params: { id } }) {
   return (
     <div className={styles.movieContainer}>
       <h2 className={styles.title}>{movie.title}</h2>
-      {/* <p>Genres: {movie.genre_ids.map((genre) => genre)}</p> */}
       <Image
         className={styles.poster}
         src={imagePath + movie.poster_path}
@@ -39,6 +39,11 @@ export default async function MoviePage({ params: { id } }) {
       <p className={styles.castInfo}>
         <GetCast id={movie.id} />
       </p>
+
+      <h4 className={styles.genresTitle}>Genres:</h4>
+      <div className={styles.genresText}>
+        <GetGenres id={movie.id} />
+      </div>
 
       <h4 className={styles.synopsisTitle}>Synopsis:</h4>
       <p className={styles.synopsisText}>{movie.overview}</p>
