@@ -14,7 +14,7 @@ export default async function GetStreaming({ id, imagePath, movie }) {
 
   if (streamingSources) {
     return (
-      <ul style={{ listStyle: "none" }}>
+      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
         <li key={movie.id}>
           {streamingSources.map((streamingSource) => (
             <Image

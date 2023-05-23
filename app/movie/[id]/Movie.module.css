@@ -93,9 +93,11 @@
 
 .streamingInfo {
   /* display: flex;
-  margin: 0 10px;
+
   align-self: flex-start;
   flex-wrap: wrap; */
+
+  margin: 0 10px;
 
   display: grid;
   grid-template-columns: auto auto;
