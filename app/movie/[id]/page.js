@@ -39,16 +39,28 @@ export default async function MoviePage({ params: { id } }) {
     );
 
     const jsonData = await res.json(); //json-object
-    const castData =
-      jsonData.cast.length > 9 ? jsonData.cast.slice(0, 10) : jsonData.cast; //array
-    // add distinction between jsonData.cast.length > 9 + "and others" and jsonData.cast.length < 9!!!
-    const cast = castData.map((element) =>
-      element === castData[castData.length - 1]
-        ? element.name
-        : element.name + ", "
-    );
 
-    return cast;
+    // cast if jsonData.cast.length > 9
+    const firstTenCastMembersData = jsonData.cast.slice(0, 10); //array of objects
+    console.log(
+      "firstTenCastMembersData 9: ",
+      firstTenCastMembersData[firstTenCastMembersData.length - 1]
+    );
+    const firstTenCastMembers = firstTenCastMembersData.map((member) =>
+      member === firstTenCastMembersData[firstTenCastMembersData.length - 1]
+        ? member.name + " and others"
+        : member.name + ", "
+    ); // array of names (string)
+
+    // cast if jsonData.cast.length <= 9
+    const shortCastData = jsonData.cast; // array of objects
+    const shortCastMembers = shortCastData.map((member) =>
+      member === shortCastData[shortCastData.length - 1]
+        ? "and " + member.name
+        : member.name + ", "
+    ); // array of names
+
+    return jsonData.cast.length > 9 ? firstTenCastMembers : shortCastMembers;
   }
 
   // Get streaming:
