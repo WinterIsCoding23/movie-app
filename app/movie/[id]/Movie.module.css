@@ -25,7 +25,11 @@
 }
 
 .directorTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -35,7 +39,11 @@
 }
 
 .castTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -45,7 +53,11 @@
 }
 
 .genresTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -55,7 +67,11 @@
 }
 
 .synopsisTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -67,7 +83,11 @@
 }
 
 .releaseTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -80,7 +100,11 @@
 }
 
 .languageTitle {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   align-self: flex-start;
 }
 
@@ -95,7 +119,7 @@
 .streamingTitle {
   /* margin: 20px 10px; */
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   margin-left: 10px;
   margin-right: 10px;
   /* align-self: flex-start; */

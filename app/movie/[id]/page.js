@@ -30,35 +30,35 @@ export default async function MoviePage({ params: { id } }) {
         alt={movie.title}
       />
 
-      <h4 className={styles.directorTitle}>Director:</h4>
+      <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>
         <GetDirector id={movie.id} />
       </p>
 
-      <h4 className={styles.castTitle}>Cast:</h4>
+      <h3 className={styles.castTitle}>Cast:</h3>
       <p className={styles.castInfo}>
         <GetCast id={movie.id} />
       </p>
 
-      <h4 className={styles.genresTitle}>Genres:</h4>
+      <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div>
 
-      <h4 className={styles.synopsisTitle}>Synopsis:</h4>
+      <h3 className={styles.synopsisTitle}>Synopsis:</h3>
       <p className={styles.synopsisText}>{movie.overview}</p>
       <div className={styles.releaseContainer}>
-        <h4 className={styles.releaseTitle}>Release-date:</h4>
+        <h3 className={styles.releaseTitle}>Release-date:</h3>
         <p className={styles.releaseDate}>{movie.release_date}</p>
       </div>
       <div className={styles.languageContainer}>
-        <h4 className={styles.languageTitle}>Original language:</h4>
+        <h3 className={styles.languageTitle}>Original language:</h3>
         <p className={styles.languageInfo}>
           {movie.original_language.toUpperCase()}
         </p>
       </div>
       <div className={styles.streamingContainer}>
-        <h4 className={styles.streamingTitle}>Streaming-options:</h4>
+        <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
           <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} />
         </div>
