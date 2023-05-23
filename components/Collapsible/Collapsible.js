@@ -5,6 +5,7 @@ import React, { useState, useRef } from "react";
 import styles from "./Collapsible.module.css";
 
 import SearchForm from "./SearchForm";
+import SearchResults from "../SearchResults/SearchResults";
 
 export default function Collapsible(props) {
   const [open, setOpen] = useState(false);
@@ -37,6 +38,12 @@ export default function Collapsible(props) {
           </div>
         )}
       </div>
+      {/* Show SearchResults if a search has been done: */}
+      {SearchResults && (
+        <div>
+          <SearchResults />
+        </div>
+      )}
     </div>
   );
 }

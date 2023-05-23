@@ -1,11 +1,9 @@
 // function returning data from TMDB
 
-// handler function res, req
+const URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
 
 export default async function handler(req, res) {
   res.status(200).json();
-
-  const URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=Jack+Reacher`;
 
   if (request.method === "GET") {
     const movies = await movie.find(URL);

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import useSWR from "swr";
 
 import styles from "./SearchForm.module.css";
 
@@ -83,11 +84,11 @@ export default function SearchForm() {
           name={"cast"}
           placeholder={"Please write here"}
         />
-        <Link href={`/search-results`}>
-          <button type={"submit"} className={styles.submitButton}>
-            <h6>Submit search</h6>
-          </button>
-        </Link>
+        {/* <Link href={`/search-results`}> */}
+        <button type={"submit"} className={styles.submitButton}>
+          <h6>Submit search</h6>
+        </button>
+        {/* </Link> */}
       </form>
     </div>
   );
