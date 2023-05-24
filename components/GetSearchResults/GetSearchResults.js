@@ -28,7 +28,7 @@ export default async function GetSearchResults({ url, searchParams }) {
     <div>
       <div>
         {data.results.map((result) => (
-          <div>
+          <div key={result.id}>
             <h2>{result.title}</h2>
             {console.log(imagePath + result.poster_path)}
             <Link href={`/movie/${result.id}`}>
