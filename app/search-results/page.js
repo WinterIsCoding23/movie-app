@@ -9,7 +9,15 @@ export default function SearchResults({ params, searchParams }) {
   const queryCast = searchParams.cast;
   console.log("query:", query);
 
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
+  // Works:
+  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
+
+  // Works too - including additional query parameters:
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&query=${query}`;
+
+  // Sources:
+  // https://themoviedb.api-docs.io/3/discover/movie-discover
+  // https://www.themoviedb.org/talk/626ab3b0ec370c0d982a3ce6
 
   console.log("url:", url);
 
