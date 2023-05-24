@@ -22,7 +22,14 @@ export default async function GetSearchResults({ url, searchParams }) {
 
   return (
     <div>
-      <div>{data.results.map((result) => result.title)}</div>
+      <div>
+        {data.results.map((result) => (
+          <div>
+            <h2>{result.title}</h2>
+            <p>{result.overview}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
