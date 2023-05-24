@@ -1,4 +1,5 @@
-import SearchResults from "../../components/SearchResults/SearchResults";
+import GetSearchResults from "../../components/GetSearchResults/GetSearchResults";
+import FetchSearchUrl from "../../utils/FetchSearchUrl";
 
 // function returning data from TMDB
 //params/useSearchParams
@@ -15,8 +16,16 @@ import SearchResults from "../../components/SearchResults/SearchResults";
 //   }
 // }
 
-export default async function SearchResults({ params, searchParams }) {
-  console.log("searchParams:", searchParams);
+export default function SearchResults({ params, searchParams }) {
+  console.log("searchParamsInSearchResults:", searchParams);
+
+  const query = searchParams.title;
+  console.log("query:", query);
+
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
+
+  // const url = `${FetchSearchUrl()}&query=${query}`;
+  console.log("url:", url);
 
   // const query = searchParams.title;
 
@@ -28,7 +37,7 @@ export default async function SearchResults({ params, searchParams }) {
     <div>
       <h2>Greetings from search-results/page.js</h2>
       {/* <div>{search}</div> */}
-      <SearchResults url={url} searchParams={searchParams} />
+      <GetSearchResults url={url} searchParams={searchParams} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import React, { useState, useRef } from "react";
 import styles from "./Collapsible.module.css";
 
 import SearchForm from "./SearchForm";
-import SearchResults from "../SearchResults/SearchResults";
+import SearchResults from "../GetSearchResults/GetSearchResults";
 
 export default function Collapsible(props) {
   const [open, setOpen] = useState(false);
