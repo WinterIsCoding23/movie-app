@@ -1,6 +1,10 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import useSWR from "swr";
+
+const imagePath = "https://image.tmdb.org/t/p/original";
 
 export default async function GetSearchResults({ url, searchParams }) {
   console.log("searchParams in GetSearchResults:", searchParams);
@@ -26,6 +30,16 @@ export default async function GetSearchResults({ url, searchParams }) {
         {data.results.map((result) => (
           <div>
             <h2>{result.title}</h2>
+            {console.log(imagePath + result.poster_path)}
+            <Link href={`/movie/${result.id}`}>
+              <Image
+                alt={result.title}
+                width={100}
+                height={100}
+                src={imagePath + result.poster_path}
+              />
+            </Link>
+            <h3>{result.genre_ids}</h3>
             <p>{result.overview}</p>
           </div>
         ))}
