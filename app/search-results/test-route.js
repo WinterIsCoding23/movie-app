@@ -1,11 +1,14 @@
 // This file will export an asynchronous function named with your desired HTTP request: GET, HEAD, POST, PUT, DELETE, etc.
 // https://blog.logrocket.com/using-next-js-route-handlers/
-import { NextResponse } from "next/server";
+
+import { NextResponse, NextRequest } from "next/server";
 
 export async function GET() {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
+  //`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
+
   const data = await res.json();
   return NextResponse.json(data);
 }
