@@ -1,3 +1,5 @@
+import SearchResults from "../../components/SearchResults/SearchResults";
+
 // function returning data from TMDB
 //params/useSearchParams
 
@@ -16,16 +18,17 @@
 export default async function SearchResults({ params, searchParams }) {
   console.log("searchParams:", searchParams);
 
-  const query = searchParams.title;
+  // const query = searchParams.title;
 
-  const search = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`
-  );
+  // const response = await fetch(
+  //   `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`
+  // );
 
   return (
     <div>
       <h2>Greetings from search-results/page.js</h2>
-      <div>{search}</div>
+      {/* <div>{search}</div> */}
+      <SearchResults url={url} searchParams={searchParams} />
     </div>
   );
 }
