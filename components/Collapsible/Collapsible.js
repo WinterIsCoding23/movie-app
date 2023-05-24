@@ -38,12 +38,6 @@ export default function Collapsible(props) {
           </div>
         )}
       </div>
-      {/* Show SearchResults if a search has been done: */}
-      {/* {SearchResults && (
-        <div>
-          <SearchResults />
-        </div>
-      )} */}
     </div>
   );
 }

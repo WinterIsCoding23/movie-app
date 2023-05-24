@@ -13,6 +13,7 @@ export default async function GetSearchResults({ url, searchParams }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const URL = url;
   const { data, error, isLoading } = useSWR(URL, fetcher);
+  console.log("data.results: ", data.results);
 
   if (error) {
     return <p>Error: {error.message}</p>;
@@ -23,7 +24,6 @@ export default async function GetSearchResults({ url, searchParams }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
-
   return (
     <div>
       <div>
