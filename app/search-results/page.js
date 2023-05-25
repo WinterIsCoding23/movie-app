@@ -3,7 +3,7 @@ import GetSearchResults from "../../components/GetSearchResults/GetSearchResults
 export default function SearchResults({ params, searchParams }) {
   console.log("searchParamsInSearchResults:", searchParams);
 
-  const query = searchParams.director;
+  const query = searchParams.title;
   const queryTitle = searchParams.title;
   const queryDirector = searchParams.director;
   const queryCast = searchParams.cast;
@@ -13,13 +13,13 @@ export default function SearchResults({ params, searchParams }) {
   // Works:
   // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
   // Works too - including additional query parameters:
-  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&query=${query}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&query=${query}`;
   // Sources:
   // https://themoviedb.api-docs.io/3/discover/movie-discover
   // https://www.themoviedb.org/talk/626ab3b0ec370c0d982a3ce6
 
   // Search by Name:
-  const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.API_KEY}&include_adult=false&language=en-US&query=${query}`;
+  // const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.API_KEY}&include_adult=false&language=en-US&query=${query}`;
   // Sources:
   // https://developer.themoviedb.org/reference/search-person
 
