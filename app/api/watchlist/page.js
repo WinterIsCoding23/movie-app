@@ -1,16 +1,16 @@
 import dbConnect from "../../../db/connect";
-import watchlistMovies from "../../../db/models/watchlistMovies";
+import WatchlistMovies from "../../../db/models/watchlistMovies";
 
 export default async function handler(request, response) {
   await dbConnect();
 
   if (request.method === "GET") {
-    const moviesOnWatchlist = await watchlistMovies.find();
+    const moviesOnWatchlist = await WatchlistMovies.find();
     return response.status(200).json(moviesOnWatchlist);
   } else if (request.method === "POST") {
     try {
       const movieData = request.body;
-      const movie = new Place(movieData);
+      const movie = new WatchlistMovies(movieData);
 
       await movie.save();
       response.status(201).json({ status: "Favorite movie saved" });

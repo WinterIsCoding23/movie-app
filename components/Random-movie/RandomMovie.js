@@ -5,6 +5,7 @@ import Link from "next/link";
 import useSWR from "swr";
 
 import styles from "./RandomMovie.module.css";
+import WatchlistButton from "../WatchlistButton/WatchlistButton";
 
 export default function RandomMovie({ url }) {
   // Fetching data with SWR:
@@ -49,6 +50,7 @@ export default function RandomMovie({ url }) {
           priority={true}
         />
       </Link>
+      <WatchlistButton />
     </div>
   );
 }

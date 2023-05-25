@@ -13,7 +13,7 @@ import NavBar from "../components/Navbar/NavBar";
 //nextjs.org/docs/app/api-reference/functions/generate-metadata#icon
 // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons#icon
 
-https: export default function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>

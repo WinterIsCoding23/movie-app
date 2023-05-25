@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function WatchlistButton() {
   const watchlistMovie = (
     <Image
-      src={"../../public/director-chair-filled.png"}
+      src={"/public/director-chair-filled.png"}
       width={10}
       height={10}
       alt={"favourite"}
@@ -14,7 +14,7 @@ export default function WatchlistButton() {
   );
   const noWatchlistMovie = (
     <Image
-      src={"../../public/director-chair-empty.png"}
+      src={"/public/director-chair-empty.png"}
       width={10}
       height={10}
       alt={"no-favourite"}
@@ -38,7 +38,8 @@ export default function WatchlistButton() {
 
   return (
     <button type="button" onClick={() => toggleFavorite()} key={"Movie-Id"}>
-      {favorite === true ? watchlistMovie : noWatchlistMovie}
+      {/* {favorite === true ? watchlistMovie : noWatchlistMovie} */}
+      {favorite === true ? "favorite" : "no favorite"}
     </button>
   );
 }
