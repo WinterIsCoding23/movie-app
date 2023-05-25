@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 
 import FetchUrl from "../utils/FetchUrl";
-import RandomMovie from "../components/random-movie/RandomMovie";
+import RandomMovie from "../components/Random-movie/RandomMovie";
 import Watchlist from "../components/Watchlist/Watchlist";
 import Collapsible from "../components/Collapsible/Collapsible";
 
