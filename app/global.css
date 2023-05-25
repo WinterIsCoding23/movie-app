@@ -1,0 +1,10 @@
+:root {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(40, 42, 58);
+  color: rgb(198, 151, 73);
+  min-height: 100vh;
+  margin: 0 0 100px 0;
+}

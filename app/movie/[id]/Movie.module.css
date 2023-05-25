@@ -1,0 +1,138 @@
+.movieContainer {
+  background-color: rgb(40, 42, 58);
+  color: rgb(198, 151, 73);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgb(115, 95, 50);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.poster {
+  border-radius: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+  height: auto;
+}
+
+.directorTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.directorInfo {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.castTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.castInfo {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.genresTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.genresText {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.synopsisTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.synopsisText {
+  margin: 0 10px;
+}
+
+.releaseContainer {
+}
+
+.releaseTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.releaseDate {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.languageContainer {
+}
+
+.languageTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.languageInfo {
+  margin: 0 10px;
+  align-self: flex-start;
+}
+
+.streamingContainer {
+}
+
+.streamingTitle {
+  /* margin: 20px 10px; */
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* align-self: flex-start; */
+}
+
+.streamingInfo {
+  /* display: flex;
+
+  align-self: flex-start;
+  flex-wrap: wrap; */
+
+  margin: 0 10px;
+
+  display: grid;
+  grid-template-columns: auto auto;
+}
