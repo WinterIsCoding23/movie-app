@@ -11,7 +11,7 @@ const watchlistSchema = new Schema({
   streaming: { type: String, required: true },
 });
 
-const WatchlistMovies =
+const WatchlistMovie =
   mongoose.models.Watchlist || mongoose.model("Watchlist", watchlistSchema);
 
-export default WatchlistMovies;
+export default WatchlistMovie;
