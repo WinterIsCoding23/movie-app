@@ -29,7 +29,7 @@ export default async function GetSearchResults({ url, searchParams }) {
     <div>
       <div className={styles.searchResultsContainer}>
         {data.results.map((result) => (
-          <div key={result.id}>
+          <div className={styles.movieContainer} key={result.id}>
             <h2>{result.title}</h2>
             <div className={styles.imageContainer}>
               <Link href={`/movie/${result.id}`}>
@@ -47,7 +47,6 @@ export default async function GetSearchResults({ url, searchParams }) {
                 />
               </Link>
             </div>
-
             <p>{result.overview}</p>
           </div>
         ))}

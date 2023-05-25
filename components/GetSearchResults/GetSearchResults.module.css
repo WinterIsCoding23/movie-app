@@ -18,6 +18,12 @@
   margin-right: 10px;
 }
 
+.movieContainer {
+  background-color: rgb(0, 0, 0);
+  width: 70vw;
+  align-content: center;
+}
+
 .imageContainer {
   position: relative;
   width: 150px;
