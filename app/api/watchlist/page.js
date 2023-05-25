@@ -26,6 +26,7 @@ export default async function handler(request, response) {
     const response = await fetch("/api/watchlist", {
       method: "POST",
       body: JSON.stringify(movie),
+
       headers: {
         "Content-Type": "application/json",
       },
