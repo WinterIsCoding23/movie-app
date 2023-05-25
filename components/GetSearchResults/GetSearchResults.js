@@ -35,9 +35,6 @@ export default async function GetSearchResults({ url, searchParams }) {
               <Link href={`/movie/${result.id}`}>
                 <Image
                   className={styles.poster}
-                  // fill={true}
-                  // sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 100vw"}
-                  // style={{ objectFit: "cover" }}
                   style={{ width: "100%", height: "auto" }}
                   sizes={"100vw"}
                   width={0}
