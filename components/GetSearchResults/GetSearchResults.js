@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
 
+import styles from "./GetSearchResults.module.css";
+
 const imagePath = "https://image.tmdb.org/t/p/original";
 
 export default async function GetSearchResults({ url, searchParams }) {
@@ -25,20 +27,23 @@ export default async function GetSearchResults({ url, searchParams }) {
   }
   return (
     <div>
-      <div>
+      <div className={styles.searchResultsContainer}>
         {data.results.map((result) => (
-          <div key={result.id}>
+          <div className={styles.movieContainer} key={result.id}>
             <h2>{result.title}</h2>
-            {console.log(imagePath + result.poster_path)}
-            <Link href={`/movie/${result.id}`}>
-              <Image
-                alt={result.title}
-                width={100}
-                height={100}
-                src={imagePath + result.poster_path}
-              />
-            </Link>
-            <h3>{result.genre_ids}</h3>
+            <div className={styles.imageContainer}>
+              <Link href={`/movie/${result.id}`}>
+                <Image
+                  className={styles.poster}
+                  style={{ width: "100%", height: "auto" }}
+                  sizes={"100vw"}
+                  width={0}
+                  height={0}
+                  src={imagePath + result.poster_path}
+                  alt={result.title}
+                />
+              </Link>
+            </div>
             <p>{result.overview}</p>
           </div>
         ))}
