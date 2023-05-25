@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function WatchlistButton() {
   const watchlistMovie = (
@@ -27,10 +27,10 @@ export default function WatchlistButton() {
     setFavorite((favorite) => {
       if (favorite === true) {
         console.log("Remove movie from Watchlist");
-        fetch("MONGODB");
+        fetch("MONGODB", { method: "POST" });
       } else if (favorite === false) {
         console.log("Add movie to Watchlist");
-        fetch("MONGODB");
+        fetch("MONGODB", { method: "POST" });
       }
       return !favorite;
     });
