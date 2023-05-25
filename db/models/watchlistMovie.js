@@ -1,4 +1,3 @@
-import Watchlist from "@/components/Watchlist/Watchlist";
 import mongoose from "mongoose";
 
 const { Schema } = mongoose;
