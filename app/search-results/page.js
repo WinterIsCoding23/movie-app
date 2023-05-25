@@ -1,4 +1,5 @@
 import GetSearchResults from "../../components/GetSearchResults/GetSearchResults";
+import styles from "./search-results.module.css";
 
 export default function SearchResults({ params, searchParams }) {
   console.log("searchParamsInSearchResults:", searchParams);
@@ -31,7 +32,7 @@ export default function SearchResults({ params, searchParams }) {
 
   return (
     <div>
-      <h2>Search-results:</h2>
+      <h2 className={styles.searchTitle}>Search-results:</h2>
       <GetSearchResults url={url} searchParams={searchParams} />
     </div>
   );

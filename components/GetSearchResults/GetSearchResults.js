@@ -38,7 +38,7 @@ export default async function GetSearchResults({ url, searchParams }) {
                 src={imagePath + result.poster_path}
               />
             </Link>
-            <h3>{result.genre_ids}</h3>
+
             <p>{result.overview}</p>
           </div>
         ))}
