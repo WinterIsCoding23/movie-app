@@ -1,6 +1,6 @@
 .title {
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   background-color: rgb(115, 95, 50);
   color: rgb(0, 0, 0);
@@ -21,11 +21,12 @@
 .movieContainer {
   display: flex;
   flex-direction: column;
+  align-content: flex-start;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
   width: 70vw;
   margin: 20px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .imageContainer {
@@ -35,6 +36,6 @@
 
 .poster {
   border-radius: 10px;
-  border: 5px solid rgb(0, 0, 0);
+  border: 5px solid rgb(198, 151, 73);
   display: block;
 }
