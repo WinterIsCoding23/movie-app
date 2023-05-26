@@ -3,18 +3,7 @@ import WatchlistMovie from "../../../db/models/WatchlistMovie";
 
 // import movie.id
 
-export async function GET() {
-  await dbConnect(); //connection to database available?
-
-  const moviesOnWatchlist = await WatchlistMovie.findOne({ id }); //check if movie is in mongoDB
-
-  if (!moviesOnWatchlist) {
-    return response.status(404).json({ status: "Not found" });
-  }
-
-  return response.status(200).json(moviesOnWatchlist);
-}
-
+// ?? POST
 export async function POST() {
   await dbConnect();
 

@@ -33,13 +33,13 @@ export default function RandomMovie({ url }) {
   }
 
   const randomMovie = getRandomMovie(response);
-
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  // fetch favorites from API
-  async function fetchFavouriteMovie() {
-    const favouriteMovie = await fetch("/api/watchlist");
-    return favouriteMovie.json();
+  // ? fetch favorites from API
+  // ? SWR
+  async function fetchFavoriteMovie() {
+    const favoriteMovie = await fetch("/api/watchlist").json();
+    return favoriteMovie;
   }
 
   return (
@@ -56,6 +56,7 @@ export default function RandomMovie({ url }) {
           priority={true}
         />
       </Link>
+      {/* render appearance of WatchlistButton dependent on Boolean (movie in mongoDB or not) */}
       <WatchlistButton />
     </div>
   );

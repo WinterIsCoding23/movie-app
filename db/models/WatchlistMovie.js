@@ -10,9 +10,10 @@ const watchlistSchema = new Schema({
   // genres: { type: String, required: true },
   synopsis: { type: String, required: true },
   streaming: { type: String, required: true },
+  isFavorite: { type: Boolean, required: true },
 });
 
 const WatchlistMovie =
-  mongoose.models.Watchlist || mongoose.model("Watchlist", watchlistSchema);
+  mongoose.models.watchlist || mongoose.model("watchlist", watchlistSchema);
 
 export default WatchlistMovie;
