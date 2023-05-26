@@ -36,7 +36,11 @@ export default function RandomMovie({ url }) {
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  // fetch from API
+  // fetch favorites from API
+  async function fetchFavouriteMovie() {
+    const favouriteMovie = await fetch("/api/watchlist");
+    return favouriteMovie.json();
+  }
 
   return (
     <div className={styles.randomMovieContainer}>
