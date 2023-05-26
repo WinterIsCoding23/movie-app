@@ -1,9 +1,7 @@
+import { NextResponse, NextRequest } from "next/server";
 import dbConnect from "../../../db/connect";
 import WatchlistMovie from "../../../db/models/WatchlistMovie";
 
-// import movie.id
-
-// ?? POST
 export async function POST() {
   await dbConnect();
 

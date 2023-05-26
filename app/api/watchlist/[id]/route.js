@@ -14,7 +14,6 @@ export async function GET(request, context) {
   await dbConnect(); // check if connection to database available
 
   const moviesOnWatchlist = await WatchlistMovie.findOne({ id }); //check if movie is in mongoDB
-  console.log("moviesOnWatchlist:", moviesOnWatchlist);
 
   if (!moviesOnWatchlist) {
     return new NextResponse('{ status: "Not found" }', {
