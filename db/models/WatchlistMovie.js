@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const watchlistSchema = new Schema({
+  id: { type: Number, required: true },
   title: { type: String, required: true },
   image: { type: String, required: true },
   director: { type: String, required: true },

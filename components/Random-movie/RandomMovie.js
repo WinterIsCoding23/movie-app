@@ -36,6 +36,8 @@ export default function RandomMovie({ url }) {
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
+  // fetch from API
+
   return (
     <div className={styles.randomMovieContainer}>
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
