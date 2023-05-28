@@ -1,44 +1,83 @@
 import dbConnect from "../db/connect";
 
-export const THEMOVIEDB_BASE_URL = "http://api.themoviedb.org/3";
+export const THEMOVIEDB_BASE_URL = "http://api.themoviedb.org/3/movie";
 // export const THEMOVIEDB_BASE_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
 // export const imagePath = "https://image.tmdb.org/t/p/original";
+// completely random movie: https://api.themoviedb.org/3/movie/550?api_key=d093465b55cd2b394c2b5f7dd5c6e8e7
 
-export async function getMovies() {
-  try {
+// export async function getMovies() {
+//   try {
+//     const id = ;
+//     const response = await fetch(
+//       `${THEMOVIEDB_BASE_URL}/${id}?api_key=${process.env.API_KEY}`
+//     ); // optional within fetch(): ", {}" -> headers, body, etc.
+//     const moviesData = await response.json();
+//     const movies = await moviesData.results; //array
+
+//     await dbConnect();
+// return movies.map(async (movie) => {
+//   return {
+//     ...movie,
+// movie: object
+// isInWatchList: await Watchlist.findById(movie.id),
+// director: getDirector(movie),
+// genres: getLeadingCommentRanges(movie),
+//   };
+// });
+//     return movies;
+//   } catch (e) {
+//     console.error(e);
+//     return [];
+//   }
+// }
+
+export async function getRandomMovieUrl() {
+  let id;
+  while (true) {
     const response = await fetch(
-      `${THEMOVIEDB_BASE_URL}/movie/popular?api_key=${process.env.API_KEY}`
-    ); // optional within fetch(): ", {}" -> headers, body, etc.
-    const moviesData = await response.json();
-    const movies = await moviesData.results; //array
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=primary_release_date.desc&include_adult=false&page=1`
+    );
+    const randomNumberSource = await response.json();
+    const randomNumberMax = randomNumberSource.total_results;
+    id = Math.floor(Math.random() * randomNumberMax);
 
-    await dbConnect();
-    // return movies.map(async (movie) => {
-    //   return {
-    //     ...movie,
-    // movie: object
-    // isInWatchList: await Watchlist.findById(movie.id),
-    // director: getDirector(movie),
-    // genres: getLeadingCommentRanges(movie),
-    //   };
-    // });
-    return movies;
+    const movieResponse = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
+    );
+    const movieData = await movieResponse.json();
+
+    if (movieData.title !== undefined) {
+      break;
+    }
+  }
+
+  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`;
+  return url;
+}
+
+export async function getRandomMovie() {
+  // const possibleRandomMovies = await getMovies();
+  // const response = await fetch(
+  //   `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=primary_release_date.desc&include_adult=false&page=1`
+  // );
+  // const randomNumberSource = await response.json();
+  // const randomNumberMax = randomNumberSource.total_results;
+  // const id = Math.floor(Math.random() * randomNumberMax);
+  const URL = await getRandomMovieUrl();
+  console.log(URL);
+  try {
+    const randomMovieData = await fetch(URL);
+    const randomMovie = await randomMovieData.json();
+    // const randomMovie =
+    //   response[
+    //     Math.floor(Math.random() * possibleRandomMovies.length)
+    //   ];
+    console.log("randomMovie", randomMovie);
+    return randomMovie;
   } catch (e) {
     console.error(e);
     return [];
   }
-}
-
-export async function getRandomMovie() {
-  // console.log("getMovies: ", await getMovies());
-  const possibleRandomMovies = await getMovies();
-  // console.log("movies: ", movies);
-  const randomMovie =
-    possibleRandomMovies[
-      Math.floor(Math.random() * possibleRandomMovies.length)
-    ];
-
-  return randomMovie;
 }
 
 export async function getDirector(movie) {
