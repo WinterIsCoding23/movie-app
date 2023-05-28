@@ -6,7 +6,7 @@ import GetCast from "../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../components/MovieDetails/GetStreaming";
 import GetGenres from "@/components/MovieDetails/GetGenres";
 
-import WatchlistButton from "../../../components/WatchlistButton/WatchlistButton";
+import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
 
 async function getMovie(id) {
   const res = await fetch(
@@ -33,7 +33,7 @@ export default async function MoviePage({ params: { id } }) {
         alt={movie.title}
       />
 
-      <WatchlistButton />
+      <ToggleButton id={movie.id} />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>

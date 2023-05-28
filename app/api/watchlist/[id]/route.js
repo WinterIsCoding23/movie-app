@@ -20,7 +20,7 @@ export async function GET(request, context) {
       status: 404,
     });
   }
-
+  console.log(NextResponse);
   return new NextResponse(moviesOnWatchlist, { status: 200 });
 }
 

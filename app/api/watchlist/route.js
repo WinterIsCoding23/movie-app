@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import dbConnect from "../../../db/connect";
 import WatchlistMovie from "../../../db/models/WatchlistMovie";
 
-export async function POST(request, context) {
+export async function PUT(request, context) {
   const id = context?.params?.id;
 
   if (!id) {
@@ -13,7 +13,7 @@ export async function POST(request, context) {
 
   await dbConnect(); // check if connection to database available
 
-  const moviesOnWatchlist = await WatchlistMovie.findOne({ id }); //check if movie is in mongoDB
+  const moviesOnWatchlist = await WatchlistMovie.updateOne({ id }); //check if movie is in mongoDB
 
   if (!moviesOnWatchlist) {
     return new NextResponse('{ status: "Not found" }', {

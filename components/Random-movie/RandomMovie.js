@@ -5,7 +5,7 @@ import Link from "next/link";
 // import useSWR from "swr";
 
 import styles from "./RandomMovie.module.css";
-import WatchlistButton from "../WatchlistButton/WatchlistButton";
+import ToggleButton from "../WatchlistButton/ToggleFunction";
 import { getMovies, getRandomMovie } from "../../services/fetchService";
 
 export default async function RandomMovie() {
@@ -70,12 +70,10 @@ export default async function RandomMovie() {
             width={250}
             height={250}
             alt={randomMovieTitle}
-            priority={true}
           />
         )}
       </Link>
-      {/* render appearance of WatchlistButton dependent on Boolean (movie in mongoDB or not) */}
-      <WatchlistButton />
+      <ToggleButton id={movie.id} />
     </div>
   );
 }

@@ -4,8 +4,12 @@ import WatchlistButton from "./WatchlistButton";
 import NoWatchlistButton from "./NoWatchlistButton";
 import { useState } from "react";
 
-export default function ToggleButton() {
-  const [isFavorite, setFavorite] = useState(false);
+export default async function ToggleButton({ id }) {
+  console.log("id in ToggleFunction.js:", id);
+  const responseData = await fetch(`/api/watchlist/${id}`); //NextResponse-object from mongoDB
+  const response = await responseData.json();
+
+  const [isFavorite, setFavorite] = useState(response.isFavorite);
 
   const toggleFavorite = () => {
     setFavorite((isFavorite) => {
@@ -14,7 +18,10 @@ export default function ToggleButton() {
       } else if (isFavorite === false) {
         console.log("Add movie to Watchlist");
       }
-      fetch("/api/watchlist", { method: "POST", body: JSON.stringify() });
+      fetch(`/api/watchlist/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({ isFavorite: !isFavorite }),
+      });
       return !isFavorite;
     });
   };
