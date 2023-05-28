@@ -57,11 +57,9 @@ export async function getRandomMovieUrl() {
 
 export async function getRandomMovie() {
   const URL = await getRandomMovieUrl();
-  console.log(URL);
   try {
     const randomMovieData = await fetch(URL);
     const randomMovie = await randomMovieData.json();
-    console.log("randomMovie", randomMovie);
     return randomMovie;
   } catch (e) {
     console.error(e);

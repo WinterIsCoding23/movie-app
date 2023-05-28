@@ -49,7 +49,6 @@ export default async function RandomMovie() {
   const randomMovieTitle = randomMovieData.title;
   const randomMoviePosterSource =
     `${imagePath}` + `${randomMovieData.poster_path}`;
-  console.log("randomMoviePosterSource: ", randomMoviePosterSource);
 
   return (
     <div className={styles.randomMovieContainer}>
