@@ -56,22 +56,11 @@ export async function getRandomMovieUrl() {
 }
 
 export async function getRandomMovie() {
-  // const possibleRandomMovies = await getMovies();
-  // const response = await fetch(
-  //   `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=primary_release_date.desc&include_adult=false&page=1`
-  // );
-  // const randomNumberSource = await response.json();
-  // const randomNumberMax = randomNumberSource.total_results;
-  // const id = Math.floor(Math.random() * randomNumberMax);
   const URL = await getRandomMovieUrl();
   console.log(URL);
   try {
     const randomMovieData = await fetch(URL);
     const randomMovie = await randomMovieData.json();
-    // const randomMovie =
-    //   response[
-    //     Math.floor(Math.random() * possibleRandomMovies.length)
-    //   ];
     console.log("randomMovie", randomMovie);
     return randomMovie;
   } catch (e) {

@@ -9,6 +9,7 @@ import WatchlistButton from "../WatchlistButton/WatchlistButton";
 import { getMovies, getRandomMovie } from "../../services/fetchService";
 
 export default async function RandomMovie() {
+  // BEFORE fetchService.js:
   // Fetching data with SWR:
   // const fetcher = (...args) => fetch(...args).then((res) => res.json());
   // const URL = url;
@@ -44,26 +45,35 @@ export default async function RandomMovie() {
   }
 
   const randomMovieData = await getRandomMovie(); //object
-  // console.log("randomMovieData", randomMovieData);
   const randomMovieId = randomMovieData.id;
   const randomMovieTitle = randomMovieData.title;
   const randomMoviePosterSource =
     `${imagePath}` + `${randomMovieData.poster_path}`;
-  // console.log("randomMovie: ", randomMovie);
+  console.log("randomMoviePosterSource: ", randomMoviePosterSource);
 
   return (
     <div className={styles.randomMovieContainer}>
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
       <Link href={`/movie/${randomMovieId}`}>
-        <Image
-          className={styles.moviePoster}
-          src={randomMoviePosterSource}
-          width={250}
-          height={250}
-          alt={randomMovieTitle}
-          priority={true}
-        />
+        {randomMovieData.poster_path !== null ? (
+          <Image
+            className={styles.moviePoster}
+            src={randomMoviePosterSource}
+            width={250}
+            height={250}
+            alt={randomMovieTitle}
+            priority={true}
+          />
+        ) : (
+          <Image
+            src={"/../../public/image-placeholder.png"}
+            width={250}
+            height={250}
+            alt={randomMovieTitle}
+            priority={true}
+          />
+        )}
       </Link>
       {/* render appearance of WatchlistButton dependent on Boolean (movie in mongoDB or not) */}
       <WatchlistButton />
