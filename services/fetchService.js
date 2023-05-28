@@ -4,6 +4,7 @@ export const THEMOVIEDB_BASE_URL = "http://api.themoviedb.org/3/movie";
 // export const THEMOVIEDB_BASE_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
 export const imagePath = "https://image.tmdb.org/t/p/original";
 
+// FOR NOW unused --> to review!
 export async function getMovies() {
   // const id = ;
   try {

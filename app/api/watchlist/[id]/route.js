@@ -21,7 +21,7 @@ export async function GET(request, context) {
     });
   }
 
-  return new NextResponse(moviesOnWatchlist, { status: 200 }); // response as Boolean? to pass on to components
+  return new NextResponse(moviesOnWatchlist, { status: 200 });
 }
 
 export async function DELETE(request, context) {
@@ -40,5 +40,5 @@ export async function DELETE(request, context) {
     return errorResponse;
   }
 
-  return new NextResponse(null, { status: 200 }); // response as Boolean? to pass on to components
+  return new NextResponse(null, { status: 200 });
 }

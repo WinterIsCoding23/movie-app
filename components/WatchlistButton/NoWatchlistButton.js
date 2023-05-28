@@ -3,16 +3,16 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function WatchlistButton() {
+export default function NoWatchlistButton() {
   return (
     <button type="button">
       <Image
-        src={"/../public/director-chair-empty.png"}
+        src={"/../public/director-chair-filled.png"}
         width={30}
         height={30}
-        alt={"already-a-favorite"}
+        alt={"no-favorite-yet"}
       />
-      <p>"un-favor movie"</p>
+      <p>"make favorite"</p>
     </button>
   );
 }
