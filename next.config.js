@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverComponentsExternalPackages: ["mongoose"]
+    serverComponentsExternalPackages: ["mongoose"],
+    // topLevelAwait: ["true"],
   },
   images: {
     domains: ["image.tmdb.org"],
