@@ -25,7 +25,6 @@ export default function ToggleButton() {
     <WatchlistButton onClick={() => toggleFavorite()} key={"Movie-Id"} />
   );
   // <button type="button" onClick={() => toggleFavorite()} key={"Movie-Id"}>
-  //   {favorite === true ? watchlistMovie : noWatchlistMovie}
   //   {favorite === true ? noWatchlistMovie : watchlistMovie}
   // </button>
 }
