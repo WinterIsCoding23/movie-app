@@ -6,6 +6,8 @@ import GetCast from "../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../components/MovieDetails/GetStreaming";
 import GetGenres from "@/components/MovieDetails/GetGenres";
 
+import WatchlistButton from "../../../components/WatchlistButton/WatchlistButton";
+
 async function getMovie(id) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
@@ -30,6 +32,8 @@ export default async function MoviePage({ params: { id } }) {
         height={250}
         alt={movie.title}
       />
+
+      <WatchlistButton />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>

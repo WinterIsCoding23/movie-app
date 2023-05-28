@@ -2,34 +2,31 @@ import dbConnect from "../db/connect";
 
 export const THEMOVIEDB_BASE_URL = "http://api.themoviedb.org/3/movie";
 // export const THEMOVIEDB_BASE_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
-// export const imagePath = "https://image.tmdb.org/t/p/original";
-// completely random movie: https://api.themoviedb.org/3/movie/550?api_key=d093465b55cd2b394c2b5f7dd5c6e8e7
+export const imagePath = "https://image.tmdb.org/t/p/original";
 
-// export async function getMovies() {
-//   try {
-//     const id = ;
-//     const response = await fetch(
-//       `${THEMOVIEDB_BASE_URL}/${id}?api_key=${process.env.API_KEY}`
-//     ); // optional within fetch(): ", {}" -> headers, body, etc.
-//     const moviesData = await response.json();
-//     const movies = await moviesData.results; //array
+export async function getMovies() {
+  // const id = ;
+  try {
+    const response = await fetch(
+      `${THEMOVIEDB_BASE_URL}/${id}?api_key=${process.env.API_KEY}`
+    ); // optional within fetch(): ", {}" -> headers, body, etc.
+    const moviesData = await response.json();
+    const movies = await moviesData.results; //array
 
-//     await dbConnect();
-// return movies.map(async (movie) => {
-//   return {
-//     ...movie,
-// movie: object
-// isInWatchList: await Watchlist.findById(movie.id),
-// director: getDirector(movie),
-// genres: getLeadingCommentRanges(movie),
-//   };
-// });
-//     return movies;
-//   } catch (e) {
-//     console.error(e);
-//     return [];
-//   }
-// }
+    await dbConnect();
+    return movies.map(async (movie) => {
+      return {
+        ...movie,
+        isInWatchList: await Watchlist.findById(movie.id),
+        director: getDirector(movie),
+        genres: getLeadingCommentRanges(movie),
+      };
+    });
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+}
 
 export async function getRandomMovieUrl() {
   let id;
@@ -67,10 +64,11 @@ export async function getRandomMovie() {
   }
 }
 
-export async function getDirector(movie) {
-  return await fetch(`${movie.id}`);
-}
-
 export async function getFavoriteMovies() {
   return (await getMovies()).filter((movie) => movie.isInWatchList);
 }
+
+// For now: fetching Movie-details from components/MovieDetails
+// export async function getDirector(movie) {
+//   return await fetch(`${movie.id}`);
+// }
