@@ -5,21 +5,21 @@ import NoWatchlistButton from "./NoWatchlistButton";
 import { useState } from "react";
 
 export default function ToggleButton() {
-  const [favorite, setFavorite] = useState(false);
+  const [isFavorite, setFavorite] = useState(false);
 
   const toggleFavorite = () => {
-    setFavorite((favorite) => {
-      if (favorite === true) {
+    setFavorite((isFavorite) => {
+      if (isFavorite === true) {
         console.log("Remove movie from Watchlist");
-      } else if (favorite === false) {
+      } else if (isFavorite === false) {
         console.log("Add movie to Watchlist");
       }
       fetch("/api/watchlist", { method: "POST", body: JSON.stringify() });
-      return !favorite;
+      return !isFavorite;
     });
   };
 
-  return favorite === true ? (
+  return isFavorite === false ? (
     <NoWatchlistButton onClick={() => toggleFavorite()} key={"Movie-Id"} />
   ) : (
     <WatchlistButton onClick={() => toggleFavorite()} key={"Movie-Id"} />
