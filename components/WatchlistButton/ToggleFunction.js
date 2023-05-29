@@ -6,10 +6,13 @@ import { useState } from "react";
 
 export default async function ToggleButton({ id }) {
   console.log("id in ToggleFunction.js:", id);
-  const responseData = await fetch(`/api/watchlist/${id}`); //NextResponse-object from mongoDB
-  const response = await responseData.json();
 
-  const [isFavorite, setFavorite] = useState(response.isFavorite);
+  //GET NextResponse-object from mongoDB
+  const responseData = await fetch(`/api/watchlist/${id}`);
+  const response = await responseData.json();
+  const checkFavorite = response?.isFavorite ? response.isFavorite : false;
+
+  const [isFavorite, setFavorite] = useState(checkFavorite);
 
   const toggleFavorite = () => {
     setFavorite((isFavorite) => {
@@ -27,9 +30,9 @@ export default async function ToggleButton({ id }) {
   };
 
   return isFavorite === false ? (
-    <NoWatchlistButton onClick={() => toggleFavorite()} key={"Movie-Id"} />
+    <NoWatchlistButton onClick={() => toggleFavorite()} key={id} />
   ) : (
-    <WatchlistButton onClick={() => toggleFavorite()} key={"Movie-Id"} />
+    <WatchlistButton onClick={() => toggleFavorite()} key={id} />
   );
   // <button type="button" onClick={() => toggleFavorite()} key={"Movie-Id"}>
   //   {favorite === true ? noWatchlistMovie : watchlistMovie}
