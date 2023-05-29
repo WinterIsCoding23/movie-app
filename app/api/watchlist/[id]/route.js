@@ -12,17 +12,19 @@ export async function GET(request, context) {
     });
   }
 
-  await dbConnect(); // check if connection to database available
+  // check if connection to database available
+  await dbConnect();
 
-  const moviesOnWatchlist = await WatchlistMovie.findOne({ id }); //check if movie is in mongoDB
+  //check if movie is in mongoDB
+  const moviesOnWatchlist = await WatchlistMovie.findOne({ id });
 
   if (!moviesOnWatchlist) {
     return new NextResponse('{ status: "Not found" }', {
       status: 404,
     });
   }
-  console.log(NextResponse);
 
+  // return movie-object (with given id) from mongoDB 
   return new NextResponse(moviesOnWatchlist, { status: 200 });
 }
 

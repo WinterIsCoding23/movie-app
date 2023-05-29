@@ -73,7 +73,7 @@ export default async function RandomMovie() {
           />
         )}
       </Link>
-      <ToggleButton id={movie.id} />
+      <ToggleButton id={randomMovieId} />
     </div>
   );
 }
