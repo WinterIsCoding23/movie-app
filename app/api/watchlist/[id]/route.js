@@ -8,7 +8,7 @@ export async function GET(request, context) {
   const id = context?.params?.id;
 
   if (!id) {
-    return new NextResponse('{ status: "Not found" }', {
+    return new NextResponse('{ status: "Id not found" }', {
       status: 404,
     });
   }
@@ -20,7 +20,7 @@ export async function GET(request, context) {
   const movieOnWatchlist = await WatchlistMovie.findOne({ id });
 
   if (!movieOnWatchlist) {
-    return new NextResponse('{ status: "Not found" }', {
+    return new NextResponse('{ status: "movieOnWatchlist Not found" }', {
       status: 404,
     });
   }
