@@ -8,7 +8,7 @@ export default async function ToggleButton({ id }) {
   console.log("id in ToggleFunction.js:", id);
 
   //GET NextResponse-object from mongoDB
-  const responseData = await fetch(`/api/watchlist/${id}`);
+  const responseData = await fetch(`/api/watchlist/${id}`, { method: "GET" });
   const response = await responseData.json();
   const checkFavorite = response?.isFavorite ? response.isFavorite : false;
   console.log("checkFavorite:", checkFavorite);
