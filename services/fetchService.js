@@ -4,7 +4,7 @@ export const THEMOVIEDB_BASE_URL = "http://api.themoviedb.org/3/movie";
 // export const THEMOVIEDB_BASE_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
 export const imagePath = "https://image.tmdb.org/t/p/original";
 
-// FOR NOW unused --> to review!
+// FOR NOW unused --> TO REVIEW!!
 export async function getMovies() {
   // const id = ;
   try {
@@ -29,6 +29,7 @@ export async function getMovies() {
   }
 }
 
+// get the URL of a random movie from TMDB:
 export async function getRandomMovieUrl() {
   let id;
   while (true) {
@@ -53,6 +54,7 @@ export async function getRandomMovieUrl() {
   return url;
 }
 
+// ...use the URL to fetch random movie-object from TMDB
 export async function getRandomMovie() {
   const URL = await getRandomMovieUrl();
   try {

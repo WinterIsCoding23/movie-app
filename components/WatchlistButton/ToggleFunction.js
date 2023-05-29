@@ -11,6 +11,7 @@ export default async function ToggleButton({ id }) {
   const responseData = await fetch(`/api/watchlist/${id}`);
   const response = await responseData.json();
   const checkFavorite = response?.isFavorite ? response.isFavorite : false;
+  console.log("checkFavorite:", checkFavorite);
 
   const [isFavorite, setFavorite] = useState(checkFavorite);
 

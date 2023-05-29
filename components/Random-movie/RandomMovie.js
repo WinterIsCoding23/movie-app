@@ -37,14 +37,8 @@ export default async function RandomMovie() {
   // const randomMovie = getRandomMovie(response);
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  // ? fetch favorites from API
-  // ? SWR
-  async function fetchFavoriteMovie() {
-    const favoriteMovie = await fetch("/api/watchlist").json();
-    return favoriteMovie;
-  }
-
-  const randomMovieData = await getRandomMovie(); //object
+  // get random movie-object from TMDB
+  const randomMovieData = await getRandomMovie();
   const randomMovieId = randomMovieData.id;
   const randomMovieTitle = randomMovieData.title;
   const randomMoviePosterSource =
