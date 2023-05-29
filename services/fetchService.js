@@ -61,12 +61,27 @@ export async function getRandomMovie() {
     const randomMovieData = await fetch(URL);
     const randomMovie = await randomMovieData.json();
 
-    
-    randomMovie.id = 
-
     return randomMovie;
   } catch (e) {
     console.error(e);
+    return [];
+  }
+}
+
+// check if randomMovie.id exists in mongoDB-collection
+// if not, return randomMovie from TMDB
+// if yes, return randomMovie from mongoDB-collection (in this case randomMovie-object includes isFavorite)
+export async function favoriteCheck() {
+  const randomMovie = await getRandomMovie();
+  try {
+    const mongoMovieData = await fetch(`/api/watchlist/${randomMovie.id}`, {
+      method: "GET",
+    });
+    const mongoMovie = await mongoMovieData.json();
+
+    return mongoMovie;
+  } catch (error) {
+    console.error(error);
     return [];
   }
 }
