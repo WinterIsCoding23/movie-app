@@ -16,16 +16,16 @@ export async function GET(request, context) {
   await dbConnect();
 
   //check if movie is in mongoDB
-  const moviesOnWatchlist = await WatchlistMovie.findOne({ id });
+  const movieOnWatchlist = await WatchlistMovie.findOne({ id });
 
-  if (!moviesOnWatchlist) {
+  if (!movieOnWatchlist) {
     return new NextResponse('{ status: "Not found" }', {
       status: 404,
     });
   }
 
-  // return movie-object (with given id) from mongoDB 
-  return new NextResponse(moviesOnWatchlist, { status: 200 });
+  // return movie-object (with given id) from mongoDB
+  return new NextResponse(movieOnWatchlist, { status: 200 });
 }
 
 // PUT-request to save movie with id XX and key isFavorite === true / update movie with id XX if key isFavorite === false

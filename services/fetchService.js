@@ -60,6 +60,10 @@ export async function getRandomMovie() {
   try {
     const randomMovieData = await fetch(URL);
     const randomMovie = await randomMovieData.json();
+
+    
+    randomMovie.id = 
+
     return randomMovie;
   } catch (e) {
     console.error(e);
@@ -67,6 +71,7 @@ export async function getRandomMovie() {
   }
 }
 
+// suggestion from Sven:
 export async function getFavoriteMovies() {
   return (await getMovies()).filter((movie) => movie.isInWatchList);
 }
