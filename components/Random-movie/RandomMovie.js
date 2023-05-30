@@ -79,7 +79,7 @@ export default async function RandomMovie() {
           />
         ) : (
           <Image
-            src={"/../public/image-placeholder.png"}
+            src={"/../public/no-image.png"}
             width={250}
             height={250}
             alt={randomMovieTitle}
