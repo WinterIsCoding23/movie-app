@@ -28,7 +28,7 @@ export default async function Home() {
     <>
       <main>
         <h1 className={styles.title}>Movie-App</h1>
-        <RandomMovie url={await FetchUrl()} />
+        <RandomMovie />
         <Collapsible label={"searchForm"} />
         <Watchlist url={await FetchUrl()} />
       </main>
