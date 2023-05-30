@@ -33,15 +33,24 @@ export default async function GetSearchResults({ url, searchParams }) {
             <h2>{result.title}</h2>
             <div className={styles.imageContainer}>
               <Link href={`/movie/${result.id}`}>
-                <Image
-                  className={styles.poster}
-                  style={{ width: "100%", height: "auto" }}
-                  sizes={"100vw"}
-                  width={0}
-                  height={0}
-                  src={imagePath + result.poster_path}
-                  alt={result.title}
-                />
+                {result.poster_path !== null ? (
+                  <Image
+                    className={styles.poster}
+                    style={{ width: "100%", height: "auto" }}
+                    sizes={"100vw"}
+                    width={0}
+                    height={0}
+                    src={imagePath + result.poster_path}
+                    alt={result.title}
+                  />
+                ) : (
+                  <Image
+                    src={"/../public/no-image.png"}
+                    width={250}
+                    height={250}
+                    alt={result.title}
+                  />
+                )}
               </Link>
             </div>
             <p>{result.overview}</p>

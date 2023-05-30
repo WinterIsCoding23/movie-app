@@ -47,7 +47,7 @@ export async function PUT(request, context) {
 
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
-    // { $set: { isFavorite: true } },
+    { $set: { isFavorite: true } },
     { upsert: true },
     (error, result) => {
       if (error) {
