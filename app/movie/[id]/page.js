@@ -22,7 +22,6 @@ export default async function MoviePage({ params: { id } }) {
 
   return (
     <div className={styles.movieContainer}>
-      {/* <button type={button}>Add to Watchlist</button> */}
       <h2 className={styles.title}>{movie.title}</h2>
       {movie.poster_path !== null ? (
         <Image
