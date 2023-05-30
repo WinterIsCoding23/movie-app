@@ -1,3 +1,4 @@
+// delete component when merging
 import Image from "next/image";
 
 export default function WatchlistButton() {

@@ -7,12 +7,6 @@ export default async function ToggleButton({ id, isFavorite }) {
   console.log("id in ToggleFunction.js:", id);
   console.log("isFavorite:", isFavorite);
 
-  //GET NextResponse-object from mongoDB
-  // const responseData = await fetch(`/api/watchlist/${id}`, { method: "GET" });
-  // const response = await responseData.json();
-  // const checkFavorite = response?.isFavorite ? response.isFavorite : false;
-  // console.log("checkFavorite:", checkFavorite);
-
   const [watchlistFavorite, setWatchlistFavorite] = useState(isFavorite);
 
   const toggleFavorite = () => {
@@ -63,7 +57,4 @@ export default async function ToggleButton({ id, isFavorite }) {
   ) : (
     <WatchlistButton />
   );
-  // <button type="button" onClick={() => toggleFavorite()} key={"Movie-Id"}>
-  //   {favorite === true ? noWatchlistMovie : watchlistMovie}
-  // </button>
 }
