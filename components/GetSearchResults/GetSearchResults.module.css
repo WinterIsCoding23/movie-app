@@ -22,7 +22,7 @@
 .movieContainer {
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
+  align-items: center;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
   width: 70vw;
