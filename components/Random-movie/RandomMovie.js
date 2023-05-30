@@ -45,9 +45,8 @@ export default async function RandomMovie() {
   const randomMoviePosterSource =
     `${imagePath}` + `${randomMovieData.poster_path}`;
 
-  let isFavorite = false;
-
   //fetch from mongoDB:
+  let isFavorite = false;
   if (randomMovieId) {
     const response = await fetch(
       `http://localhost:3000/api/watchlist/${randomMovieId}`,

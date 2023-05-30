@@ -29,7 +29,7 @@ export async function getMovies() {
   }
 }
 
-// get the URL of a random movie from TMDB:
+// get the URL of a RANDOM MOVIE from TMDB:
 export async function getRandomMovieUrl() {
   let id;
   while (true) {
@@ -71,20 +71,20 @@ export async function getRandomMovie() {
 // check if randomMovie.id exists in mongoDB-collection
 // if not, return randomMovie from TMDB
 // if yes, return randomMovie from mongoDB-collection (in this case randomMovie-object includes isFavorite)
-export async function favoriteCheck() {
-  const randomMovie = await getRandomMovie();
-  try {
-    const mongoMovieData = await fetch(`/api/watchlist/${randomMovie.id}`, {
-      method: "GET",
-    });
-    const mongoMovie = await mongoMovieData.json();
+// export async function favoriteCheck() {
+//   const randomMovie = await getRandomMovie();
+//   try {
+//     const mongoMovieData = await fetch(`/api/watchlist/${randomMovie.id}`, {
+//       method: "GET",
+//     });
+//     const mongoMovie = await mongoMovieData.json();
 
-    return mongoMovie;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-}
+//     return mongoMovie;
+//   } catch (error) {
+//     console.error(error);
+//     return [];
+//   }
+// }
 
 // suggestion from Sven:
 export async function getFavoriteMovies() {

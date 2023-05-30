@@ -15,10 +15,29 @@ async function getMovie(id) {
 }
 
 export default async function MoviePage({ params: { id } }) {
-  const movieData = getMovie(id);
+  const movieData = await getMovie(id);
   const [movie] = await Promise.all([movieData]);
+  const movieId = movie.id;
 
   const imagePath = "https://image.tmdb.org/t/p/original";
+
+  //fetch from mongoDB:
+  let isFavorite = false;
+  if (movieId) {
+    const response = await fetch(
+      `http://localhost:3000/api/watchlist/${movieId}`,
+      {
+        method: "GET",
+      }
+    );
+    if (response.ok) {
+      const jsonData = await response.json();
+      console.log("jsonData: ", jsonData);
+      isFavorite = jsonData.isFavorite;
+    } else {
+      console.log("not found");
+    }
+  }
 
   return (
     <div className={styles.movieContainer}>
@@ -41,7 +60,7 @@ export default async function MoviePage({ params: { id } }) {
         />
       )}
 
-      <ToggleButton id={movie.id} />
+      <ToggleButton id={movie.id} isFavorite={isFavorite} />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>
