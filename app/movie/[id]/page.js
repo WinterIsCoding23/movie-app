@@ -4,7 +4,6 @@ import styles from "./Movie.module.css";
 import GetDirector from "../../../components/MovieDetails/GetDirector";
 import GetCast from "../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../components/MovieDetails/GetStreaming";
-import GetGenres from "@/components/MovieDetails/GetGenres";
 
 import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
 

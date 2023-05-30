@@ -6,7 +6,7 @@ export const imagePath = "https://image.tmdb.org/t/p/original";
 
 // FOR NOW unused --> TO REVIEW!!
 export async function getMovies() {
-  // const id = ;
+  // const id = ??;
   try {
     const response = await fetch(
       `${THEMOVIEDB_BASE_URL}/${id}?api_key=${process.env.API_KEY}`

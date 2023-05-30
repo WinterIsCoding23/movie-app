@@ -40,9 +40,18 @@ export default async function RandomMovie() {
   // get random movie-object from TMDB
   const randomMovieData = await getRandomMovie();
   const randomMovieId = randomMovieData.id;
+  console.log("randomMovieId: ", randomMovieId);
   const randomMovieTitle = randomMovieData.title;
   const randomMoviePosterSource =
     `${imagePath}` + `${randomMovieData.poster_path}`;
+
+  //fetch from mongoDB:
+  const response = await fetch(`/api/watchlist/${randomMovieId}`, {
+    method: "GET",
+  });
+  const jsonData = await response.json();
+
+  console.log("jsonData: ", jsonData);
 
   return (
     <div className={styles.randomMovieContainer}>
@@ -67,7 +76,7 @@ export default async function RandomMovie() {
           />
         )}
       </Link>
-      <ToggleButton id={randomMovieId} />
+      {/* <ToggleButton id={randomMovieId} /> */}
     </div>
   );
 }
