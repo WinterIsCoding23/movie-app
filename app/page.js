@@ -20,10 +20,6 @@ import Collapsible from "../components/Collapsible/Collapsible";
 // }
 
 export default async function Home() {
-  // Data-fetching BEFORE SWR:
-  // const response = await getData();
-  // console.log("data: ", data);
-
   return (
     <>
       <main>
