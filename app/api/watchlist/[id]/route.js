@@ -42,9 +42,12 @@ export async function PUT(request, context) {
 
   await dbConnect(); // check if connection to database available
 
+  // let isFavoriteObj = {};
+  // isFavoriteObj[isFavorite] = watchlistFavorite;
+
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
-    { $set: { isFavorite: true } },
+    { $set: { isFavorite: watchlistFavorite } },
     { upsert: true },
     (error, result) => {
       if (error) {

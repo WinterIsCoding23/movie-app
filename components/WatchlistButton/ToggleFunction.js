@@ -15,10 +15,10 @@ export default async function ToggleButton({ id, isFavorite }) {
         console.log("Remove movie from Watchlist");
       } else if (watchlistFavorite === false) {
         console.log("Add movie to Watchlist");
-      }
+      }      
       fetch(`/api/watchlist/${id}`, {
         method: "PUT",
-        body: JSON.stringify({ watchlistFavorite: !watchlistFavorite }),
+        body: JSON.stringify({ isFavorite: !watchlistFavorite }),
       });
       return !watchlistFavorite;
     });
