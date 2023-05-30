@@ -4,16 +4,16 @@ import WatchlistButton from "./WatchlistButton";
 import NoWatchlistButton from "./NoWatchlistButton";
 import { useState } from "react";
 
-export default async function ToggleButton({ id }) {
+export default async function ToggleButton({ id, isFavorite }) {
   console.log("id in ToggleFunction.js:", id);
 
   //GET NextResponse-object from mongoDB
-  const responseData = await fetch(`/api/watchlist/${id}`, { method: "GET" });
-  const response = await responseData.json();
-  const checkFavorite = response?.isFavorite ? response.isFavorite : false;
-  console.log("checkFavorite:", checkFavorite);
+  // const responseData = await fetch(`/api/watchlist/${id}`, { method: "GET" });
+  // const response = await responseData.json();
+  // const checkFavorite = response?.isFavorite ? response.isFavorite : false;
+  // console.log("checkFavorite:", checkFavorite);
 
-  const [isFavorite, setFavorite] = useState(checkFavorite);
+  // const [isFavorite, setFavorite] = useState(checkFavorite);
 
   const toggleFavorite = () => {
     setFavorite((isFavorite) => {

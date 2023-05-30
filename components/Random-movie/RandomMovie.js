@@ -45,13 +45,24 @@ export default async function RandomMovie() {
   const randomMoviePosterSource =
     `${imagePath}` + `${randomMovieData.poster_path}`;
 
-  //fetch from mongoDB:
-  const response = await fetch(`/api/watchlist/${randomMovieId}`, {
-    method: "GET",
-  });
-  const jsonData = await response.json();
+  let isFavorite = false;
 
-  console.log("jsonData: ", jsonData);
+  //fetch from mongoDB:
+  if (randomMovieId) {
+    const response = await fetch(
+      `http://localhost:3000/api/watchlist/${randomMovieId}`,
+      {
+        method: "GET",
+      }
+    );
+    if (response.ok) {
+      const jsonData = await response.json();
+      console.log("jsonData: ", jsonData);
+      isFavorite = jsonData.isFavorite;
+    } else {
+      console.log("not found");
+    }
+  }
 
   return (
     <div className={styles.randomMovieContainer}>
@@ -76,7 +87,7 @@ export default async function RandomMovie() {
           />
         )}
       </Link>
-      {/* <ToggleButton id={randomMovieId} /> */}
+      <ToggleButton id={randomMovieId} isFavorite={isFavorite} />
     </div>
   );
 }

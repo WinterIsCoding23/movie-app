@@ -46,7 +46,7 @@ export default async function MoviePage({ params: { id } }) {
 
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
-        <GetGenres id={movie.id} />
+        {/* <GetGenres id={movie.id} /> */}
       </div>
 
       <h3 className={styles.synopsisTitle}>Synopsis:</h3>
