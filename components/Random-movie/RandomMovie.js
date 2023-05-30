@@ -1,8 +1,5 @@
-// "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-// import useSWR from "swr";
 
 import styles from "./RandomMovie.module.css";
 import ToggleButton from "../WatchlistButton/ToggleFunction";
@@ -25,16 +22,6 @@ export default async function RandomMovie() {
   //   return <h1>Loading...</h1>;
   // }
 
-  // Rename data to be able to use it in the components as response (like before using SWR)
-  // const response = data;
-
-  // function getRandomMovie(response) {
-  //   const randomNumber = Math.floor(Math.random() * response.results.length);
-  //   console.log("response: ", response);
-  //   return response.results[randomNumber];
-  // }
-
-  // const randomMovie = getRandomMovie(response);
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   // get random movie-object from TMDB
