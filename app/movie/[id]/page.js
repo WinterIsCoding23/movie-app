@@ -45,8 +45,6 @@ export default async function MoviePage({ params: { id } }) {
       console.log("not found");
     }
   }
-  
-  //POST-request / set isFavorite to false
 
   return (
     <div className={styles.movieContainer}>
@@ -69,9 +67,7 @@ export default async function MoviePage({ params: { id } }) {
         />
       )}
 
-      {/* <ToggleButton id={movie.id} isFavorite={isFavorite} />
-      
-      <IsFavorite id={id} movie={movie} detailUrl={detailUrl} /> */}
+      <IsFavorite id={id} movie={movie} detailUrl={detailUrl} />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>
