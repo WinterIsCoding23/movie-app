@@ -4,6 +4,7 @@ import styles from "./Movie.module.css";
 import GetDirector from "../../../components/MovieDetails/GetDirector";
 import GetCast from "../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../components/MovieDetails/GetStreaming";
+import GetGenres from "../../../components/MovieDetails/GetGenres";
 
 import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
 
@@ -74,7 +75,7 @@ export default async function MoviePage({ params: { id } }) {
 
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
-        {/* <GetGenres id={movie.id} /> */}
+        <GetGenres id={movie.id} />
       </div>
 
       <h3 className={styles.synopsisTitle}>Synopsis:</h3>

@@ -52,7 +52,6 @@ export default async function RandomMovie() {
 
   return (
     <div className={styles.randomMovieContainer}>
-      {/* {randomMovieData.adult} */}
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
       <Link href={`/movie/${randomMovieId}`}>
