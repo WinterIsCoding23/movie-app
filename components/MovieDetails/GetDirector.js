@@ -4,7 +4,7 @@ export default async function GetDirector({ id }) {
   );
 
   const jsonData = await res.json();
-  const directorData = jsonData.crew.filter(({ job }) => job === "Director");
+  const directorData = jsonData.crew?.filter(({ job }) => job === "Director");
   const director = directorData[0].original_name;
 
   return director;
