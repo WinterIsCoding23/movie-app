@@ -7,9 +7,12 @@ export default async function GET(request, context) {
   let isFavorite = false;
 
   if (!id) {
-    return new NextResponse('{ status: "Id not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Id not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   // check if connection to database available
