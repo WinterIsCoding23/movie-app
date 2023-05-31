@@ -4,7 +4,7 @@ import GetCast from "../../../../components/MovieDetails/GetCast";
 import GetStreaming from "../../../../components/MovieDetails/GetStreaming";
 import GetGenres from "../../../../components/MovieDetails/GetGenres";
 
-export default async function getMovie(id) {
+export default async function fetchMovie(id) {
   try {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
