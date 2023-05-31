@@ -16,8 +16,7 @@ export default async function ToggleButton({ id, isFavorite }) {
       } else if (watchlistFavorite === false) {
         console.log("Add movie to Watchlist");
       }
-      // add try-catch!!!
-      // alternative: check response.status
+      // add try-catch / check response.status
       fetch(`/api/watchlist/${id}`, {
         method: "PUT",
         body: JSON.stringify({ isFavorite: !watchlistFavorite }),

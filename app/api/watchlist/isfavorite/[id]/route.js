@@ -2,6 +2,8 @@
 // needs useEffect for Client-side
 // Server-side: create a function "to return yes/no"
 
+import { NextResponse } from "next/server";
+
 export default async function GET(request, context) {
   const id = context?.params?.id;
   let isFavorite = false;
