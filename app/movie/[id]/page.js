@@ -24,7 +24,7 @@ export default async function MoviePage({ params: { id } }) {
   const movieId = movie.id;
   console.log("Movie in page.js: ", movie);
 
-  // const imagePath = "https://image.tmdb.org/t/p/original";
+  const imagePath = "https://image.tmdb.org/t/p/original";
 
   //fetch from mongoDB:
   // throws error: Uncaught Error: Unexpected token _ in JSON at position 4"
@@ -45,7 +45,7 @@ export default async function MoviePage({ params: { id } }) {
       console.log("not found");
     }
   }
-
+  
   //POST-request / set isFavorite to false
 
   return (

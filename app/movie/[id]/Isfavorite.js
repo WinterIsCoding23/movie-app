@@ -16,19 +16,23 @@ import { getMovie } from "./page";
 export default async function IsFavoriteToggle({ id, movie }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  const movieDetails = await getMovieDetails({ id });
-  console.log("movie in IsFavorite: ", movie.id);
-  console.log("id in IsFavorite: ", id);
+  // const movieDetails = await getMovieDetails({ id });
+  // console.log("movie in IsFavorite: ", movie.id);
+  // console.log("id in IsFavorite: ", id);
 
   // set isFavorite-state
   const [isFavorite, setFavorite] = useState(undefined);
 
   // toggle-button to change value of isFavorite in mongoDB:
-  const response = await fetch(`/api/watchlist/${id}`, {
-    method: "PUT",
-    body: JSON.stringify({ isFavorite: !movie.isFavorite }),
-  });
-  const jsonData = await response.json();
+  const toggleFavorite = () => {
+    setFavorite((isFavorite) => {
+      fetch(`/api/watchlist/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({ isFavorite: !movie.isFavorite }),
+      });
+      return !isFavorite;
+    });
+  };
 
   return (
     <div className={styles.movieContainer}>
