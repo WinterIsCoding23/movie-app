@@ -64,7 +64,7 @@ export default async function GetSearchResults({ url, searchParams }) {
                 )}
               </Link>
             </div>
-            <ToggleButton isFavorite={searchResultsIsFavorite} />
+            {/* <ToggleButton isFavorite={searchResultsIsFavorite} /> */}
             <p>{result.overview}</p>
           </div>
         ))}

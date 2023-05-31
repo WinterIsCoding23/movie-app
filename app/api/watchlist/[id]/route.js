@@ -39,6 +39,7 @@ export async function GET(request, context) {
 // ...to save movie with id XX and key isFavorite === true / update movie with id XX if key isFavorite === false
 export async function PUT(request, context) {
   const id = context?.params?.id;
+  const isFavoriteObj = await request.json();
 
   if (!id) {
     return new NextResponse(
@@ -51,12 +52,10 @@ export async function PUT(request, context) {
 
   await dbConnect(); // check if connection to database available
 
-  // let isFavoriteObj = {};
-  // isFavoriteObj[isFavorite] = watchlistFavorite;
-
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
-    { $set: { isFavorite: true } },
+    // { $set: { isFavorite: true } },
+    { $set: isFavoriteObj },
     { upsert: true },
     (error, result) => {
       if (error) {
@@ -76,7 +75,7 @@ export async function PUT(request, context) {
     );
   }
 
-  return new NextResponse(movieToUpdate, { status: 200 });
+  return NextResponse.json(await WatchlistMovie.findOne({ id }));
 }
 
 // DELETE-request --> needed?

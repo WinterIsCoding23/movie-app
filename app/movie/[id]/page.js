@@ -7,6 +7,7 @@ import GetStreaming from "../../../components/MovieDetails/GetStreaming";
 import GetGenres from "../../../components/MovieDetails/GetGenres";
 
 import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
+import IsFavorite from "./Isfavorite";
 
 async function getMovie(id) {
   const res = await fetch(
@@ -16,14 +17,14 @@ async function getMovie(id) {
 }
 
 export default async function MoviePage({ params: { id } }) {
-  const movieData = await getMovie(id);
+  let movieData = await getMovie(id);
   const [movie] = await Promise.all([movieData]);
   const movieId = movie.id;
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   //fetch from mongoDB:
-  let isFavorite = false;
+  // let isFavorite = false;
   if (movieId) {
     const response = await fetch(
       `http://localhost:3000/api/watchlist/${movieId}`,
@@ -35,10 +36,13 @@ export default async function MoviePage({ params: { id } }) {
       const jsonData = await response.json();
       console.log("jsonData: ", jsonData);
       isFavorite = jsonData.isFavorite;
+      movieData = { ...movieData, isFavorite: isFavorite };
     } else {
       console.log("not found");
     }
   }
+
+  //POST-request / set isFavorite to false
 
   return (
     <div className={styles.movieContainer}>
@@ -61,7 +65,8 @@ export default async function MoviePage({ params: { id } }) {
         />
       )}
 
-      <ToggleButton id={movie.id} isFavorite={isFavorite} />
+      {/* <ToggleButton id={movie.id} isFavorite={isFavorite} /> */}
+      <IsFavorite movieData={movieData} />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>
