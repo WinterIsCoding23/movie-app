@@ -14,11 +14,14 @@ import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
 import { getMovie } from "./page";
 
 export default async function IsFavoriteToggle({ id, movie }) {
-  const imagePath = "https://image.tmdb.org/t/p/original";
+  // const imagePath = "https://image.tmdb.org/t/p/original";
 
   // const movieDetails = await getMovieDetails({ id });
   // console.log("movie in IsFavorite: ", movie.id);
   // console.log("id in IsFavorite: ", id);
+
+  fetch(`api/fetchmovie/${id}`);
+  // --> fetch "movie"
 
   // set isFavorite-state
   const [isFavorite, setFavorite] = useState(undefined);
