@@ -8,9 +8,12 @@ export async function GET(request, context) {
   const id = context?.params?.id;
 
   if (!id) {
-    return new NextResponse('{ status: "Id not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Id not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   // check if connection to database available
@@ -35,9 +38,12 @@ export async function PUT(request, context) {
   const id = context?.params?.id;
 
   if (!id) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   await dbConnect(); // check if connection to database available
@@ -59,9 +65,12 @@ export async function PUT(request, context) {
   ); //check if movie is in mongoDB
 
   if (!movieToUpdate) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   return new NextResponse(movieToUpdate, { status: 200 });
