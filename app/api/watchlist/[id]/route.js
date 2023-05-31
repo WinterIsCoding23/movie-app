@@ -23,9 +23,12 @@ export async function GET(request, context) {
   const movieOnWatchlist = await WatchlistMovie.findOne({ id });
 
   if (!movieOnWatchlist) {
-    return new NextResponse('{ status: "movieOnWatchlist Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "movieOnWatchlist Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   // return movie-object (with given id) from mongoDB
