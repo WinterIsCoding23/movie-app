@@ -27,16 +27,21 @@ export default async function MoviePage({ params: { id } }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   //fetch from mongoDB:
-  // throws error: Uncaught Error: Unexpected token _ in JSON at position 4"
   let isFavorite = false;
   if (movieId) {
     const response = await fetch(
       `http://localhost:3000/api/watchlist/${movieId}`,
       {
         method: "GET",
+        // set headers to inform about incoming response in json-format -> server formats accordingly
+        // ...otherwise throws error: Uncaught Error: Unexpected token _ in JSON at position 4"
+        headers: {
+          "Content-type": "application/json",
+        },
       }
     );
     if (response.ok) {
+      // console.log("response ", response);
       const jsonData = await response.json();
       console.log("jsonData: ", jsonData);
       isFavorite = jsonData.isFavorite;
@@ -67,7 +72,7 @@ export default async function MoviePage({ params: { id } }) {
         />
       )}
 
-      <IsFavorite id={id} movie={movie} detailUrl={detailUrl} />
+      {/* <IsFavorite id={id} movie={movie} /> */}
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>

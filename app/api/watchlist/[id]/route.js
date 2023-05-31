@@ -32,7 +32,7 @@ export async function GET(request, context) {
   }
 
   // return movie-object (with given id) from mongoDB
-  return new NextResponse(movieOnWatchlist, { status: 200 });
+  return NextResponse.json(movieOnWatchlist);
 }
 
 // PUT-request
