@@ -17,11 +17,14 @@ export default async function IsFavoriteToggle({ id, movie }) {
   console.log("movie in IsFavorite: ", movie.id);
   console.log("id in IsFavorite: ", id);
 
-  fetch(`/api/watchlist/${id}`, {
+  // retrieve information on value of isFavorite in mongoDB:
+  const response = await fetch(`/api/watchlist/${id}`, {
     method: "PUT",
     body: JSON.stringify({ isFavorite: !movie.isFavorite }),
   });
+  const jsonData = await response.json();
 
+  // toggle state
   const [isFavorite, setFavorite] = useState(undefined);
 
   return (
