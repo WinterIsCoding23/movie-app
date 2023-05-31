@@ -27,6 +27,9 @@ export default async function ToggleButton({ id, isFavorite }) {
         .then((watchlistEntry) => {
           setWatchlistFavorite(watchlistEntry.isFavorite);
         });
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
     });
   };
 
