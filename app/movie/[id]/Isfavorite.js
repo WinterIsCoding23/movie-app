@@ -11,21 +11,24 @@ import GetStreaming from "../../../components/MovieDetails/GetStreaming";
 import GetGenres from "../../../components/MovieDetails/GetGenres";
 
 import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
+import { getMovie } from "./page";
 
 export default async function IsFavoriteToggle({ id, movie }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
+
+  const movieDetails = await getMovieDetails({ id });
   console.log("movie in IsFavorite: ", movie.id);
   console.log("id in IsFavorite: ", id);
 
-  // retrieve information on value of isFavorite in mongoDB:
+  // set isFavorite-state
+  const [isFavorite, setFavorite] = useState(undefined);
+
+  // toggle-button to change value of isFavorite in mongoDB:
   const response = await fetch(`/api/watchlist/${id}`, {
     method: "PUT",
     body: JSON.stringify({ isFavorite: !movie.isFavorite }),
   });
   const jsonData = await response.json();
-
-  // toggle state
-  const [isFavorite, setFavorite] = useState(undefined);
 
   return (
     <div className={styles.movieContainer}>
@@ -48,7 +51,7 @@ export default async function IsFavoriteToggle({ id, movie }) {
         />
       )}
 
-      {/* <ToggleButton id={movie.id} isFavorite={isFavorite} /> */}
+      <ToggleButton id={movie.id} isFavorite={isFavorite} />
 
       <h3 className={styles.directorTitle}>Director:</h3>
       <p className={styles.directorInfo}>

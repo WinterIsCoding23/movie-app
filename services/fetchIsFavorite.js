@@ -1,7 +1,5 @@
-"use client";
-import { useState, useEffect } from "react";
-
-export default async function fetchIsFavorite() {
-  df;
-  return isFavorite;
+export default async function getMovieDetails({ id }) {
+  let movieData = await getMovie(id);
+  const [movie] = await Promise.all([movieData]);
+  return movie;
 }
