@@ -7,52 +7,52 @@ import GetStreaming from "../../../components/MovieDetails/GetStreaming";
 import GetGenres from "../../../components/MovieDetails/GetGenres";
 
 import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
-import IsFavorite from "./Isfavorite";
+import MovieDetailsFavorites from "./Isfavorite";
 
 // export const detailUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`;
 
-export async function getMovie(id) {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
-  );
-  return res.json();
-}
+// export async function getMovie(id) {
+//   const res = await fetch(
+//     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
+//   );
+//   return res.json();
+// }
 
 export default async function MoviePage({ params: { id } }) {
-  let movieData = await getMovie(id);
-  const [movie] = await Promise.all([movieData]);
-  const movieId = movie.id;
-  console.log("Movie in page.js: ", movie);
+  // let movieData = await getMovie(id);
+  // const [movie] = await Promise.all([movieData]);
+  // const movieId = movie.id;
+  // console.log("Movie in page.js: ", movie);
 
-  const imagePath = "https://image.tmdb.org/t/p/original";
+  // const imagePath = "https://image.tmdb.org/t/p/original";
 
   //fetch from mongoDB:
-  let isFavorite = false;
-  if (movieId) {
-    const response = await fetch(
-      `http://localhost:3000/api/watchlist/${movieId}`,
-      {
-        method: "GET",
-        // set headers to inform about incoming response in json-format -> server formats accordingly
-        // ...otherwise throws error: Uncaught Error: Unexpected token _ in JSON at position 4"
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    if (response.ok) {
-      // console.log("response ", response);
-      const jsonData = await response.json();
-      console.log("jsonData: ", jsonData);
-      isFavorite = jsonData.isFavorite;
-      movieData = { ...movieData, isFavorite: isFavorite };
-    } else {
-      console.log("not found");
-    }
-  }
-
+  // let isFavorite = false;
+  // if (movieId) {
+  //   const response = await fetch(
+  //     `http://localhost:3000/api/watchlist/${movieId}`,
+  //     {
+  //       method: "GET",
+  //       // set headers to inform about incoming response in json-format -> server formats accordingly
+  //       // ...otherwise throws error: Uncaught Error: Unexpected token _ in JSON at position 4"
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //     }
+  //   );
+  //   if (response.ok) {
+  //     // console.log("response ", response);
+  //     const jsonData = await response.json();
+  //     console.log("jsonData: ", jsonData);
+  //     isFavorite = jsonData.isFavorite;
+  //     movieData = { ...movieData, isFavorite: isFavorite };
+  //   } else {
+  //     console.log("not found");
+  //   }
+  // }
+  console.log("id in movie.page.js", id);
   return (
-    <IsFavorite id={id} movie={movie} />
+    <MovieDetailsFavorites id={id} />
     // <div className={styles.movieContainer}>
     //   <h2 className={styles.title}>{movie.title}</h2>
     //   {movie.poster_path !== null ? (

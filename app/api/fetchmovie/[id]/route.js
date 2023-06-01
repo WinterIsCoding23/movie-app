@@ -1,10 +1,8 @@
-import styles from "./Movie.module.css";
-import GetDirector from "../../../../components/MovieDetails/GetDirector";
-import GetCast from "../../../../components/MovieDetails/GetCast";
-import GetStreaming from "../../../../components/MovieDetails/GetStreaming";
-import GetGenres from "../../../../components/MovieDetails/GetGenres";
+import { NextResponse } from "next/server";
+// client-components cant be async
 
-export default async function fetchMovie(id) {
+export async function GET(req, context) {
+  const id = context?.params?.id;
   try {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
@@ -14,10 +12,9 @@ export default async function fetchMovie(id) {
     }
     const movie = await res.json();
     console.log("Movie in page.js: ", movie);
-    console.log("MovieId: ", movieId);
 
-    res.status(200).json(movie);
+    return NextResponse.json(movie);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return NextResponse.json({ message: error.message });
   }
 }
