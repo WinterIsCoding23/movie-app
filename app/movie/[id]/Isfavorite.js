@@ -28,7 +28,6 @@ export default function MovieDetailsFavorites({ id }) {
     `/api/fetchmovie/${id}`,
     fetcher
   );
-
   console.log("movie", movie);
 
   // getdirector
@@ -36,12 +35,18 @@ export default function MovieDetailsFavorites({ id }) {
     `/api/getdirector/${id}`,
     fetcher
   );
-
   console.log("director", director);
+
+  // get cast
+  const { data: cast, isLoading: isLoadingCast } = useSWR(
+    `/api/getcast/${id}`,
+    fetcher
+  );
+  console.log("cast", cast);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  if (isLoadingMovie || isLoadingDirector) {
+  if (isLoadingMovie || isLoadingDirector || isLoadingCast) {
     return <div>Loading...</div>;
   }
 
@@ -114,33 +119,38 @@ export default function MovieDetailsFavorites({ id }) {
       {/* //////////////////////////End of DIRECTOR//////////////////////////////////// */}
 
       {/* //////////////////////////CAST//////////////////////////////////// */}
-      {/* <h3 className={styles.castTitle}>Cast:</h3>
-      <p className={styles.castInfo}>
+      <h3 className={styles.castTitle}>Cast:</h3>
+      <p className={styles.castInfo}>{cast}</p>
+      {/* <p className={styles.castInfo}>
         <GetCast id={movie.id} />
       </p> */}
-      {/* //////////////////////////End of CAST//////////////////////////////////// */}
-      {/* <h3 className={styles.genresTitle}>Genres:</h3>
+      {/* //////////////////////////GENRES//////////////////////////////////// */}
+      <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div>
-      <h3 className={styles.synopsisTitle}>Synopsis:</h3>
-      <p className={styles.synopsisText}>{movie.overview}</p>
-      <div className={styles.releaseContainer}>
+      {/* //////////////////////////SYNOPSIS//////////////////////////////////// */}
+      {/* <h3 className={styles.synopsisTitle}>Synopsis:</h3>
+      <p className={styles.synopsisText}>{movie.overview}</p> */}
+      {/* //////////////////////////RELEASE-DATE//////////////////////////////////// */}
+      {/* <div className={styles.releaseContainer}>
         <h3 className={styles.releaseTitle}>Release-date:</h3>
         <p className={styles.releaseDate}>{movie.release_date}</p>
-      </div>
-      <div className={styles.languageContainer}>
+      </div> */}
+      {/* //////////////////////////ORIGINAL LANGUAGE//////////////////////////////////// */}
+      {/* <div className={styles.languageContainer}>
         <h3 className={styles.languageTitle}>Original language:</h3>
         <p className={styles.languageInfo}>
           {movie.original_language?.toUpperCase()}
         </p>
-      </div>
-      <div className={styles.streamingContainer}>
+      </div> */}
+      {/* //////////////////////////STREAMING//////////////////////////////////// */}
+      {/* <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
           <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} />
         </div>
-      </div> */}
+      </div>  */}
     </div>
   );
 }
