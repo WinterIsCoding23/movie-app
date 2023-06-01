@@ -11,7 +11,6 @@ export async function GET(req, context) {
       throw new Error("Failed to fetch cast-data");
     }
     const jsonData = await res.json();
-    console.log("jsonData in getcast: ", jsonData);
 
     // cast if jsonData.cast.length > 9
     const firstTenCastMembersData = jsonData.cast.slice(0, 10); //array of objects
@@ -20,7 +19,6 @@ export async function GET(req, context) {
         ? member.name + " and others"
         : member.name + ", "
     ); // array of names (string)
-    console.log("firstTenCastMembers: ", firstTenCastMembers);
     // cast if jsonData.cast.length <= 9 OR 0 (animation!)
     const shortCastData = jsonData.cast; // array of objects
     let shortCastMembers = [];
@@ -37,7 +35,6 @@ export async function GET(req, context) {
       });
     }
     // array of names
-    console.log("shortCastMembers: ", shortCastMembers);
 
     return NextResponse.json(
       jsonData.cast.length > 9 ? firstTenCastMembers : shortCastMembers
