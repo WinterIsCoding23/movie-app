@@ -45,9 +45,10 @@ export async function getRandomMovieUrl() {
     );
     const movieData = await movieResponse.json();
 
-    if (movieData.title !== undefined) {
+    if (movieData.title !== undefined && movieData.adult === false) {
       break;
     }
+    console.log("movieData: ", movieData);
   }
 
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`;

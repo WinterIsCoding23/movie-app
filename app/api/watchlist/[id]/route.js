@@ -8,9 +8,12 @@ export async function GET(request, context) {
   const id = context?.params?.id;
 
   if (!id) {
-    return new NextResponse('{ status: "Id not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Id not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   // check if connection to database available
@@ -20,34 +23,39 @@ export async function GET(request, context) {
   const movieOnWatchlist = await WatchlistMovie.findOne({ id });
 
   if (!movieOnWatchlist) {
-    return new NextResponse('{ status: "movieOnWatchlist Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "movieOnWatchlist Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   // return movie-object (with given id) from mongoDB
-  return new NextResponse(movieOnWatchlist, { status: 200 });
+  return NextResponse.json(movieOnWatchlist);
 }
 
 // PUT-request
 // ...to save movie with id XX and key isFavorite === true / update movie with id XX if key isFavorite === false
 export async function PUT(request, context) {
   const id = context?.params?.id;
+  const isFavoriteObj = await request.json();
 
   if (!id) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
   await dbConnect(); // check if connection to database available
 
-  // let isFavoriteObj = {};
-  // isFavoriteObj[isFavorite] = watchlistFavorite;
-
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
-    { $set: { isFavorite: true } },
+    // { $set: { isFavorite: true } },
+    { $set: isFavoriteObj },
     { upsert: true },
     (error, result) => {
       if (error) {
@@ -59,12 +67,15 @@ export async function PUT(request, context) {
   ); //check if movie is in mongoDB
 
   if (!movieToUpdate) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
-    });
+    return new NextResponse(
+      { status: "Not found" },
+      {
+        status: 404,
+      }
+    );
   }
 
-  return new NextResponse(movieToUpdate, { status: 200 });
+  return NextResponse.json(await WatchlistMovie.findOne({ id }));
 }
 
 // DELETE-request --> needed?

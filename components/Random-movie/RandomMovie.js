@@ -33,22 +33,22 @@ export default async function RandomMovie() {
     `${imagePath}` + `${randomMovieData.poster_path}`;
 
   //fetch from mongoDB:
-  let isFavorite = false;
-  if (randomMovieId) {
-    const response = await fetch(
-      `http://localhost:3000/api/watchlist/${randomMovieId}`,
-      {
-        method: "GET",
-      }
-    );
-    if (response.ok) {
-      const jsonData = await response.json();
-      console.log("jsonData: ", jsonData);
-      isFavorite = jsonData.isFavorite;
-    } else {
-      console.log("not found");
-    }
-  }
+  // let isFavorite = false;
+  // if (randomMovieId) {
+  //   const response = await fetch(
+  //     `http://localhost:3000/api/watchlist/${randomMovieId}`,
+  //     {
+  //       method: "GET",
+  //     }
+  //   );
+  //   if (response.ok) {
+  //     const jsonData = await response.json();
+  //     console.log("jsonData: ", jsonData);
+  //     isFavorite = jsonData.isFavorite;
+  //   } else {
+  //     console.log("not found");
+  //   }
+  // }
 
   return (
     <div className={styles.randomMovieContainer}>
@@ -73,7 +73,7 @@ export default async function RandomMovie() {
           />
         )}
       </Link>
-      <ToggleButton id={randomMovieId} isFavorite={isFavorite} />
+      {/* <ToggleButton id={randomMovieId} isFavorite={isFavorite} /> */}
     </div>
   );
 }

@@ -3,8 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
+import { useState, useEffect } from "react";
 
 import styles from "./GetSearchResults.module.css";
+
+import ToggleButton from "../WatchlistButton/ToggleFunction";
 
 const imagePath = "https://image.tmdb.org/t/p/original";
 
@@ -25,6 +28,14 @@ export default async function GetSearchResults({ url, searchParams }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
+
+  const [searchResultsIsFavorite, setSearchResultsIsFavorite] = useState(false);
+  useEffect(() => {
+    fetch(`/api/watchlist/isfavorite/${id}`)
+      .then((response) => response.json())
+      .then((data) => setSearchResultsIsFavorite(data));
+  }, []);
+
   return (
     <div>
       <div className={styles.searchResultsContainer}>
@@ -53,6 +64,7 @@ export default async function GetSearchResults({ url, searchParams }) {
                 )}
               </Link>
             </div>
+            {/* <ToggleButton isFavorite={searchResultsIsFavorite} /> */}
             <p>{result.overview}</p>
           </div>
         ))}
