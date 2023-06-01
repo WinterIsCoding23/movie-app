@@ -43,7 +43,7 @@ export default function MovieDetailsFavorites({ id }) {
     fetcher
   );
   console.log("cast", cast);
-  
+
   // get genres
   const { data: genres, isLoading: isLoadingGenres } = useSWR(
     `/api/getgenres/${id}`,
@@ -114,7 +114,7 @@ export default function MovieDetailsFavorites({ id }) {
         />
       )}
       {/* //////////////////////////TOGGLE-BUTTON//////////////////////////////////// */}
-      {/* <ToggleButton id={movie.id} isFavorite={true} /> */}
+      <ToggleButton id={movie.id} isFavorite={true} />
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>
         <h3 className={styles.directorTitle}>Director:</h3>
@@ -133,9 +133,7 @@ export default function MovieDetailsFavorites({ id }) {
       </p> */}
       {/* //////////////////////////GENRES//////////////////////////////////// */}
       <h3 className={styles.genresTitle}>Genres:</h3>
-      <div className={styles.genresText}>
-        {genres}
-      </div>
+      <div className={styles.genresText}>{genres}</div>
       {/* <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div> */}
