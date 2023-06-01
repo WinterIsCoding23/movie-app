@@ -138,20 +138,20 @@ export default function MovieDetailsFavorites({ id }) {
         <GetGenres id={movie.id} />
       </div> */}
       {/* ////////////////////////// SYNOPSIS //////////////////////////////////// */}
-      {/* <h3 className={styles.synopsisTitle}>Synopsis:</h3>
-      <p className={styles.synopsisText}>{movie.overview}</p> */}
+      <h3 className={styles.synopsisTitle}>Synopsis:</h3>
+      <p className={styles.synopsisText}>{movie.overview}</p>
       {/* ////////////////////////// RELEASE-DATE //////////////////////////////////// */}
-      {/* <div className={styles.releaseContainer}>
+      <div className={styles.releaseContainer}>
         <h3 className={styles.releaseTitle}>Release-date:</h3>
         <p className={styles.releaseDate}>{movie.release_date}</p>
-      </div> */}
+      </div>
       {/* ////////////////////////// ORIGINAL LANGUAGE //////////////////////////////////// */}
-      {/* <div className={styles.languageContainer}>
+      <div className={styles.languageContainer}>
         <h3 className={styles.languageTitle}>Original language:</h3>
         <p className={styles.languageInfo}>
           {movie.original_language?.toUpperCase()}
         </p>
-      </div> */}
+      </div>
       {/* ////////////////////////// STREAMING //////////////////////////////////// */}
       <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
