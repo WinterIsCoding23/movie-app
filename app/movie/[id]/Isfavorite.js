@@ -18,15 +18,33 @@ import { getMovie } from "./page";
 // https://github.com/spiced-academy/savory-web-dev/blob/main/sessions/react-data-fetching/react-data-fetching.md
 
 export default function MovieDetailsFavorites({ id }) {
-  // fetcher is optional, can be omitted
+  // original-fetcher:
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data: movie, isLoading } = useSWR(`/api/fetchmovie/${id}`, fetcher);
-  
-  if (isLoading) {
-    return null;
-  }
+  // fetcher from https://www.alanwsmith.com/posts/make-multiple-swr-data-fetch-calls-in-the-same-react-component--20eorx9pdiji
+  // const fetcher = (url) => fetch(url).then((res) => res.json());
+
+  // get movie
+  const { data: movie, isLoading: isLoadingMovie } = useSWR(
+    `/api/fetchmovie/${id}`,
+    fetcher
+  );
 
   console.log("movie", movie);
+
+  // getdirector
+  const { data: director, isLoading: isLoadingDirector } = useSWR(
+    `/api/getdirector/${id}`,
+    fetcher
+  );
+
+  console.log("director", director);
+
+  const imagePath = "https://image.tmdb.org/t/p/original";
+
+  if (isLoadingMovie || isLoadingDirector) {
+    return <div>Loading...</div>;
+  }
+
   // set isFavorite-state
   // const [isFavorite, setFavorite] = useState({});
 
@@ -60,11 +78,12 @@ export default function MovieDetailsFavorites({ id }) {
   //     return !isFavorite;
   //   });
   // };
-  const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
     <div className={styles.movieContainer}>
+      {/* //////////////////////////TITLE//////////////////////////////////// */}
       <h2 className={styles.title}>{movie.title}</h2>
+      {/* //////////////////////////POSTER//////////////////////////////////// */}
       {movie.poster_path ? (
         <Image
           className={styles.poster}
@@ -82,17 +101,25 @@ export default function MovieDetailsFavorites({ id }) {
           alt={movie.title}
         />
       )}
-
+      {/* //////////////////////////TOGGLE-BUTTON//////////////////////////////////// */}
       {/* <ToggleButton id={movie.id} isFavorite={true} /> */}
-      <h3 className={styles.directorTitle}>Director:</h3>
-      <p className={styles.directorInfo}>
-        <GetDirector id={movie.id} />
-      </p>
-      <h3 className={styles.castTitle}>Cast:</h3>
+      {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
+      <div>
+        <h3 className={styles.directorTitle}>Director:</h3>
+        <p className={styles.directorInfo}>{director}</p>
+        {/* <p className={styles.directorInfo}>
+          <GetDirector id={movie.id} />
+        </p> */}
+      </div>
+      {/* //////////////////////////End of DIRECTOR//////////////////////////////////// */}
+
+      {/* //////////////////////////CAST//////////////////////////////////// */}
+      {/* <h3 className={styles.castTitle}>Cast:</h3>
       <p className={styles.castInfo}>
         <GetCast id={movie.id} />
-      </p>
-      <h3 className={styles.genresTitle}>Genres:</h3>
+      </p> */}
+      {/* //////////////////////////End of CAST//////////////////////////////////// */}
+      {/* <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div>
@@ -113,7 +140,7 @@ export default function MovieDetailsFavorites({ id }) {
         <div className={styles.streamingInfo}>
           <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
