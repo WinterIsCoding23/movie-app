@@ -1,0 +1,10 @@
+.toggleButton {
+  padding: 2vw;
+  background-color: rgb(115, 95, 50);
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.buttonDescription {
+  margin: 0;
+  font-weight: 500;
+}

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import styles from "./Button.module.css";
+
 export default function ToggleButton({ id }) {
   const [watchlistFavorite, setWatchlistFavorite] = useState(null);
 
@@ -29,7 +31,11 @@ export default function ToggleButton({ id }) {
   };
 
   return (
-    <button type="button" onClick={toggleFavorite}>
+    <button
+      className={styles.toggleButton}
+      type="button"
+      onClick={toggleFavorite}
+    >
       <Image
         src={
           watchlistFavorite
@@ -40,7 +46,9 @@ export default function ToggleButton({ id }) {
         height={30}
         alt={watchlistFavorite ? "already-a-favorite" : "no-favorite-yet"}
       />
-      <p>{watchlistFavorite ? "un-favor movie" : "make favorite" }</p>
+      <p className={styles.buttonDescription}>
+        {watchlistFavorite ? "un-favor movie" : "make favorite"}
+      </p>
     </button>
   );
 }

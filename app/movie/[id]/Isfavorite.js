@@ -114,7 +114,9 @@ export default function MovieDetailsFavorites({ id }) {
         />
       )}
       {/* ////////////////////////// TOGGLE-BUTTON //////////////////////////////////// */}
-      <ToggleButton id={movie.id} />
+      <div className={styles.toggleButtonContainer}>
+        <ToggleButton className={styles.toggleButton} id={movie.id} />
+      </div>
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>
         <h3 className={styles.directorTitle}>Director:</h3>
