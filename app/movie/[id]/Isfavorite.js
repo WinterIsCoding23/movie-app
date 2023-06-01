@@ -93,9 +93,9 @@ export default function MovieDetailsFavorites({ id }) {
 
   return (
     <div className={styles.movieContainer}>
-      {/* //////////////////////////TITLE//////////////////////////////////// */}
+      {/* ////////////////////////// TITLE //////////////////////////////////// */}
       <h2 className={styles.title}>{movie.title}</h2>
-      {/* //////////////////////////POSTER//////////////////////////////////// */}
+      {/* ////////////////////////// POSTER //////////////////////////////////// */}
       {movie.poster_path ? (
         <Image
           className={styles.poster}
@@ -113,7 +113,7 @@ export default function MovieDetailsFavorites({ id }) {
           alt={movie.title}
         />
       )}
-      {/* //////////////////////////TOGGLE-BUTTON//////////////////////////////////// */}
+      {/* ////////////////////////// TOGGLE-BUTTON //////////////////////////////////// */}
       <ToggleButton id={movie.id} isFavorite={true} />
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>
@@ -123,42 +123,42 @@ export default function MovieDetailsFavorites({ id }) {
           <GetDirector id={movie.id} />
         </p> */}
       </div>
-      {/* //////////////////////////End of DIRECTOR//////////////////////////////////// */}
+      {/* ////////////////////////// End of DIRECTOR //////////////////////////////////// */}
 
-      {/* //////////////////////////CAST//////////////////////////////////// */}
+      {/* ////////////////////////// CAST //////////////////////////////////// */}
       <h3 className={styles.castTitle}>Cast:</h3>
       <p className={styles.castInfo}>{cast}</p>
       {/* <p className={styles.castInfo}>
         <GetCast id={movie.id} />
       </p> */}
-      {/* //////////////////////////GENRES//////////////////////////////////// */}
+      {/* ////////////////////////// GENRES //////////////////////////////////// */}
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>{genres}</div>
       {/* <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div> */}
-      {/* //////////////////////////SYNOPSIS//////////////////////////////////// */}
+      {/* ////////////////////////// SYNOPSIS //////////////////////////////////// */}
       {/* <h3 className={styles.synopsisTitle}>Synopsis:</h3>
       <p className={styles.synopsisText}>{movie.overview}</p> */}
-      {/* //////////////////////////RELEASE-DATE//////////////////////////////////// */}
+      {/* ////////////////////////// RELEASE-DATE //////////////////////////////////// */}
       {/* <div className={styles.releaseContainer}>
         <h3 className={styles.releaseTitle}>Release-date:</h3>
         <p className={styles.releaseDate}>{movie.release_date}</p>
       </div> */}
-      {/* //////////////////////////ORIGINAL LANGUAGE//////////////////////////////////// */}
+      {/* ////////////////////////// ORIGINAL LANGUAGE //////////////////////////////////// */}
       {/* <div className={styles.languageContainer}>
         <h3 className={styles.languageTitle}>Original language:</h3>
         <p className={styles.languageInfo}>
           {movie.original_language?.toUpperCase()}
         </p>
       </div> */}
-      {/* //////////////////////////STREAMING//////////////////////////////////// */}
-      {/* <div className={styles.streamingContainer}>
+      {/* ////////////////////////// STREAMING //////////////////////////////////// */}
+      <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
           <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} />
         </div>
-      </div>  */}
+      </div>
     </div>
   );
 }

@@ -24,7 +24,9 @@ export async function GET(req, context) {
     let shortCastMembers = [];
 
     if (shortCastData.length === 0) {
-      shortCastMembers = ["No cast members available."];
+      shortCastMembers = [
+        "No trace of any cast members. Could it be that you're looking at an animation-movie?",
+      ];
     } else {
       shortCastMembers = shortCastData.map((member, index) => {
         if (index === shortCastData.length - 1) {
