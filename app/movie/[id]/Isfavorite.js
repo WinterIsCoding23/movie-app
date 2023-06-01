@@ -43,10 +43,17 @@ export default function MovieDetailsFavorites({ id }) {
     fetcher
   );
   console.log("cast", cast);
+  
+  // get genres
+  const { data: genres, isLoading: isLoadingGenres } = useSWR(
+    `/api/getgenres/${id}`,
+    fetcher
+  );
+  console.log("genres", genres);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  if (isLoadingMovie || isLoadingDirector || isLoadingCast) {
+  if (isLoadingMovie || isLoadingDirector || isLoadingCast || isLoadingGenres) {
     return <div>Loading...</div>;
   }
 
@@ -127,8 +134,11 @@ export default function MovieDetailsFavorites({ id }) {
       {/* //////////////////////////GENRES//////////////////////////////////// */}
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>
-        <GetGenres id={movie.id} />
+        {genres}
       </div>
+      {/* <div className={styles.genresText}>
+        <GetGenres id={movie.id} />
+      </div> */}
       {/* //////////////////////////SYNOPSIS//////////////////////////////////// */}
       {/* <h3 className={styles.synopsisTitle}>Synopsis:</h3>
       <p className={styles.synopsisText}>{movie.overview}</p> */}
