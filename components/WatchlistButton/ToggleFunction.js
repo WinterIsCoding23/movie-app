@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ToggleButton({ id, isFavorite }) {
-  const [watchlistFavorite, setWatchlistFavorite] = useState(isFavorite);
+export default function ToggleButton({ id }) {
+  const [watchlistFavorite, setWatchlistFavorite] = useState(null);
 
   const toggleFavorite = () => {
     const newIsFavorite = !watchlistFavorite;
@@ -38,9 +38,9 @@ export default function ToggleButton({ id, isFavorite }) {
         }
         width={30}
         height={30}
-        alt={watchlistFavorite ? "no-favorite-yet" : "already-a-favorite"}
+        alt={watchlistFavorite ? "already-a-favorite" : "no-favorite-yet"}
       />
-      <p>{watchlistFavorite ? "un-favor movie" : "make favorite"}</p>
+      <p>{watchlistFavorite ? "un-favor movie" : "make favorite" }</p>
     </button>
   );
 }

@@ -14,7 +14,7 @@ export async function GET(req, context) {
     const streamingSources = jsonData?.results?.DE?.flatrate?.map(
       (element) => imagePath + element.logo_path
     );
-
+    console.log("streamingSources: ", streamingSources);
     const unavailable =
       "Unfortunately this movie is currently not being streamed in Germany.";
 
