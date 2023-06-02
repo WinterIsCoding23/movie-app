@@ -22,41 +22,18 @@ export async function GET(req, context) {
 
     const responseData = [streamingSources || [], unavailable];
 
-    return NextResponse.json(
-      streamingSources ? (
-        streamingSources.length > 0 ? (
-          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {streamingSources.map((streamingSource, index) => (
-              <li key={index}>
-                <Image
-                  src={streamingSource}
-                  width={80}
-                  height={80}
-                  alt={streamingSource}
-                  style={{ borderRadius: 20, padding: 10 }}
-                />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          unavailable
-        )
-      ) : (
-        unavailable
-      )
-    );
+    return NextResponse.json(responseData);
   } catch (error) {
     return NextResponse.json({ message: error.message });
   }
 }
 
-{
-  /* // original code:
+// original code:
 // import { NextResponse } from "next/server";
 // import Image from "next/image";
 // // client-components cant be async
 
-// export async function GET(req, context) { 
+// export async function GET(req, context) {
 //   const imagePath = "https://image.tmdb.org/t/p/original";
 //   const id = context?.params?.id;
 
@@ -101,5 +78,3 @@ export async function GET(req, context) {
 //     return NextResponse.json({ message: error.message });
 //   }
 // }
-*/
-}

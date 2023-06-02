@@ -126,6 +126,8 @@
 }
 
 .streamingContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .streamingTitle {
@@ -137,14 +139,16 @@
   /* align-self: flex-start; */
 }
 
+.streamingList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .streamingInfo {
-  /* display: flex;
-
-  align-self: flex-start;
-  flex-wrap: wrap; */
-
-  margin: 0 10px;
-
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex; /* Enable flexbox layout */
+  flex-direction: row;
+  align-items: center; /* Center the items horizontally */
+  justify-content: center; /* Center the items vertically */
+  flex-wrap: wrap;
 }

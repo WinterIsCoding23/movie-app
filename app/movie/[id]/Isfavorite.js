@@ -58,6 +58,11 @@ export default function MovieDetailsFavorites({ id }) {
   );
   console.log("streaming: ", streaming);
 
+  const streamingSources = streaming[0];
+  const unavailable = streaming[1];
+  // console.log("streaming[0]: ", streaming[0]);
+  // console.log("streaming[1]: ", streaming[1]);
+
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   if (
@@ -171,7 +176,28 @@ export default function MovieDetailsFavorites({ id }) {
       <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
-          {streaming}
+          {/* {streaming} */}
+
+          {streamingSources !== [] ? (
+            <ul
+              className={styles.streamingList}
+              style={{ listStyle: "none", padding: 0, margin: 0 }}
+            >
+              {streamingSources.map((streamingSource, index) => (
+                <li key={index}>
+                  <Image
+                    src={streamingSource}
+                    width={80}
+                    height={80}
+                    alt={streamingSource}
+                    style={{ borderRadius: 20, padding: 10 }}
+                  />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>{unavailable}</p>
+          )}
           {/* <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} /> */}
         </div>
       </div>
