@@ -16,8 +16,10 @@ export default function ToggleButton({ id, movie }) {
     fetch(`/api/watchlist/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        isFavorite: newIsFavorite,
+        id: movie.id,
+        title: movie.title,
         image: imagePath + movie.poster_path,
+        isFavorite: newIsFavorite,
       }),
       headers: { "Content-Type": "application/json" },
     })
