@@ -12,13 +12,27 @@ export async function GET(req, context) {
     if (!res.ok) {
       throw new Error("Failed to fetch streaming data");
     }
+
+    const unavailable =
+      "Unfortunately, this movie is currently not being streamed in Germany.";
+
     const jsonData = await res.json();
-    const streamingDataDE = jsonData?.results?.DE?.flatrate;
+    console.log("jsonData: ", jsonData);
+    const streamingResults = jsonData.results;
+    console.log("streamingResults: ", streamingResults);
+
+    const streamingDataDe =
+      streamingResults.hasOwnProperty("DE") &&
+      streamingResults.DE.hasOwnProperty("flatrate")
+        ? streamingResults.DE.flatrate
+        : unavailable;
+
+    // const streamingDataDE = jsonData?.results?.DE?.flatrate;
+    console.log("streamingDataDe: ", streamingDataDe);
     const streamingSources = streamingDataDE?.map(
       (element) => imagePath + element.logo_path
     );
-    const unavailable =
-      "Unfortunately, this movie is currently not being streamed in Germany.";
+    console.log("streamingSources: ", streamingSources);
 
     const responseData = [streamingSources || [], unavailable];
 

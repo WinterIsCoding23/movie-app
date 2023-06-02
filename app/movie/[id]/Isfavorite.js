@@ -58,8 +58,8 @@ export default function MovieDetailsFavorites({ id }) {
   );
   console.log("streaming: ", streaming);
 
-  const streamingSources = streaming[0];
-  const unavailable = streaming[1];
+  // const streamingSources = streaming[0];
+  // const unavailable = streaming[1];
   // console.log("streaming[0]: ", streaming[0]);
   // console.log("streaming[1]: ", streaming[1]);
 
@@ -178,7 +178,7 @@ export default function MovieDetailsFavorites({ id }) {
         <div className={styles.streamingInfo}>
           {/* {streaming} */}
 
-          {streamingSources !== [] ? (
+          {/* {streamingSources !== [] ? (
             <ul
               className={styles.streamingList}
               style={{ listStyle: "none", padding: 0, margin: 0 }}
@@ -197,7 +197,7 @@ export default function MovieDetailsFavorites({ id }) {
             </ul>
           ) : (
             <p>{unavailable}</p>
-          )}
+          )} */}
           {/* <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} /> */}
         </div>
       </div>
