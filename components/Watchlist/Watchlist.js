@@ -35,7 +35,7 @@ export default function Watchlist() {
         {moviesOnWatchlist.map(
           (movieOnWatchlist, index) => (
             <li key={index}>
-              <h3> {movieOnWatchlist.title}</h3>
+              <h3>{movieOnWatchlist.title}</h3>
               <Link href={`/movie/${movieOnWatchlist.id}`}>
                 <Image
                   // className={styles.moviePoster}
@@ -46,6 +46,7 @@ export default function Watchlist() {
                   priority={true}
                 />
               </Link>
+              <p>{String(movieOnWatchlist.isFavorite)}</p>
             </li>
           )
           // {Object.values(moviesOnWatchlist).forEach(
