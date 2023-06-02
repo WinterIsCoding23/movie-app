@@ -35,29 +35,16 @@ export default function Watchlist() {
         {moviesOnWatchlist.map(
           (movieOnWatchlist, index) => (
             <li key={index}>
-              <p>{movieOnWatchlist.id}</p>
               <h3> {movieOnWatchlist.title}</h3>
               <Link href={`/movie/${movieOnWatchlist.id}`}>
-                {movieOnWatchlist.image}
-
-                {/* {movieOnWatchlist.poster_path !== null || undefined ? (
-                  <Image
-                    // className={styles.moviePoster}
-                    src={imagePath + movieOnWatchlist.poster_path}
-                    width={250}
-                    height={250}
-                    alt={movieOnWatchlist}
-                    priority={true}
-                  />
-                ) : (
-                  <Image
-                    // className={styles.moviePoster}
-                    src={"/../public/no-image.png"}
-                    width={250}
-                    height={250}
-                    alt={movieOnWatchlist.title}
-                  />
-                )} */}
+                <Image
+                  // className={styles.moviePoster}
+                  src={movieOnWatchlist.image}
+                  width={250}
+                  height={250}
+                  alt={movieOnWatchlist}
+                  priority={true}
+                />
               </Link>
             </li>
           )
