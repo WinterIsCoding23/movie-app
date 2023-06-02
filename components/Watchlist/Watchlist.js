@@ -24,7 +24,7 @@ export default function Watchlist() {
     return <div>Error: {error.message}</div>;
   }
   // moviesOnWatchlist = array of objects
-  // console.log("moviesOnWatchlist in Watchlist.js: ", moviesOnWatchlist);
+  console.log("moviesOnWatchlist in Watchlist.js: ", moviesOnWatchlist);
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
@@ -38,7 +38,9 @@ export default function Watchlist() {
               <p>{movieOnWatchlist.id}</p>
               <h3> {movieOnWatchlist.title}</h3>
               <Link href={`/movie/${movieOnWatchlist.id}`}>
-                {movieOnWatchlist.poster_path !== null || undefined ? (
+                {movieOnWatchlist.image}
+
+                {/* {movieOnWatchlist.poster_path !== null || undefined ? (
                   <Image
                     // className={styles.moviePoster}
                     src={imagePath + movieOnWatchlist.poster_path}
@@ -55,7 +57,7 @@ export default function Watchlist() {
                     height={250}
                     alt={movieOnWatchlist.title}
                   />
-                )}
+                )} */}
               </Link>
             </li>
           )
