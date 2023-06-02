@@ -51,9 +51,22 @@ export default function MovieDetailsFavorites({ id }) {
   );
   console.log("genres", genres);
 
+  // get streaming
+  const { data: streaming, isLoading: isLoadingStreaming } = useSWR(
+    `/api/getstreaming/${id}`,
+    fetcher
+  );
+  console.log("streaming: ", streaming);
+
   const imagePath = "https://image.tmdb.org/t/p/original";
 
-  if (isLoadingMovie || isLoadingDirector || isLoadingCast || isLoadingGenres) {
+  if (
+    isLoadingMovie ||
+    isLoadingDirector ||
+    isLoadingCast ||
+    isLoadingGenres ||
+    isLoadingStreaming
+  ) {
     return <div>Loading...</div>;
   }
 
@@ -158,7 +171,8 @@ export default function MovieDetailsFavorites({ id }) {
       <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
-          <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} />
+          {streaming}
+          {/* <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} /> */}
         </div>
       </div>
     </div>
