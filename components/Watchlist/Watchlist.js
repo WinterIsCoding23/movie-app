@@ -1,6 +1,8 @@
 "use client";
 
 import useSWR from "swr";
+import Link from "next/link";
+import Image from "next/image";
 
 import styles from "./Watchlist.module.css";
 
@@ -24,13 +26,38 @@ export default function Watchlist() {
   // moviesOnWatchlist = array of objects
   // console.log("moviesOnWatchlist in Watchlist.js: ", moviesOnWatchlist);
 
+  const imagePath = "https://image.tmdb.org/t/p/original";
+
   return (
     <div>
       <h2 className={styles.watchlistHeader}>My Watchlist</h2>
       <ul className={styles.watchlistContainer}>
         {moviesOnWatchlist.map(
           (movieOnWatchlist, index) => (
-            <li key={index}>{movieOnWatchlist.id}</li>
+            <li key={index}>
+              <p>{movieOnWatchlist.id}</p>
+              <h3> {movieOnWatchlist.title}</h3>
+              <Link href={`/movie/${movieOnWatchlist.id}`}>
+                {movieOnWatchlist.poster_path !== null || undefined ? (
+                  <Image
+                    // className={styles.moviePoster}
+                    src={imagePath + movieOnWatchlist.poster_path}
+                    width={250}
+                    height={250}
+                    alt={movieOnWatchlist}
+                    priority={true}
+                  />
+                ) : (
+                  <Image
+                    // className={styles.moviePoster}
+                    src={"/../public/no-image.png"}
+                    width={250}
+                    height={250}
+                    alt={movieOnWatchlist.title}
+                  />
+                )}
+              </Link>
+            </li>
           )
           // {Object.values(moviesOnWatchlist).forEach(
           //   (movieOnWatchlist) => (

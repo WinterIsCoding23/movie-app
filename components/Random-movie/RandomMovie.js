@@ -55,7 +55,7 @@ export default async function RandomMovie() {
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
       <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
       <Link href={`/movie/${randomMovieId}`}>
-        {randomMovieData.poster_path !== null ? (
+        {randomMovieData.poster_path !== null || undefined ? (
           <Image
             className={styles.moviePoster}
             src={randomMoviePosterSource}
