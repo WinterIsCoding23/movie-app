@@ -21,22 +21,34 @@ export async function GET(req, context) {
     const streamingResults = jsonData.results;
     console.log("streamingResults: ", streamingResults);
 
-    const streamingDataDe =
-      streamingResults.hasOwnProperty("DE") &&
-      streamingResults.DE.hasOwnProperty("flatrate")
-        ? streamingResults.DE.flatrate
-        : unavailable;
+    // check if the movie is streaming in DE & if so, return the results in .flatrate (object),
+    // ...otherwise return unavailable (string)
+    const streamingDataDe = streamingResults?.DE?.flatrate ?? unavailable;
+
+    // alternatively:
+    // const streamingDataDe =
+    //   streamingResults.hasOwnProperty("DE") &&
+    //   streamingResults.DE.hasOwnProperty("flatrate")
+    //     ? streamingResults.DE.flatrate
+    //     : unavailable;
+
+    console.log("streamingDataDe: ", streamingDataDe);
 
     // const streamingDataDE = jsonData?.results?.DE?.flatrate;
-    console.log("streamingDataDe: ", streamingDataDe);
-    const streamingSources = streamingDataDE?.map(
-      (element) => imagePath + element.logo_path
-    );
+
+    const streamingSources =
+      streamingDataDe !== unavailable
+        ? streamingDataDe.map((element) => imagePath + element.logo_path)
+        : unavailable;
+
+    // const streamingSources = streamingDataDE?.map(
+    //   (element) => imagePath + element.logo_path
+    // );
     console.log("streamingSources: ", streamingSources);
 
-    const responseData = [streamingSources || [], unavailable];
+    // const responseData = [streamingSources || [], unavailable];
 
-    return NextResponse.json(responseData);
+    return NextResponse.json(streamingSources);
   } catch (error) {
     return NextResponse.json({ message: error.message });
   }

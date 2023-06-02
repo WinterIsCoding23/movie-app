@@ -56,7 +56,13 @@ export default function MovieDetailsFavorites({ id }) {
     `/api/getstreaming/${id}`,
     fetcher
   );
+
+  const unavailable =
+    "Unfortunately, this movie is currently not being streamed in Germany.";
+  // const streamingSources = streaming?.streamingSources ?? [];
+  // const unavailable = streaming?.unavailable;
   console.log("streaming: ", streaming);
+  // console.log("streamingSources: ", streamingSources);
 
   // const streamingSources = streaming[0];
   // const unavailable = streaming[1];
@@ -177,6 +183,25 @@ export default function MovieDetailsFavorites({ id }) {
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
           {/* {streaming} */}
+          {streaming !== unavailable ? (
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {streaming.map((streamingSource, index) => (
+                <li key={index}>
+                  <Image
+                    src={streamingSource}
+                    width={80}
+                    height={80}
+                    alt={streamingSource}
+                    style={{ borderRadius: 20, padding: 10 }}
+                  />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p style={{ borderRadius: 20, padding: 10, margin: 0 }}>
+              {streaming}
+            </p>
+          )}
 
           {/* {streamingSources !== [] ? (
             <ul
