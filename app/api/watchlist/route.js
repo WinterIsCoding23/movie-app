@@ -1,27 +1,31 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import dbConnect from "../../../db/connect";
 import WatchlistMovie from "../../../db/models/WatchlistMovie";
 
-export async function PUT(request, context) {
-  const id = context?.params?.id;
+export async function GET(request, context) {
+  try {
+    await dbConnect(); // Check if connection to the database is available
 
-  if (!id) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
+    const moviesOnWatchlist = await WatchlistMovie.find({
+      isFavorite: true,
     });
+    console.log("moviesOnWatchlist", moviesOnWatchlist);
+
+    if (!moviesOnWatchlist) {
+      return new NextResponse(JSON.stringify({ status: "Not found" }), {
+        status: 404,
+      });
+    }
+
+    return new NextResponse(JSON.stringify(moviesOnWatchlist), { status: 200 });
+  } catch (error) {
+    return new NextResponse(
+      JSON.stringify({ status: "Internal server error" }),
+      {
+        status: 500,
+      }
+    );
   }
-
-  await dbConnect(); // check if connection to database available
-
-  const moviesOnWatchlist = await WatchlistMovie.updateOne({ id }); //check if movie is in mongoDB
-
-  if (!moviesOnWatchlist) {
-    return new NextResponse('{ status: "Not found" }', {
-      status: 404,
-    });
-  }
-
-  return new NextResponse(moviesOnWatchlist, { status: 200 });
 }
 
 // Original POST():

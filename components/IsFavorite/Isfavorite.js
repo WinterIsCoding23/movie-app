@@ -6,13 +6,13 @@ import useSWR from "swr";
 import { useState } from "react";
 
 import styles from "./Movie.module.css";
-import GetDirector from "../../../components/MovieDetails/GetDirector";
-import GetCast from "../../../components/MovieDetails/GetCast";
-import GetStreaming from "../../../components/MovieDetails/GetStreaming";
-import GetGenres from "../../../components/MovieDetails/GetGenres";
+import GetDirector from "../MovieDetails/GetDirector";
+import GetCast from "../MovieDetails/GetCast";
+import GetStreaming from "../MovieDetails/GetStreaming";
+import GetGenres from "../MovieDetails/GetGenres";
 
-import ToggleButton from "../../../components/WatchlistButton/ToggleFunction";
-import { getMovie } from "./page";
+import ToggleButton from "../WatchlistButton/ToggleFunction";
+import { getMovie } from "../../app/movie/[id]/page";
 
 // --> fetch "movie" with SWR
 // https://github.com/spiced-academy/savory-web-dev/blob/main/sessions/react-data-fetching/react-data-fetching.md
