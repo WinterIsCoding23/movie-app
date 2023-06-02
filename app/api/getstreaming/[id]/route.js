@@ -17,9 +17,9 @@ export async function GET(req, context) {
       "Unfortunately, this movie is currently not being streamed in Germany.";
 
     const jsonData = await res.json();
-    console.log("jsonData: ", jsonData);
+    // console.log("jsonData: ", jsonData);
     const streamingResults = jsonData.results;
-    console.log("streamingResults: ", streamingResults);
+    // console.log("streamingResults: ", streamingResults);
 
     // check if the movie is streaming in DE & if so, return the results in .flatrate (object),
     // ...otherwise return unavailable (string)
@@ -32,7 +32,7 @@ export async function GET(req, context) {
     //     ? streamingResults.DE.flatrate
     //     : unavailable;
 
-    console.log("streamingDataDe: ", streamingDataDe);
+    // console.log("streamingDataDe: ", streamingDataDe);
 
     // const streamingDataDE = jsonData?.results?.DE?.flatrate;
 
@@ -44,7 +44,8 @@ export async function GET(req, context) {
     // const streamingSources = streamingDataDE?.map(
     //   (element) => imagePath + element.logo_path
     // );
-    console.log("streamingSources: ", streamingSources);
+
+    //console.log("streamingSources: ", streamingSources);
 
     // const responseData = [streamingSources || [], unavailable];
 

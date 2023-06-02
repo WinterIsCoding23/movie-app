@@ -21,7 +21,8 @@ export default function Watchlist() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  console.log("moviesOnWatchlist in Watchlist.js: ", moviesOnWatchlist); // array of objects
+  // moviesOnWatchlist = array of objects
+  // console.log("moviesOnWatchlist in Watchlist.js: ", moviesOnWatchlist);
 
   return (
     <div>

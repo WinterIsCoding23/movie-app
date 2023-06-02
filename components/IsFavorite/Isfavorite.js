@@ -114,6 +114,7 @@ export default function MovieDetailsFavorites({ id }) {
   //     return !isFavorite;
   //   });
   // };
+  console.log("movie in IsFavorite.js: ", movie);
 
   return (
     <div className={styles.movieContainer}>
@@ -139,7 +140,11 @@ export default function MovieDetailsFavorites({ id }) {
       )}
       {/* ////////////////////////// TOGGLE-BUTTON //////////////////////////////////// */}
       <div className={styles.toggleButtonContainer}>
-        <ToggleButton className={styles.toggleButton} id={movie.id} />
+        <ToggleButton
+          className={styles.toggleButton}
+          id={movie.id}
+          movie={movie}
+        />
       </div>
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>

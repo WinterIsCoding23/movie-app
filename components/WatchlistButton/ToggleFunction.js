@@ -5,15 +5,16 @@ import { useState } from "react";
 
 import styles from "./Button.module.css";
 
-export default function ToggleButton({ id }) {
+export default function ToggleButton({ id, movie }) {
   const [watchlistFavorite, setWatchlistFavorite] = useState(null);
+  console.log("movie in ToggleFunction.js: ", movie);
 
   const toggleFavorite = () => {
     const newIsFavorite = !watchlistFavorite;
 
     fetch(`/api/watchlist/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ isFavorite: newIsFavorite }),
+      body: JSON.stringify({ isFavorite: newIsFavorite }, {}),
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => {

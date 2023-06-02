@@ -40,6 +40,7 @@ export async function GET(request, context) {
 export async function PUT(request, context) {
   const id = context?.params?.id;
   const isFavoriteObj = await request.json();
+  console.log("isFavoriteObj in api/watchlist/[id]/route.js: ", isFavoriteObj);
 
   if (!id) {
     return new NextResponse(
