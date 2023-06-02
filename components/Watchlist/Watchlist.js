@@ -29,9 +29,9 @@ export default function Watchlist() {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div>
+    <div className={styles.watchlistContainer}>
       <h2 className={styles.watchlistHeader}>My Watchlist</h2>
-      <ul className={styles.watchlistContainer}>
+      <ul className={styles.watchlistMovie}>
         {moviesOnWatchlist.map(
           (movieOnWatchlist, index) => (
             <li key={index}>
