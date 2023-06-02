@@ -66,6 +66,7 @@ export default async function RandomMovie() {
           />
         ) : (
           <Image
+            className={styles.moviePoster}
             src={"/../public/no-image.png"}
             width={250}
             height={250}
