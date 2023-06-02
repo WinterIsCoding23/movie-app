@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import FetchUrl from "../utils/FetchUrl";
 import RandomMovie from "../components/Random-movie/RandomMovie";
 import Watchlist from "../components/Watchlist/Watchlist";
+import PopularWatchlist from "../components/Watchlist/PopularWatchlist";
 import Collapsible from "../components/Collapsible/Collapsible";
 
 // Data-fetching BEFORE SWR:
@@ -27,6 +28,7 @@ export default async function Home() {
         <RandomMovie />
         <Collapsible label={"searchForm"} />
         <Watchlist url={await FetchUrl()} />
+        {/* <PopularWatchlist url={await FetchUrl()} /> */}
       </main>
       <footer>
         <p>Copyright 2023</p>

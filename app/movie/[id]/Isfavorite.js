@@ -182,7 +182,6 @@ export default function MovieDetailsFavorites({ id }) {
       <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
         <div className={styles.streamingInfo}>
-          {/* {streaming} */}
           {streaming !== unavailable ? (
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {streaming.map((streamingSource, index) => (
