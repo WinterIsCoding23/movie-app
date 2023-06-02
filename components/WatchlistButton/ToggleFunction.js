@@ -10,11 +10,15 @@ export default function ToggleButton({ id, movie }) {
   console.log("movie in ToggleFunction.js: ", movie);
 
   const toggleFavorite = () => {
+    const imagePath = "https://image.tmdb.org/t/p/original";
     const newIsFavorite = !watchlistFavorite;
 
     fetch(`/api/watchlist/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ isFavorite: newIsFavorite }, {}),
+      body: JSON.stringify({
+        isFavorite: newIsFavorite,
+        image: imagePath + movie.poster_path,
+      }),
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
