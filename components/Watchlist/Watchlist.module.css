@@ -1,14 +1,25 @@
+.slick-next {
+  right: 0;
+}
+
 .slick-prev {
-  left: -52px !important;
+  /* left: -52px !important; */
+  left: 0;
 }
 .slick-next:before,
 .slick-prev:before {
   content: "" !important;
 }
-.next-slick-arrow,
+
 .prev-slick-arrow {
   color: #000000;
   font-size: 45px;
+  left: 0px;
+}
+.next-slick-arrow {
+  color: #000000;
+  font-size: 45px;
+  right: 0px;
 }
 
 .watchlistContainer {
