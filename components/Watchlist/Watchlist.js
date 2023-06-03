@@ -125,6 +125,12 @@ export default function Watchlist() {
   );
 }
 
+//https://react-slick.neostack.com/docs/example/previous-next-methods/
+//https://www.newline.co/@dmitryrogozhny/how-to-show-carousel-in-react-applications-with-react-slick--07445c23
+//https://blog.openreplay.com/creating-a-simple-carousel-with-react-slick/
+//https://stackoverflow.com/questions/72999182/how-to-customize-previous-and-next-buttons-in-slick-slider
+//https://stackoverflow.com/questions/49018820/custom-arrows-react-slick
+
 // {Object.values(moviesOnWatchlist).forEach(
 //   (movieOnWatchlist) => (
 //     <li key={movieOnWatchlist.id}>{movieOnWatchlist.isFavorite}</li>
