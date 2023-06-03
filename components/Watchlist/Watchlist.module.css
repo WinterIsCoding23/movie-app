@@ -55,4 +55,14 @@
   filter: blur(0); /* Remove blur effect for the center slide */
 }
 
+.watchlistPoster {
+  border-radius: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  /* display: block; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 50%; */
+  width: auto;
+}
+
 /*box shadow generator*/

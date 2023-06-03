@@ -109,6 +109,7 @@ export default function Watchlist() {
             <h3>{movieOnWatchlist.title}</h3>
             <Link href={`/movie/${movieOnWatchlist.id}`}>
               <Image
+                className={styles.watchlistPoster}
                 src={movieOnWatchlist.image}
                 width={250}
                 height={250}
