@@ -1,3 +1,29 @@
+.Watchlist_watchlistContainer {
+  position: relative; /* Add position relative */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.Watchlist_sliderContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Watchlist_slider {
+  display: flex;
+}
+
+.Watchlist_slider .slick-arrow.slick-next {
+  position: absolute;
+  top: 50%;
+  right: -30px; /* Adjust the right position as needed */
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
 .watchlistContainer {
   /* display: grid;
   grid-template-columns: repeat (auto-fit, minmax(15rem, 1fr));
@@ -11,7 +37,7 @@
 }
 
 .watchlistMovie {
-  display: flex;
+  /* display: flex; */
 }
 
 .imageContainer {

@@ -11,13 +11,23 @@ import ToggleButton from "../WatchlistButton/ToggleFunction";
 
 const imagePath = "https://image.tmdb.org/t/p/original";
 
-export default async function GetSearchResults({ url, searchParams }) {
+// ...existing imports
+
+export default function GetSearchResults({ url, searchParams }) {
   console.log("searchParams in GetSearchResults:", searchParams);
 
   // SWR:
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const URL = url;
   const { data, error, isLoading } = useSWR(URL, fetcher);
+
+  const [searchResultsIsFavorite, setSearchResultsIsFavorite] = useState(false);
+
+  // useEffect(() => {
+  //   fetch(`/api/watchlist/isfavorite/${id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => setSearchResultsIsFavorite(data));
+  // }, []);
 
   if (error) {
     return <p>Error: {error.message}</p>;
@@ -28,13 +38,6 @@ export default async function GetSearchResults({ url, searchParams }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
-
-  const [searchResultsIsFavorite, setSearchResultsIsFavorite] = useState(false);
-  useEffect(() => {
-    fetch(`/api/watchlist/isfavorite/${id}`)
-      .then((response) => response.json())
-      .then((data) => setSearchResultsIsFavorite(data));
-  }, []);
 
   return (
     <div>
