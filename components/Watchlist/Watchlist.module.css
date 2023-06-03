@@ -1,35 +1,10 @@
-.Watchlist_watchlistContainer {
-  position: relative; /* Add position relative */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.Watchlist_sliderContainer {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.Watchlist_slider {
-  display: flex;
-}
-
-.Watchlist_slider .slick-arrow.slick-next {
-  position: absolute;
-  top: 50%;
-  right: -30px; /* Adjust the right position as needed */
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
 .watchlistContainer {
   /* display: grid;
-  grid-template-columns: repeat (auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem; */
-
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .watchlistHeader {
@@ -37,7 +12,7 @@
 }
 
 .watchlistMovie {
-  /* display: flex; */
+  display: flex;
 }
 
 .imageContainer {
@@ -46,4 +21,14 @@
   border: 3px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
+
+.slick-slide {
+  filter: blur(5px); /* Apply blur effect to all slides */
+  transition: filter 0.3s ease;
+}
+
+.slick-slide.slick-center {
+  filter: blur(0); /* Remove blur effect for the center slide */
+}
+
 /*box shadow generator*/
