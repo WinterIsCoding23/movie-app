@@ -31,8 +31,14 @@ export async function GET(request, context) {
     );
   }
 
+  const isFavorite = movieOnWatchlist.isFavorite;
+  const response = {
+    movie: movieOnWatchlist,
+    isFavorite: isFavorite,
+  };
+
   // return movie-object (with given id) from mongoDB
-  return NextResponse.json(movieOnWatchlist);
+  return NextResponse.json(response);
 }
 
 // PUT-request

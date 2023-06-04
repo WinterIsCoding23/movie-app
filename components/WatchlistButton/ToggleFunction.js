@@ -6,7 +6,24 @@ import { useState } from "react";
 import styles from "./Button.module.css";
 
 export default function ToggleButton({ id, movie }) {
-  const [watchlistFavorite, setWatchlistFavorite] = useState(null);
+  // GET from mongoDB
+  async function getInitialState() {
+    const response = await fetch(`/api/watchlist/${id}`, {
+      method: "GET",
+      // body: JSON.stringify({ isFavorite }),
+      headers: { "Content-Type": "application/json" },
+    });
+    const jsonData = await response.json();
+    return jsonData;
+  }
+  const initialStateData = getInitialState();
+  const initialState = initialStateData.isFavorite;
+
+  const [watchlistFavorite, setWatchlistFavorite] = useState(
+    initialState ? initialState : null
+  );
+
+  // const [number, setNumber] = useState((data) => data === 'end' ? 5 : 0)
   console.log("movie in ToggleFunction.js: ", movie);
 
   const toggleFavorite = () => {

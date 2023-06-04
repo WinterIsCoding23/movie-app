@@ -1,6 +1,7 @@
 import MovieDetailsFavorites from "../../../components/IsFavorite/Isfavorite";
 
 export default async function MoviePage({ params: { id } }) {
+  // console.log("params in MovieDetailPage: ", params);
   return <MovieDetailsFavorites id={id} />;
 }
 

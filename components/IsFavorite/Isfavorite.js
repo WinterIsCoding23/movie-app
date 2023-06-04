@@ -36,6 +36,7 @@ export default function MovieDetailsFavorites({ id }) {
       ? "Unfortunately, no movie-data could be found for this id."
       : movieData;
   console.log("movie", movie);
+  // console.log("isFavorite in IsFavorite.js: ", movie.)
 
   // getdirector
   const { data: directorsData, isLoading: isLoadingDirector } = useSWR(
