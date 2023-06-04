@@ -49,10 +49,14 @@ export default function MovieDetailsFavorites({ id }) {
   console.log("cast", cast);
 
   // get genres
-  const { data: genres, isLoading: isLoadingGenres } = useSWR(
+  const { data: genresData, isLoading: isLoadingGenres } = useSWR(
     `/api/getgenres/${id}`,
     fetcher
   );
+  const genres =
+    genresData.length === 0
+      ? "Unfortunately, no trace of any genres."
+      : genresData;
   console.log("genres", genres);
 
   // get streaming
@@ -124,6 +128,7 @@ export default function MovieDetailsFavorites({ id }) {
     <div className={styles.movieContainer}>
       {/* ////////////////////////// TITLE //////////////////////////////////// */}
       <h2 className={styles.title}>{movie.title}</h2>
+
       {/* ////////////////////////// POSTER //////////////////////////////////// */}
       {movie.poster_path ? (
         <Image
@@ -142,6 +147,7 @@ export default function MovieDetailsFavorites({ id }) {
           alt={movie.title}
         />
       )}
+
       {/* ////////////////////////// TOGGLE-BUTTON //////////////////////////////////// */}
       <div className={styles.toggleButtonContainer}>
         <ToggleButton
@@ -150,6 +156,7 @@ export default function MovieDetailsFavorites({ id }) {
           movie={movie}
         />
       </div>
+
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>
         <h3 className={styles.directorTitle}>Director:</h3>
@@ -158,7 +165,6 @@ export default function MovieDetailsFavorites({ id }) {
           <GetDirector id={movie.id} />
         </p> */}
       </div>
-      {/* ////////////////////////// End of DIRECTOR //////////////////////////////////// */}
 
       {/* ////////////////////////// CAST //////////////////////////////////// */}
       <h3 className={styles.castTitle}>Cast:</h3>
@@ -166,20 +172,24 @@ export default function MovieDetailsFavorites({ id }) {
       {/* <p className={styles.castInfo}>
         <GetCast id={movie.id} />
       </p> */}
+
       {/* ////////////////////////// GENRES //////////////////////////////////// */}
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>{genres}</div>
       {/* <div className={styles.genresText}>
         <GetGenres id={movie.id} />
       </div> */}
+
       {/* ////////////////////////// SYNOPSIS //////////////////////////////////// */}
       <h3 className={styles.synopsisTitle}>Synopsis:</h3>
       <p className={styles.synopsisText}>{movie.overview}</p>
+
       {/* ////////////////////////// RELEASE-DATE //////////////////////////////////// */}
       <div className={styles.releaseContainer}>
         <h3 className={styles.releaseTitle}>Release-date:</h3>
         <p className={styles.releaseDate}>{movie.release_date}</p>
       </div>
+
       {/* ////////////////////////// ORIGINAL LANGUAGE //////////////////////////////////// */}
       <div className={styles.languageContainer}>
         <h3 className={styles.languageTitle}>Original language:</h3>
@@ -187,6 +197,7 @@ export default function MovieDetailsFavorites({ id }) {
           {movie.original_language?.toUpperCase()}
         </p>
       </div>
+
       {/* ////////////////////////// STREAMING //////////////////////////////////// */}
       <div className={styles.streamingContainer}>
         <h3 className={styles.streamingTitle}>Streaming-options:</h3>
