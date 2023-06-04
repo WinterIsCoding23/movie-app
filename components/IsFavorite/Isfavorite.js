@@ -204,14 +204,20 @@ export default function MovieDetailsFavorites({ id }) {
       {/* ////////////////////////// RELEASE-DATE //////////////////////////////////// */}
       <div className={styles.releaseContainer}>
         <h3 className={styles.releaseTitle}>Release-date:</h3>
-        <p className={styles.releaseDate}>{movie.release_date}</p>
+        <p className={styles.releaseDate}>
+          {movie.release_date !== ""
+            ? movie.release_date
+            : "Unfortunately, no trace of any release-date."}
+        </p>
       </div>
 
       {/* ////////////////////////// ORIGINAL LANGUAGE //////////////////////////////////// */}
       <div className={styles.languageContainer}>
         <h3 className={styles.languageTitle}>Original language:</h3>
         <p className={styles.languageInfo}>
-          {movie.original_language?.toUpperCase()}
+          {movie.original_language !== null
+            ? movie.original_language?.toUpperCase()
+            : "Unfortunately, no trace of any original language."}
         </p>
       </div>
 
