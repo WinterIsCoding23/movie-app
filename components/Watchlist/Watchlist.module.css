@@ -69,4 +69,12 @@
   margin: 20px;
 }
 
+.randomMovieOnWatchlistContainer{
+  display: flex;
+  flex-direction: column;
+  margin:20px;
+  justify-content: center;
+  align-items: center;
+}
+
 /*box shadow generator*/
