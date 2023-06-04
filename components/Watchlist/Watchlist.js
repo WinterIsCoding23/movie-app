@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
+// import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -27,6 +28,7 @@ export default function Watchlist() {
 
   const imagePath = "https://image.tmdb.org/t/p/original";
 
+  // Slick-Slider:
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}
@@ -121,7 +123,7 @@ export default function Watchlist() {
                   priority={true}
                 />
               </Link>
-              <p>{String(movieOnWatchlist.isFavorite)}</p>
+              {/* <p>{String(movieOnWatchlist.isFavorite)}</p> */}
             </div>
           ))}
         </Slider>
