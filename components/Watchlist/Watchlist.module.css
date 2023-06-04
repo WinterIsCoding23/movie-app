@@ -1,12 +1,43 @@
+.slick-next {
+  right: 0;
+}
+
+.slick-prev {
+  /* left: -52px !important; */
+  left: 0;
+}
+.slick-next:before,
+.slick-prev:before {
+  content: "" !important;
+}
+
+.prev-slick-arrow {
+  color: #000000;
+  font-size: 45px;
+  left: 0px;
+}
+.next-slick-arrow {
+  color: #000000;
+  font-size: 45px;
+  right: 0px;
+}
+
 .watchlistContainer {
   /* display: grid;
-  grid-template-columns: repeat (auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem; */
   list-style: none;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .watchlistHeader {
   text-align: center;
+}
+
+.watchlistMovie {
+  display: flex;
 }
 
 .imageContainer {
@@ -15,3 +46,43 @@
   border: 3px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
+
+.slick-slide {
+  filter: blur(5px); /* Apply blur effect to all slides */
+  transition: filter 0.3s ease;
+}
+
+.slick-slide.slick-center {
+  filter: blur(0); /* Remove blur effect for the center slide */
+}
+
+/* ul > .slick-dots{
+  margin: 20px;
+} */
+
+.watchlistPoster {
+  border-radius: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  /* display: block; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 50%; */
+  width: auto;
+}
+
+.noMoviesOnWatchlist{
+  margin: 20px;
+}
+
+.randomMovieOnWatchlistContainer{
+  display: flex;
+  flex-direction: column;
+  margin:20px;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 1em;
+}
+
+/*box shadow generator*/

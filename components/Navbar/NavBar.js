@@ -21,13 +21,15 @@ export default function NavBar() {
           // style={imageStyle}
         />
       </Link>
-      <Image
-        src={"/../public/play-button.png"}
-        width={50}
-        height={50}
-        alt="placeholder"
-        // style={imageStyle}
-      />
+      {/* <Link href="/api/watchlist/random">
+        <Image
+          src={"/../public/play-button.png"}
+          width={50}
+          height={50}
+          alt="placeholder"
+          // style={imageStyle}
+        />
+      </Link> */}
       {/* <button className={styles.backButton} type="button" onClick={() => router.back()}> */}
       <Image
         onClick={() => router.back()}

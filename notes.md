@@ -14,6 +14,9 @@ rgb(40, 42, 58)
 rgb(115, 95, 50)
 rgb(198, 151, 73)
 
+Chair-icons:
+https://www.flaticon.com/free-icon/director-chair_4014637?related_id=4014649&origin=search
+
 https://upmostly.com/next-js/how-to-level-up-your-next-js-app-with-scroll-animations
 
 From SearchForm.js:

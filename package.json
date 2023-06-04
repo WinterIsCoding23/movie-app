@@ -12,11 +12,16 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "moment": "^2.29.4",
+    "mongoose": "^7.2.1",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-multi-carousel": "^2.8.4",
+    "react-slick": "^0.29.0",
     "server-only": "^0.0.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.0-rc.1",
+    "swiper": "^9.3.2",
     "swr": "^2.1.5"
   },
   "devDependencies": {

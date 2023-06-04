@@ -1,11 +1,11 @@
 .navBarContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 0;
   padding: 1rem;
   border: solid 0.2em black;
-  border-radius: 2em;
+  border-radius: 1em 1em 0 0;
 
   /* position: relative;
     min-height: 100vh; */

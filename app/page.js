@@ -1,8 +1,9 @@
 import styles from "./page.module.css";
 
 import FetchUrl from "../utils/FetchUrl";
-import RandomMovie from "../components/random-movie/RandomMovie";
+import RandomMovie from "../components/Random-movie/RandomMovie";
 import Watchlist from "../components/Watchlist/Watchlist";
+import PopularWatchlist from "../components/Watchlist/PopularWatchlist";
 import Collapsible from "../components/Collapsible/Collapsible";
 
 // Data-fetching BEFORE SWR:
@@ -20,17 +21,16 @@ import Collapsible from "../components/Collapsible/Collapsible";
 // }
 
 export default async function Home() {
-  // Data-fetching BEFORE SWR:
-  // const response = await getData();
-  // console.log("data: ", data);
-
   return (
     <>
       <main>
         <h1 className={styles.title}>Movie-App</h1>
-        <RandomMovie url={await FetchUrl()} />
+        <RandomMovie />
         <Collapsible label={"searchForm"} />
-        <Watchlist url={await FetchUrl()} />
+
+        <Watchlist />
+
+        {/* <PopularWatchlist url={await FetchUrl()} /> */}
       </main>
       <footer>
         <p>Copyright 2023</p>
