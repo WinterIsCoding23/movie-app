@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./Button.module.css";
 
@@ -10,18 +10,39 @@ export default function ToggleButton({ id, movie }) {
   async function getInitialState() {
     const response = await fetch(`/api/watchlist/${id}`, {
       method: "GET",
-      // body: JSON.stringify({ isFavorite }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log("response in ToggleButton:", response);
+
+    if (response.status === 404) {
+      return null;
+    }
+
     const jsonData = await response.json();
+    console.log("jsonData in ToggleButton:", jsonData);
     return jsonData;
   }
-  const initialStateData = getInitialState();
-  const initialState = initialStateData.isFavorite;
 
-  const [watchlistFavorite, setWatchlistFavorite] = useState(
-    initialState ? initialState : null
-  );
+  async function initializeState() {
+    const initialStateData = await getInitialState();
+
+    // Check if jsonData is not equal to 0 or null
+    const initialState =
+      initialStateData !== 0 && initialStateData !== null
+        ? initialStateData.isFavorite
+        : null;
+
+    return initialState;
+  }
+
+  const [watchlistFavorite, setWatchlistFavorite] = useState(null);
+
+  useEffect(() => {
+    initializeState().then((initialState) => {
+      setWatchlistFavorite(initialState);
+    });
+  }, []);
+  console.log("watchlistFavorite in ToggleFunction: ", watchlistFavorite);
 
   // const [number, setNumber] = useState((data) => data === 'end' ? 5 : 0)
   console.log("movie in ToggleFunction.js: ", movie);
