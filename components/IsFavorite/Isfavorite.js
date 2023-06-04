@@ -195,7 +195,11 @@ export default function MovieDetailsFavorites({ id }) {
 
       {/* ////////////////////////// SYNOPSIS //////////////////////////////////// */}
       <h3 className={styles.synopsisTitle}>Synopsis:</h3>
-      <p className={styles.synopsisText}>{movie.overview}</p>
+      <p className={styles.synopsisText}>
+        {movie.overview !== ""
+          ? movie.overview
+          : "Unfortunately, no trace of any synopsis."}
+      </p>
 
       {/* ////////////////////////// RELEASE-DATE //////////////////////////////////// */}
       <div className={styles.releaseContainer}>
