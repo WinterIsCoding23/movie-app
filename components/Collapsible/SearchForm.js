@@ -13,7 +13,7 @@ export default function SearchForm() {
           placeholder={"Please write here"}
           autoFocus
         />
-        <label htmlFor={"director"}>by director</label>
+        {/* <label htmlFor={"director"}>by director</label>
         <input
           type={"text"}
           id={"director"}
@@ -26,7 +26,7 @@ export default function SearchForm() {
           id={"cast"}
           name={"cast"}
           placeholder={"Please write here"}
-        />
+        /> */}
         <button type={"submit"} className={styles.submitButton}>
           <h6>Submit search</h6>
         </button>

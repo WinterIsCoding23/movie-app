@@ -31,11 +31,15 @@ export default function MovieDetailsFavorites({ id }) {
   console.log("movie", movie);
 
   // getdirector
-  const { data: director, isLoading: isLoadingDirector } = useSWR(
-    `/api/getdirector/${id}`,
+  const { data: directorsData, isLoading: isLoadingDirector } = useSWR(
+    `/api/getdirectors/${id}`,
     fetcher
   );
-  console.log("director", director);
+  const directors =
+    directorsData.length === 0
+      ? "Unfortunately, no trace of any director."
+      : directorsData;
+  console.log("directors", directors);
 
   // get cast
   const { data: cast, isLoading: isLoadingCast } = useSWR(
@@ -149,7 +153,7 @@ export default function MovieDetailsFavorites({ id }) {
       {/* //////////////////////////DIRECTOR//////////////////////////////////// */}
       <div>
         <h3 className={styles.directorTitle}>Director:</h3>
-        <p className={styles.directorInfo}>{director}</p>
+        <p className={styles.directorInfo}>{directors}</p>
         {/* <p className={styles.directorInfo}>
           <GetDirector id={movie.id} />
         </p> */}
