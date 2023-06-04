@@ -99,28 +99,54 @@ export default function Watchlist() {
       },
     ],
   };
+  console.log("moiesOnWatchlist: ", moviesOnWatchlist);
+  const randomIndex = Math.floor(Math.random() * moviesOnWatchlist.length);
+  const randomMovieOnWatchlist = moviesOnWatchlist[randomIndex];
 
   return (
     <div className={styles.watchlistContainer}>
       <h2 className={styles.watchlistHeader}>My Watchlist</h2>
-      <Slider {...settings}>
-        {moviesOnWatchlist.map((movieOnWatchlist, index) => (
-          <div key={index}>
-            <h3>{movieOnWatchlist.title}</h3>
-            <Link href={`/movie/${movieOnWatchlist.id}`}>
-              <Image
-                className={styles.watchlistPoster}
-                src={movieOnWatchlist.image}
-                width={250}
-                height={250}
-                alt={movieOnWatchlist.title}
-                priority={true}
-              />
-            </Link>
-            <p>{String(movieOnWatchlist.isFavorite)}</p>
-          </div>
-        ))}
-      </Slider>
+      {moviesOnWatchlist.length > 0 ? (
+        <Slider {...settings}>
+          {moviesOnWatchlist.map((movieOnWatchlist, index) => (
+            <div key={index}>
+              <h3>{movieOnWatchlist.title}</h3>
+              <Link href={`/movie/${movieOnWatchlist.id}`}>
+                <Image
+                  className={styles.watchlistPoster}
+                  src={movieOnWatchlist.image}
+                  width={250}
+                  height={250}
+                  alt={movieOnWatchlist.title}
+                  priority={true}
+                />
+              </Link>
+              <p>{String(movieOnWatchlist.isFavorite)}</p>
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <p className={styles.noMoviesOnWatchlist}>
+          Nothing to show here 😪 - how about you start filling your Watchlist?
+        </p>
+      )}
+      {/* insert random movieOnWatchlist */}
+      {moviesOnWatchlist.length > 0 ? (
+        <div>
+          <h2>Skip the scrolling - watch this movie tonight:</h2>
+          <h3>{randomMovieOnWatchlist.title}</h3>
+          <Link href={`/movie/${randomMovieOnWatchlist.id}`}>
+            <Image
+              className={styles.watchlistPoster}
+              src={randomMovieOnWatchlist.image}
+              width={250}
+              height={250}
+              alt={randomMovieOnWatchlist.title}
+              priority={true}
+            />
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 }
