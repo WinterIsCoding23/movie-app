@@ -21,7 +21,7 @@ export default function NavBar() {
           // style={imageStyle}
         />
       </Link>
-      <Link href="/api/watchlist/random">
+      {/* <Link href="/api/watchlist/random">
         <Image
           src={"/../public/play-button.png"}
           width={50}
@@ -29,7 +29,7 @@ export default function NavBar() {
           alt="placeholder"
           // style={imageStyle}
         />
-      </Link>
+      </Link> */}
       {/* <button className={styles.backButton} type="button" onClick={() => router.back()}> */}
       <Image
         onClick={() => router.back()}

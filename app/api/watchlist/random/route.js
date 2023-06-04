@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import dbConnect from "../../../db/connect";
+import dbConnect from "../../../../db/connect";
 import WatchlistMovie from "../../../db/models/WatchlistMovie";
 
 export async function GET(request, context) {
