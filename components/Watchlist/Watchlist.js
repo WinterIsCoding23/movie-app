@@ -133,7 +133,7 @@ export default function Watchlist() {
       {/* insert random movieOnWatchlist */}
       {moviesOnWatchlist.length > 1 ? (
         <div className={styles.randomMovieOnWatchlistContainer}>
-          <h2>Skip the scrolling - watch this movie tonight:</h2>
+          <h2>Stop scrolling - watch this movie tonight:</h2>
           <h3>{randomMovieOnWatchlist.title}</h3>
           <Link href={`/movie/${randomMovieOnWatchlist.id}`}>
             <Image
