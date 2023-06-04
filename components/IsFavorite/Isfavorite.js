@@ -24,21 +24,33 @@ export default function MovieDetailsFavorites({ id }) {
   // const fetcher = (url) => fetch(url).then((res) => res.json());
 
   // get movie
-  const { data: movie, isLoading: isLoadingMovie } = useSWR(
+  const { data: movieData, isLoading: isLoadingMovie } = useSWR(
     `/api/fetchmovie/${id}`,
-    fetcher
+    fetcher,
+    {
+      shouldRetryOnError: true,
+    }
   );
+  const movie =
+    movieData && movieData.length === 0
+      ? "Unfortunately, no movie-data could be found for this id."
+      : movieData;
   console.log("movie", movie);
 
   // getdirector
   const { data: directorsData, isLoading: isLoadingDirector } = useSWR(
     `/api/getdirectors/${id}`,
-    fetcher
+    fetcher,
+    {
+      shouldRetryOnError: true,
+    }
   );
+  const isLoadingDirectors = !directorsData;
   const directors =
-    directorsData.length === 0
+    directorsData && directorsData.length === 0
       ? "Unfortunately, no trace of any director."
       : directorsData;
+
   console.log("directors", directors);
 
   // get cast
@@ -54,7 +66,7 @@ export default function MovieDetailsFavorites({ id }) {
     fetcher
   );
   const genres =
-    genresData.length === 0
+    genresData && genresData.length === 0
       ? "Unfortunately, no trace of any genres."
       : genresData;
   console.log("genres", genres);
@@ -81,7 +93,7 @@ export default function MovieDetailsFavorites({ id }) {
 
   if (
     isLoadingMovie ||
-    isLoadingDirector ||
+    isLoadingDirectors ||
     isLoadingCast ||
     isLoadingGenres ||
     isLoadingStreaming

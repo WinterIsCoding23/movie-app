@@ -8,9 +8,11 @@ export async function GET(req, context) {
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
     );
     if (!res.ok) {
-      throw new Error("Failed to fetch detailmovie-data");
+      const errorData = await res.json();
+      throw new Error(`Failed to fetch movie-data: ${errorData.message}`);
     }
-    const movie = await res.json();
+    const jsonData = await res.json();
+    const movie = jsonData; 
     console.log("Movie in page.js: ", movie);
 
     return NextResponse.json(movie);
@@ -18,3 +20,9 @@ export async function GET(req, context) {
     return NextResponse.json({ message: error.message });
   }
 }
+
+
+// return NextResponse.error({
+//   status: 500,
+//   body: { error: "Failed to fetch movie data" },
+// });
