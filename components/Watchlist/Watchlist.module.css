@@ -26,6 +26,7 @@
   border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
   padding-top: 30px;
+  width: 100vw;
 }
 
 .watchlistMovie {
@@ -43,6 +44,13 @@
 /* ul > .slick-dots{
   margin: 20px;
 } */
+
+.movieOnWatchlistTitle{
+  height: auto;
+  width: fit-content;
+block-size: fit-content;
+
+}
 
 .watchlistPoster {
   border-radius: 10px;

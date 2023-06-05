@@ -157,16 +157,29 @@ export default function Watchlist() {
           >
             {moviesOnWatchlist.map((movieOnWatchlist, index) => (
               <div key={index}>
-                <h3>{movieOnWatchlist.title}</h3>
+                <h3 className={styles.movieOnWatchlistTitle}>
+                  {movieOnWatchlist.title}
+                </h3>
                 <Link href={`/movie/${movieOnWatchlist.id}`}>
-                  <Image
-                    className={styles.watchlistPoster}
-                    src={movieOnWatchlist.image}
-                    width={250}
-                    height={250}
-                    alt={movieOnWatchlist.title}
-                    priority={true}
-                  />
+                  {movieOnWatchlist.image !==
+                  "https://image.tmdb.org/t/p/originalnull" ? (
+                    <Image
+                      className={styles.watchlistPoster}
+                      src={movieOnWatchlist.image}
+                      width={250}
+                      height={250}
+                      alt={movieOnWatchlist.title}
+                      priority={true}
+                    />
+                  ) : (
+                    <Image
+                      className={styles.poster}
+                      src={"/no-image.png"}
+                      width={166.667}
+                      height={250}
+                      alt={movieOnWatchlist.title}
+                    />
+                  )}
                 </Link>
                 {/* <p>{String(movieOnWatchlist.isFavorite)}</p> */}
               </div>
@@ -186,14 +199,25 @@ export default function Watchlist() {
           <div className={styles.randomMovieOnWatchlistContainer}>
             <h3>{randomMovieOnWatchlist.title}</h3>
             <Link href={`/movie/${randomMovieOnWatchlist.id}`}>
-              <Image
-                className={styles.watchlistPoster}
-                src={randomMovieOnWatchlist.image}
-                width={250}
-                height={250}
-                alt={randomMovieOnWatchlist.title}
-                priority={true}
-              />
+              {randomMovieOnWatchlist.image !==
+              "https://image.tmdb.org/t/p/originalnull" ? (
+                <Image
+                  className={styles.watchlistPoster}
+                  src={randomMovieOnWatchlist.image}
+                  width={250}
+                  height={250}
+                  alt={randomMovieOnWatchlist.title}
+                  priority={true}
+                />
+              ) : (
+                <Image
+                  className={styles.poster}
+                  src={"/no-image.png"}
+                  width={250}
+                  height={250}
+                  alt={randomMovieOnWatchlist.title}
+                />
+              )}
             </Link>
           </div>
         </div>
