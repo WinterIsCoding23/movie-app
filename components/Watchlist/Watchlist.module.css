@@ -1,3 +1,17 @@
+.sliderContent{
+  height: 100%;
+}
+
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
+}
+
 .watchlistContainer {
   /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

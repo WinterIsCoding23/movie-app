@@ -156,7 +156,7 @@ export default function Watchlist() {
             {...sliderSettings}
           >
             {moviesOnWatchlist.map((movieOnWatchlist, index) => (
-              <div key={index}>
+              <div className={styles.sliderContent} key={index}>
                 <h3 className={styles.movieOnWatchlistTitle}>
                   {movieOnWatchlist.title}
                 </h3>
