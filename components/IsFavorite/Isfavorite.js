@@ -3,7 +3,7 @@
 import Image from "next/image";
 import useSWR from "swr";
 
-import styles from "./Movie.module.css";
+import styles from "./IsFavorite.module.css";
 
 import ToggleButton from "../WatchlistButton/ToggleFunction";
 
