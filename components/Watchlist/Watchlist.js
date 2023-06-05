@@ -179,19 +179,23 @@ export default function Watchlist() {
         </p>
       )}
       {moviesOnWatchlist.length > 1 ? (
-        <div className={styles.randomMovieOnWatchlistContainer}>
-          <h2>Stop scrolling - watch this movie tonight:</h2>
-          <h3>{randomMovieOnWatchlist.title}</h3>
-          <Link href={`/movie/${randomMovieOnWatchlist.id}`}>
-            <Image
-              className={styles.watchlistPoster}
-              src={randomMovieOnWatchlist.image}
-              width={250}
-              height={250}
-              alt={randomMovieOnWatchlist.title}
-              priority={true}
-            />
-          </Link>
+        <div>
+          <h2 className={styles.watchlistHeader}>
+            Stop scrolling - watch this movie tonight:
+          </h2>
+          <div className={styles.randomMovieOnWatchlistContainer}>
+            <h3>{randomMovieOnWatchlist.title}</h3>
+            <Link href={`/movie/${randomMovieOnWatchlist.id}`}>
+              <Image
+                className={styles.watchlistPoster}
+                src={randomMovieOnWatchlist.image}
+                width={250}
+                height={250}
+                alt={randomMovieOnWatchlist.title}
+                priority={true}
+              />
+            </Link>
+          </div>
         </div>
       ) : null}
     </div>
