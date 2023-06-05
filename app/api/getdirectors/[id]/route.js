@@ -11,15 +11,11 @@ export async function GET(req, context) {
       throw new Error("Failed to fetch director-data");
     }
     const jsonData = await res.json();
-    // const directorData = jsonData.crew?.filter(({ job }) => job === "Director");
-    // const director = directorData[0].original_name;
-    // console.log("director in page.js: ", director);
     const directorData =
       jsonData.crew.length > 0
         ? jsonData.crew?.filter(({ job }) => job === "Director")
         : [];
-    // const directorData = jsonData.crew?.filter(({ job }) => job === "Director");
-    // const director = directorData[0].original_name;
+
     const directors =
       directorData !== []
         ? directorData.map((director) => director.original_name)

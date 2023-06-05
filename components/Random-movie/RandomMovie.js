@@ -52,7 +52,7 @@ export default async function RandomMovie() {
 
   return (
     <div>
-      <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
+      <h2 className={styles.randomHeader}>Random movie of today:</h2>
       <div className={styles.randomMovieContainer}>
         <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
         <Link href={`/movie/${randomMovieId}`}>
