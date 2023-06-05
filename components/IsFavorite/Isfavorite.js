@@ -74,9 +74,6 @@ export default function MovieDetailsFavorites({ id }) {
 
   console.log("streaming: ", streaming);
 
-  // console.log("streaming[0]: ", streaming[0]);
-  // console.log("streaming[1]: ", streaming[1]);
-
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   if (
