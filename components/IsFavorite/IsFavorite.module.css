@@ -143,6 +143,11 @@
   display: flex; /* Enable flexbox layout */
   flex-direction: row;
   align-items: center; /* Center the items horizontally */
-  justify-content: center; /* Center the items vertically */
+  /* justify-content: center; Center the items vertically */
   flex-wrap: wrap;
+}
+
+.streamingProviders{
+  display: flex;
+  flex-direction: row; 
 }
