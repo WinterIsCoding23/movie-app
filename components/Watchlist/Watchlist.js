@@ -128,8 +128,28 @@ export default function Watchlist() {
       <h2 className={styles.watchlistHeader}>My Watchlist</h2>
       {moviesOnWatchlist.length > 0 ? (
         <div className={styles.watchlistMovieBox}>
-          <button onClick={sliderRef?.slickPrev}>Previous</button>
-          <button onClick={sliderRef?.slickNext}>Next</button>
+          <button
+            className={styles.watchlistButton}
+            onClick={sliderRef?.slickPrev}
+          >
+            <Image
+              src={"/../public/previous.png"}
+              width={20}
+              height={20}
+              alt={"previous"}
+            />
+          </button>
+          <button
+            className={styles.watchlistButton}
+            onClick={sliderRef?.slickNext}
+          >
+            <Image
+              src={"/../public/next.png"}
+              width={20}
+              height={20}
+              alt={"previous"}
+            />
+          </button>
           <Slider
             className={styles.slider}
             ref={setSliderRef}

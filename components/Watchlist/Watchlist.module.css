@@ -10,12 +10,21 @@
 
 }
 
+.watchlistButton{
+  background-color: rgb(115, 95, 50);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+  padding: 1px 10px;
+}
+
 .watchlistHeader {
   text-align: center;
 }
 
 .watchlistMovieBox{
   margin: 10px;
+  text-align: center;
 }
 
 .watchlistMovie {
