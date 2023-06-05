@@ -1,24 +1,16 @@
 "use client";
 
 import Image from "next/image";
-
 import useSWR from "swr";
-import { useState } from "react";
 
 import styles from "./Movie.module.css";
-import GetDirector from "../MovieDetails/GetDirector";
-import GetCast from "../MovieDetails/GetCast";
-import GetStreaming from "../MovieDetails/GetStreaming";
-import GetGenres from "../MovieDetails/GetGenres";
 
 import ToggleButton from "../WatchlistButton/ToggleFunction";
-import { getMovie } from "../../app/movie/[id]/page";
 
 // --> fetch "movie" with SWR
 // https://github.com/spiced-academy/savory-web-dev/blob/main/sessions/react-data-fetching/react-data-fetching.md
 
 export default function MovieDetailsFavorites({ id }) {
-  // original-fetcher:
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   // fetcher from https://www.alanwsmith.com/posts/make-multiple-swr-data-fetch-calls-in-the-same-react-component--20eorx9pdiji
   // const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -36,7 +28,6 @@ export default function MovieDetailsFavorites({ id }) {
       ? "Unfortunately, no movie-data could be found for this id."
       : movieData;
   console.log("movie", movie);
-  // console.log("isFavorite in IsFavorite.js: ", movie.)
 
   // getdirector
   const { data: directorsData, isLoading: isLoadingDirector } = useSWR(
@@ -80,13 +71,9 @@ export default function MovieDetailsFavorites({ id }) {
 
   const unavailable =
     "Unfortunately, this movie is currently not being streamed in Germany.";
-  // const streamingSources = streaming?.streamingSources ?? [];
-  // const unavailable = streaming?.unavailable;
-  console.log("streaming: ", streaming);
-  // console.log("streamingSources: ", streamingSources);
 
-  // const streamingSources = streaming[0];
-  // const unavailable = streaming[1];
+  console.log("streaming: ", streaming);
+
   // console.log("streaming[0]: ", streaming[0]);
   // console.log("streaming[1]: ", streaming[1]);
 
@@ -102,39 +89,6 @@ export default function MovieDetailsFavorites({ id }) {
     return <div>Loading...</div>;
   }
 
-  // set isFavorite-state
-  // const [isFavorite, setFavorite] = useState({});
-
-  // async function fetchMovieDetails() {
-  //   const { data } = useSWR(`api/fetchmovie/${id}`, fetcher);
-  // }
-
-  // set isFavorite in mongoDB to the opposite value
-  // function IsFavoriteToggle(id) {
-  //   setFavorite((isFavorite) => {
-  //     fetch(`/api/watchlist/${id}`, {
-  //       method: "PUT",
-  //       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
-  //     });
-  //     return !isFavorite;
-  //   });
-  // }
-  // const imagePath = "https://image.tmdb.org/t/p/original";
-
-  // const movieDetails = await getMovieDetails({ id });
-  // console.log("movie in IsFavorite: ", movie.id);
-  // console.log("id in IsFavorite: ", id);
-
-  // toggle-button to change value of isFavorite in mongoDB:
-  // const toggleFavorite = () => {
-  //   setFavorite((isFavorite) => {
-  //     fetch(`/api/watchlist/${id}`, {
-  //       method: "PUT",
-  //       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
-  //     });
-  //     return !isFavorite;
-  //   });
-  // };
   console.log("movie in IsFavorite.js: ", movie);
 
   return (
@@ -174,24 +128,15 @@ export default function MovieDetailsFavorites({ id }) {
       <div>
         <h3 className={styles.directorTitle}>Director:</h3>
         <p className={styles.directorInfo}>{directors}</p>
-        {/* <p className={styles.directorInfo}>
-          <GetDirector id={movie.id} />
-        </p> */}
       </div>
 
       {/* ////////////////////////// CAST //////////////////////////////////// */}
       <h3 className={styles.castTitle}>Cast:</h3>
       <p className={styles.castInfo}>{cast}</p>
-      {/* <p className={styles.castInfo}>
-        <GetCast id={movie.id} />
-      </p> */}
 
       {/* ////////////////////////// GENRES //////////////////////////////////// */}
       <h3 className={styles.genresTitle}>Genres:</h3>
       <div className={styles.genresText}>{genres}</div>
-      {/* <div className={styles.genresText}>
-        <GetGenres id={movie.id} />
-      </div> */}
 
       {/* ////////////////////////// SYNOPSIS //////////////////////////////////// */}
       <h3 className={styles.synopsisTitle}>Synopsis:</h3>
@@ -244,30 +189,43 @@ export default function MovieDetailsFavorites({ id }) {
               {streaming}
             </p>
           )}
-
-          {/* {streamingSources !== [] ? (
-            <ul
-              className={styles.streamingList}
-              style={{ listStyle: "none", padding: 0, margin: 0 }}
-            >
-              {streamingSources.map((streamingSource, index) => (
-                <li key={index}>
-                  <Image
-                    src={streamingSource}
-                    width={80}
-                    height={80}
-                    alt={streamingSource}
-                    style={{ borderRadius: 20, padding: 10 }}
-                  />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>{unavailable}</p>
-          )} */}
           {/* <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} /> */}
         </div>
       </div>
     </div>
   );
 }
+
+// set isFavorite-state
+// const [isFavorite, setFavorite] = useState({});
+
+// async function fetchMovieDetails() {
+//   const { data } = useSWR(`api/fetchmovie/${id}`, fetcher);
+// }
+
+// set isFavorite in mongoDB to the opposite value
+// function IsFavoriteToggle(id) {
+//   setFavorite((isFavorite) => {
+//     fetch(`/api/watchlist/${id}`, {
+//       method: "PUT",
+//       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
+//     });
+//     return !isFavorite;
+//   });
+// }
+// const imagePath = "https://image.tmdb.org/t/p/original";
+
+// const movieDetails = await getMovieDetails({ id });
+// console.log("movie in IsFavorite: ", movie.id);
+// console.log("id in IsFavorite: ", id);
+
+// toggle-button to change value of isFavorite in mongoDB:
+// const toggleFavorite = () => {
+//   setFavorite((isFavorite) => {
+//     fetch(`/api/watchlist/${id}`, {
+//       method: "PUT",
+//       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
+//     });
+//     return !isFavorite;
+//   });
+// };
