@@ -18,7 +18,14 @@ export async function GET(req, context) {
 
     const directors =
       directorData !== []
-        ? directorData.map((director) => director.original_name)
+        ? directorData.map((director) =>
+            // add case for directorData.length > 2
+            directorData.length > 1
+              ? director === directorData[directorData.length - 1]
+                ? " and " + director.original_name
+                : director.original_name
+              : director.original_name
+          )
         : "Unfortunately, no trace of any director.";
 
     return NextResponse.json(directors);
