@@ -23,6 +23,8 @@
 .watchlistMovieBox{
   margin: 10px;
   text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .watchlistMovie {
