@@ -127,9 +127,9 @@ export default function Watchlist() {
     <div className={styles.watchlistContainer}>
       <h2 className={styles.watchlistHeader}>My Watchlist</h2>
       {moviesOnWatchlist.length > 0 ? (
-        <div>
-          <button onClick={sliderRef?.slickPrev}>Left</button>
-          <button onClick={sliderRef?.slickNext}>Right</button>
+        <div className={styles.watchlistMovieBox}>
+          <button onClick={sliderRef?.slickPrev}>Previous</button>
+          <button onClick={sliderRef?.slickNext}>Next</button>
           <Slider
             className={styles.slider}
             ref={setSliderRef}
