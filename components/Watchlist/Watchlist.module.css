@@ -62,14 +62,13 @@
 .movieOnWatchlistTitle{
   height: auto;
   text-align: center;
+  padding: 0.5rem;
+  /* prevent dispositioning with very long titles: */
   overflow: hidden;
   height: 1.1rem;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding: 0.5rem;
-  /* width: fit-content;
-block-size: fit-content; */
-
+  /* prevent dispositioning with very long titles: */
 }
 
 .watchlistPoster {
