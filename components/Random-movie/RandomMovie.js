@@ -51,30 +51,32 @@ export default async function RandomMovie() {
   // }
 
   return (
-    <div className={styles.randomMovieContainer}>
+    <div>
       <h2 className={styles.randomHeader}>Random movie suggestion:</h2>
-      <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
-      <Link href={`/movie/${randomMovieId}`}>
-        {randomMovieData.poster_path !== null || undefined ? (
-          <Image
-            className={styles.moviePoster}
-            src={randomMoviePosterSource}
-            width={250}
-            height={250}
-            alt={randomMovieTitle}
-            priority={true}
-          />
-        ) : (
-          <Image
-            className={styles.moviePoster}
-            src={"/../public/no-image.png"}
-            width={250}
-            height={250}
-            alt={randomMovieTitle}
-          />
-        )}
-      </Link>
-      {/* <ToggleButton id={randomMovieId} isFavorite={isFavorite} /> */}
+      <div className={styles.randomMovieContainer}>
+        <h3 className={styles.movieTitle}>{randomMovieTitle}</h3>
+        <Link href={`/movie/${randomMovieId}`}>
+          {randomMovieData.poster_path !== null || undefined ? (
+            <Image
+              className={styles.moviePoster}
+              src={randomMoviePosterSource}
+              width={250}
+              height={250}
+              alt={randomMovieTitle}
+              priority={true}
+            />
+          ) : (
+            <Image
+              className={styles.moviePoster}
+              src={"/../public/no-image.png"}
+              width={250}
+              height={250}
+              alt={randomMovieTitle}
+            />
+          )}
+        </Link>
+        {/* <ToggleButton id={randomMovieId} isFavorite={isFavorite} /> */}
+      </div>
     </div>
   );
 }
