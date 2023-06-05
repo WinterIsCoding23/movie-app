@@ -120,8 +120,18 @@ export default function Watchlist() {
     ],
   };
   console.log("moiesOnWatchlist: ", moviesOnWatchlist);
-  const randomIndex = Math.floor(Math.random() * moviesOnWatchlist.length);
-  const randomMovieOnWatchlist = moviesOnWatchlist[randomIndex];
+
+  const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
+    (movieOnWatchlist) => movieOnWatchlist.isFavorite === true
+  );
+  // const randomIndex = Math.floor(
+  //   Math.random() * filteredMoviesOnWatchlist.length
+  // );
+  // const randomMovieOnWatchlist = filteredMoviesOnWatchlist[randomIndex];
+  const randomMovieOnWatchlist =
+    filteredMoviesOnWatchlist[
+      Math.floor(Math.random() * filteredMoviesOnWatchlist.length)
+    ];
 
   return (
     <div className={styles.watchlistContainer}>
@@ -191,7 +201,7 @@ export default function Watchlist() {
           Nothing to show here 😪 - how about you start filling your Watchlist?
         </p>
       )}
-      {moviesOnWatchlist.length > 1 ? (
+      {moviesOnWatchlist.length > 1 && filteredMoviesOnWatchlist.length > 0 ? (
         <div>
           <h2 className={styles.watchlistHeader}>
             Stop scrolling - watch this movie tonight:

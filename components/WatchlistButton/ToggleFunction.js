@@ -57,6 +57,7 @@ export default function ToggleButton({ id, movie }) {
         id: movie.id,
         title: movie.title,
         image: imagePath + movie.poster_path,
+        // streaming:
         isFavorite: newIsFavorite,
       }),
       headers: { "Content-Type": "application/json" },
