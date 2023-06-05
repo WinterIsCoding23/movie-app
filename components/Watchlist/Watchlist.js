@@ -59,9 +59,7 @@ export default function Watchlist() {
 
   const settings = {
     dots: true,
-
     speed: 500,
-
     slidesToScroll: 1,
     initialSlide: 0,
     className: "center",
@@ -79,7 +77,7 @@ export default function Watchlist() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -88,7 +86,7 @@ export default function Watchlist() {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -132,7 +130,6 @@ export default function Watchlist() {
           Nothing to show here 😪 - how about you start filling your Watchlist?
         </p>
       )}
-      {/* insert random movieOnWatchlist */}
       {moviesOnWatchlist.length > 1 ? (
         <div className={styles.randomMovieOnWatchlistContainer}>
           <h2>Stop scrolling - watch this movie tonight:</h2>
