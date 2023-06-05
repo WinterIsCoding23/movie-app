@@ -62,6 +62,10 @@
 .movieOnWatchlistTitle{
   height: auto;
   text-align: center;
+  overflow: hidden;
+  height: 1.25rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   /* width: fit-content;
 block-size: fit-content; */
 
