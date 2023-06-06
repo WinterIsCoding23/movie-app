@@ -4,13 +4,13 @@
 
 The Movie-App (production-name) aims to remedy this dilemma. 
 
-## The solution
+## The proposition
 
-First, run the development server:
+As you are used to from other apps and streaming-platforms, in the Movie-App you can still save interesting movies in your Watchlist - and remove them as soon as you have watched them. Or grown tired of them after the eleventh re-watching. Also, every time you visit the app you get presented a random movie for inspiration. (In the future, it will also be possible to refine the suggested random movies according to either parameters set by the user or based on learning progress of an integrated AI.)
 
-```bash
-quotation
-```
+To make the movie-night a success though, the App suggests a movie from your Watchlist to spare you the scrolling hell. (As with the random movie-suggestion, one day soon it will be possible to base also this suggestion on a more refined fundament.)
 
-/*Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.*/
+So all that is left to say: Happy movie-watching! 
 
+
+P.S.: Comments, feedback, suggestions and ideas are always more than welcome. 
