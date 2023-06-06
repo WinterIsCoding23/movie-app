@@ -57,6 +57,7 @@ export default function ToggleButton({ id, movie }) {
         id: movie.id,
         title: movie.title,
         image: imagePath + movie.poster_path,
+        // streaming:
         isFavorite: newIsFavorite,
       }),
       headers: { "Content-Type": "application/json" },
@@ -92,7 +93,7 @@ export default function ToggleButton({ id, movie }) {
         alt={watchlistFavorite ? "already-a-favorite" : "no-favorite-yet"}
       />
       <p className={styles.buttonDescription}>
-        {watchlistFavorite ? "un-favor movie" : "make favorite"}
+        {watchlistFavorite ? "Watched already" : "Want to watch"}
       </p>
     </button>
   );

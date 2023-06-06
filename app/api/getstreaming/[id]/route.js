@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import Image from "next/image";
 
 export async function GET(req, context) {
   const imagePath = "https://image.tmdb.org/t/p/original";
@@ -34,20 +33,10 @@ export async function GET(req, context) {
 
     // console.log("streamingDataDe: ", streamingDataDe);
 
-    // const streamingDataDE = jsonData?.results?.DE?.flatrate;
-
     const streamingSources =
       streamingDataDe !== unavailable
         ? streamingDataDe.map((element) => imagePath + element.logo_path)
         : unavailable;
-
-    // const streamingSources = streamingDataDE?.map(
-    //   (element) => imagePath + element.logo_path
-    // );
-
-    //console.log("streamingSources: ", streamingSources);
-
-    // const responseData = [streamingSources || [], unavailable];
 
     return NextResponse.json(streamingSources);
   } catch (error) {

@@ -17,7 +17,7 @@ export default function NavBar() {
           src={"/../public/home-button.png"}
           width={50}
           height={50}
-          alt="home-button"
+          alt={"home-button"}
           // style={imageStyle}
         />
       </Link>
