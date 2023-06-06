@@ -22,6 +22,12 @@
 
 .submitButton > * {
   text-align: center;
-  font-weight: 900;
+  /* font-weight: 900; */
   
+}
+
+.submitButtonTitle{
+  margin: 0;
+  padding: 5px 5px;
+  font-size: 1em;
 }

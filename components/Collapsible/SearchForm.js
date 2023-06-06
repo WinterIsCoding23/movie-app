@@ -28,7 +28,7 @@ export default function SearchForm() {
           placeholder={"Please write here"}
         /> */}
         <button type={"submit"} className={styles.submitButton}>
-          <h6>Submit search</h6>
+          <h6 className={styles.submitButtonTitle}>Submit search</h6>
         </button>
       </form>
     </div>
