@@ -38,7 +38,7 @@ export default function Watchlist() {
   const sliderSettings = {
     dots: true,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     initialSlide: 0,
     speed: 500,
