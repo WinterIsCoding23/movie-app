@@ -59,7 +59,20 @@ export default function ToggleButton({ id, movie }) {
         return response.json();
       })
       .then((streamingData) => {
-        const streamingSources = streamingData.streamingSources;
+        let streamingSources = [];
+
+        if (Array.isArray(streamingData) && streamingData.length > 0) {
+          // If streamingData is an array with at least one object
+          streamingSources = streamingData.filter(
+            (item) => typeof item === "string"
+          );
+        }
+        // streamingSources is an array with as many strings as streaming-provider-logos
+        console.log("response in fetch api/getstreaming: ", streamingData);
+        console.log(
+          "streamingSources in fetch api/getstreaming: ",
+          streamingSources
+        );
 
         fetch(`/api/watchlist/${id}`, {
           method: "PUT",
