@@ -236,6 +236,7 @@ export default function Watchlist() {
   );
 }
 
+// Slick-Links:
 //https://react-slick.neostack.com/docs/example/previous-next-methods/
 //https://www.newline.co/@dmitryrogozhny/how-to-show-carousel-in-react-applications-with-react-slick--07445c23
 //https://blog.openreplay.com/creating-a-simple-carousel-with-react-slick/
