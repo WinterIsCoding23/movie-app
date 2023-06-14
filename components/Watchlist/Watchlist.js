@@ -38,7 +38,7 @@ export default function Watchlist() {
   const sliderSettings = {
     dots: true,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     initialSlide: 0,
     speed: 500,
@@ -119,15 +119,20 @@ export default function Watchlist() {
       },
     ],
   };
-  console.log("moiesOnWatchlist: ", moviesOnWatchlist);
+  console.log("moviesOnWatchlist: ", moviesOnWatchlist);
 
   const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
     (movieOnWatchlist) => movieOnWatchlist.isFavorite === true
   );
+
+  // ...add another condition (is being streamed) with &&
+
   // const randomIndex = Math.floor(
   //   Math.random() * filteredMoviesOnWatchlist.length
   // );
   // const randomMovieOnWatchlist = filteredMoviesOnWatchlist[randomIndex];
+  console.log("filteredMoviesOnWatchlist: ", filteredMoviesOnWatchlist);
+
   const randomMovieOnWatchlist =
     filteredMoviesOnWatchlist[
       Math.floor(Math.random() * filteredMoviesOnWatchlist.length)
@@ -236,6 +241,7 @@ export default function Watchlist() {
   );
 }
 
+// Slick-Links:
 //https://react-slick.neostack.com/docs/example/previous-next-methods/
 //https://www.newline.co/@dmitryrogozhny/how-to-show-carousel-in-react-applications-with-react-slick--07445c23
 //https://blog.openreplay.com/creating-a-simple-carousel-with-react-slick/
