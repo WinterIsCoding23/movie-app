@@ -12,5 +12,5 @@ To make the movie-night a success though, the App suggests a movie from your Wat
 
 So all that is left to say: Happy movie-watching! 
 
-
-P.S.: Comments, feedback, suggestions and ideas are always more than welcome. 
+## Feedback
+Comments, feedback, suggestions and ideas are always more than welcome: <a href:"mailto:markuswinter.dev@gmail.com">markuswinter.dev@gmail.com</a>.
