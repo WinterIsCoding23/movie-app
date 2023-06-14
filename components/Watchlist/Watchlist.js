@@ -119,15 +119,20 @@ export default function Watchlist() {
       },
     ],
   };
-  console.log("moiesOnWatchlist: ", moviesOnWatchlist);
+  console.log("moviesOnWatchlist: ", moviesOnWatchlist);
 
   const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
     (movieOnWatchlist) => movieOnWatchlist.isFavorite === true
   );
+
+  // ...add another condition (is being streamed) with &&
+
   // const randomIndex = Math.floor(
   //   Math.random() * filteredMoviesOnWatchlist.length
   // );
   // const randomMovieOnWatchlist = filteredMoviesOnWatchlist[randomIndex];
+  console.log("filteredMoviesOnWatchlist: ", filteredMoviesOnWatchlist);
+
   const randomMovieOnWatchlist =
     filteredMoviesOnWatchlist[
       Math.floor(Math.random() * filteredMoviesOnWatchlist.length)
