@@ -51,25 +51,39 @@ export default function ToggleButton({ id, movie }) {
     const imagePath = "https://image.tmdb.org/t/p/original";
     const newIsFavorite = !watchlistFavorite;
 
-    fetch(`/api/watchlist/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        id: movie.id,
-        title: movie.title,
-        image: imagePath + movie.poster_path,
-        // streaming:
-        isFavorite: newIsFavorite,
-      }),
-      headers: { "Content-Type": "application/json" },
-    })
+    fetch(`/api/getstreaming/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.status);
         }
         return response.json();
       })
-      .then((watchlistEntry) => {
-        setWatchlistFavorite(watchlistEntry.isFavorite);
+      .then((streamingData) => {
+        const streamingSources = streamingData.streamingSources;
+
+        fetch(`/api/watchlist/${id}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            id: movie.id,
+            title: movie.title,
+            image: imagePath + movie.poster_path,
+            streamingSources: streamingSources,
+            isFavorite: newIsFavorite,
+          }),
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(response.status);
+            }
+            return response.json();
+          })
+          .then((watchlistEntry) => {
+            setWatchlistFavorite(watchlistEntry.isFavorite);
+          })
+          .catch((error) => {
+            console.error("An error occurred:", error);
+          });
       })
       .catch((error) => {
         console.error("An error occurred:", error);
@@ -98,3 +112,35 @@ export default function ToggleButton({ id, movie }) {
     </button>
   );
 }
+
+
+/* before:
+const toggleFavorite = () => {
+    const imagePath = "https://image.tmdb.org/t/p/original";
+    const newIsFavorite = !watchlistFavorite;
+
+    fetch(`/api/watchlist/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        id: movie.id,
+        title: movie.title,
+        image: imagePath + movie.poster_path,
+        // streamingSources:
+        isFavorite: newIsFavorite,
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .then((watchlistEntry) => {
+        setWatchlistFavorite(watchlistEntry.isFavorite);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
+  */

@@ -9,7 +9,7 @@ const watchlistSchema = new Schema({
   // director: { type: String, required: true },
   // genres: { type: String, required: true },
   synopsis: { type: String },
-  streaming: { type: String },
+  streamingSources: { type: Array },
   isFavorite: { type: Boolean },
 });
 

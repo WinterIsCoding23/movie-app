@@ -31,7 +31,7 @@ export async function GET(req, context) {
     //     ? streamingResults.DE.flatrate
     //     : unavailable;
 
-    // console.log("streamingDataDe: ", streamingDataDe);
+    console.log("streamingDataDe: ", streamingDataDe);
 
     const streamingSources =
       streamingDataDe !== unavailable
