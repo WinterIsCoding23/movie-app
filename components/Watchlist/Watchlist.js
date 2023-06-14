@@ -123,7 +123,8 @@ export default function Watchlist() {
 
   const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
     (movieOnWatchlist) =>
-      movieOnWatchlist.isFavorite === true && streamingSources.length > 0
+      movieOnWatchlist.isFavorite === true &&
+      movieOnWatchlist.streamingSources.length > 0
   );
 
   // ...add another condition (is being streamed) with &&
