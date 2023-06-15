@@ -107,6 +107,8 @@ export default function Watchlist() {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
+          infinite: true,
+          dots: true,
         },
       },
       {
@@ -115,11 +117,13 @@ export default function Watchlist() {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
+          infinite: true,
+          dots: true,
         },
       },
     ],
   };
-  console.log("moviesOnWatchlist: ", moviesOnWatchlist);
+  // console.log("moviesOnWatchlist: ", moviesOnWatchlist);
 
   const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
     (movieOnWatchlist) =>
@@ -133,7 +137,7 @@ export default function Watchlist() {
   //   Math.random() * filteredMoviesOnWatchlist.length
   // );
   // const randomMovieOnWatchlist = filteredMoviesOnWatchlist[randomIndex];
-  console.log("filteredMoviesOnWatchlist: ", filteredMoviesOnWatchlist);
+  // console.log("filteredMoviesOnWatchlist: ", filteredMoviesOnWatchlist);
 
   const randomMovieOnWatchlist =
     filteredMoviesOnWatchlist[
@@ -197,8 +201,7 @@ export default function Watchlist() {
                       alt={movieOnWatchlist.title}
                     />
                   )}
-                </Link>
-                {/* <p>{String(movieOnWatchlist.isFavorite)}</p> */}
+                </Link>                
               </div>
             ))}
           </Slider>
