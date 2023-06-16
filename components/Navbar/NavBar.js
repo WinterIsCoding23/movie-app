@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
 import { useRouter } from "next/navigation";
 
 import styles from "./NavBar.module.css";
@@ -18,27 +17,16 @@ export default function NavBar() {
           width={50}
           height={50}
           alt={"home-button"}
-          // style={imageStyle}
+          
         />
       </Link>
-      {/* <Link href="/api/watchlist/random">
-        <Image
-          src={"/../public/play-button.png"}
-          width={50}
-          height={50}
-          alt="placeholder"
-          // style={imageStyle}
-        />
-      </Link> */}
-      {/* <button className={styles.backButton} type="button" onClick={() => router.back()}> */}
       <Image
         onClick={() => router.back()}
         src={"/../public/back-button.png"}
         width={50}
         height={50}
         alt="back-button"
-        // style={imageStyle}
-      />
+            />
     </nav>
   );
 }
