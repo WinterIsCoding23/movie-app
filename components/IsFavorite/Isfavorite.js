@@ -183,7 +183,7 @@ export default function MovieDetailsFavorites({ id }) {
               {streaming}
             </p>
           )}
-                  </div>
+        </div>
       </div>
     </div>
   );
