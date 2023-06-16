@@ -56,9 +56,10 @@ export async function PUT(request, context) {
       }
     );
   }
+// check if connection to database available
+  await dbConnect(); 
 
-  await dbConnect(); // check if connection to database available
-
+  //update movie if movie is in mongoDB
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
     { $set: isFavoriteObj },
@@ -80,7 +81,7 @@ export async function PUT(request, context) {
       }
     );
   }
-
+// return movie-object (with given id) from mongoDB
   return NextResponse.json(await WatchlistMovie.findOne({ id }));
 }
 
