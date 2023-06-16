@@ -3,10 +3,10 @@
 import Image from "next/image";
 import useSWR from "swr";
 
-import styles from "./IsFavorite.module.css";
+import styles from "./MovieDetails.module.css";
 import ToggleButton from "../WatchlistButton/ToggleFunction";
 
-export default function MovieDetailsFavorites({ id }) {
+export default function MovieDetails({ id }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   // get movie

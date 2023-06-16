@@ -1,7 +1,7 @@
-import MovieDetailsFavorites from "../../../components/IsFavorite/Isfavorite";
+import MovieDetails from "../../../components/MovieDetails/MovieDetails";
 
 export default async function MoviePage({ params: { id } }) {
-  return <MovieDetailsFavorites id={id} />;
+  return <MovieDetails id={id} />;
 }
 
 
