@@ -61,7 +61,6 @@ export async function PUT(request, context) {
 
   const movieToUpdate = await WatchlistMovie.updateOne(
     { id },
-    // { $set: { isFavorite: true } },
     { $set: isFavoriteObj },
     { upsert: true },
     (error, result) => {
@@ -71,8 +70,8 @@ export async function PUT(request, context) {
         console.log("Result:", result);
       }
     }
-  ); //check if movie is in mongoDB
-
+  ); 
+  //check if movie is in mongoDB:
   if (!movieToUpdate) {
     return new NextResponse(
       { status: "Not found" },
@@ -85,7 +84,7 @@ export async function PUT(request, context) {
   return NextResponse.json(await WatchlistMovie.findOne({ id }));
 }
 
-// DELETE-request --> needed?
+// DELETE-request --> not yet needed...
 export async function DELETE(request, context) {
   const id = context?.params?.id;
   const errorResponse = response.status(404).json({ status: "Not found" });
