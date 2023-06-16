@@ -1,38 +1,15 @@
 .sliderContent{
-  /* display: flex;
-  flex-direction: column;
-  align-content: center; */
-  /* height: 100%; */
   text-align: center; 
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
 }
 
-/*https://stackoverflow.com/questions/49028877/slick-carousel-force-slides-to-have-the-same-height*/
-/* .slick-track
-{
-    display: flex !important;
-}
-
-.slick-slide
-{
-    height: inherit !important;
-}
-
-.slick-slide > * {
-  display: grid;
-  place-items: center; 
-} */
-
 .slick-slide {
   margin: 0 20px;
 }
 
 .watchlistContainer {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1rem; */
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -52,9 +29,6 @@
 }
 
 .watchlistMovieBox{
-  /* display: flex; 
-  justify-content: center;  */
-
   margin: 10px;
   text-align: center;
   border: 1px solid rgb(0, 0, 0);
@@ -62,21 +36,12 @@
   padding-top: 30px;   
 }
 
-/* .watchlistMovie {
-  display: flex;
-} */
-
 .imageContainer {
   width: 30%;
   height: auto;
   border: 3px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
-
-
-/* ul > .slick-dots{
-  margin: 20px;
-} */
 
 .movieOnWatchlistTitle{
   height: auto;
@@ -93,10 +58,6 @@
 .watchlistPoster {
   border-radius: 10px;
   border: 5px solid rgb(0, 0, 0);
-  /* display: block; */
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* width: 50%; */
   width: auto;
   margin: auto;
 }
@@ -123,4 +84,3 @@
   }
 }
 
-/*box shadow generator*/
