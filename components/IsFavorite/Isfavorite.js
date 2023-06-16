@@ -24,14 +24,14 @@ export default function MovieDetailsFavorites({ id }) {
   console.log("movie", movie);
 
   // getdirector
-  const { data: directorsData, isLoading: isLoadingDirector } = useSWR(
+  const { data: directorsData, isLoading: isLoadingDirectors } = useSWR(
     `/api/getdirectors/${id}`,
     fetcher,
     {
       shouldRetryOnError: true,
     }
   );
-  const isLoadingDirectors = !directorsData;
+  // const isLoadingDirectors = !directorsData;
   const directors =
     directorsData && directorsData.length === 0
       ? "Unfortunately, no trace of any director."
