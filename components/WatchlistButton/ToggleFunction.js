@@ -43,8 +43,6 @@ export default function ToggleButton({ id, movie }) {
     });
   }, []);
   console.log("watchlistFavorite in ToggleFunction: ", watchlistFavorite);
-
-  // const [number, setNumber] = useState((data) => data === 'end' ? 5 : 0)
   console.log("movie in ToggleFunction.js: ", movie);
 
   const toggleFavorite = () => {
