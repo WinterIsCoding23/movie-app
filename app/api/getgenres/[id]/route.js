@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// client-components cant be async
 
 export async function GET(req, context) {
   const id = context?.params?.id;
