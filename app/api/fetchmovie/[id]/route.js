@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// client-components cant be async
 
 export async function GET(req, context) {
   const id = context?.params?.id;
@@ -13,16 +12,9 @@ export async function GET(req, context) {
     }
     const jsonData = await res.json();
     const movie = jsonData; 
-    console.log("Movie in page.js: ", movie);
-
+    
     return NextResponse.json(movie);
   } catch (error) {
     return NextResponse.json({ message: error.message });
   }
 }
-
-
-// return NextResponse.error({
-//   status: 500,
-//   body: { error: "Failed to fetch movie data" },
-// });
