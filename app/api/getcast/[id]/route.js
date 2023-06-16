@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// client-components cant be async
 
 export async function GET(req, context) {
   const id = context?.params?.id;
@@ -19,7 +18,7 @@ export async function GET(req, context) {
         ? member.name + " and others"
         : member.name + ", "
     ); // array of names (string)
-    // cast if jsonData.cast.length <= 9 OR 0 (animation!)
+    // cast if jsonData.cast.length <= 9 OR 0 (animation etc.)
     const shortCastData = jsonData.cast; // array of objects
     let shortCastMembers = [];
 
