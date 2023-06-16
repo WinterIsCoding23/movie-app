@@ -3,11 +3,9 @@
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-
 import { useState } from "react";
+
 import Slider from "react-slick";
-// import { FaChevronLeft, FaChevronRight } from "react-icons";
-// import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -44,52 +42,6 @@ export default function Watchlist() {
     speed: 500,
     infinite: true,
     centerPadding: "60px",
-    // className: "center",
-    // centerMode: true,
-
-    // const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    //   <button
-    //     {...props}
-    //     className={
-    //       "prev-slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
-    //     }
-    //     aria-hidden="true"
-    //     aria-disabled={currentSlide === 0 ? true : false}
-    //     type="button"
-    //   >
-    //     Previous
-    //   </button>
-    // );
-    // const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    //   <button
-    //     {...props}
-    //     className={
-    //       "next-slick-arrow" +
-    //       (currentSlide === slideCount - 1 ? " slick-disabled" : "")
-    //     }
-    //     aria-hidden="true"
-    //     aria-disabled={currentSlide === slideCount - 1 ? true : false}
-    //     type="button"
-    //   >
-    //     Next
-    //   </button>
-    // );
-
-    // const settings = {
-    //   dots: true,
-    //   speed: 500,
-    //   slidesToScroll: 1,
-    //   initialSlide: 0,
-    //   className: "center",
-    //   centerMode: true,
-    //   infinite: true,
-    //   centerPadding: "60px",
-    //   slidesToShow: 3,
-    //   speed: 500,
-
-    // prevArrow: <SlickArrowLeft />,
-    // nextArrow: <SlickArrowRight />,
-
     responsive: [
       {
         breakpoint: 1024,
@@ -107,6 +59,8 @@ export default function Watchlist() {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
+          infinite: true,
+          dots: true,
         },
       },
       {
@@ -115,23 +69,21 @@ export default function Watchlist() {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
+          infinite: true,
+          dots: true,
         },
       },
     ],
   };
-  console.log("moviesOnWatchlist: ", moviesOnWatchlist);
+  // console.log("moviesOnWatchlist: ", moviesOnWatchlist);
 
+  // randomMovieOnWatchlist: suggest a random watchlist-movie
+  // ...that is available for streaming
   const filteredMoviesOnWatchlist = moviesOnWatchlist.filter(
-    (movieOnWatchlist) => movieOnWatchlist.isFavorite === true
+    (movieOnWatchlist) =>
+      movieOnWatchlist.isFavorite === true &&
+      movieOnWatchlist.streamingSources.length > 0
   );
-
-  // ...add another condition (is being streamed) with &&
-
-  // const randomIndex = Math.floor(
-  //   Math.random() * filteredMoviesOnWatchlist.length
-  // );
-  // const randomMovieOnWatchlist = filteredMoviesOnWatchlist[randomIndex];
-  console.log("filteredMoviesOnWatchlist: ", filteredMoviesOnWatchlist);
 
   const randomMovieOnWatchlist =
     filteredMoviesOnWatchlist[
@@ -195,8 +147,7 @@ export default function Watchlist() {
                       alt={movieOnWatchlist.title}
                     />
                   )}
-                </Link>
-                {/* <p>{String(movieOnWatchlist.isFavorite)}</p> */}
+                </Link>                
               </div>
             ))}
           </Slider>
@@ -240,16 +191,3 @@ export default function Watchlist() {
     </div>
   );
 }
-
-// Slick-Links:
-//https://react-slick.neostack.com/docs/example/previous-next-methods/
-//https://www.newline.co/@dmitryrogozhny/how-to-show-carousel-in-react-applications-with-react-slick--07445c23
-//https://blog.openreplay.com/creating-a-simple-carousel-with-react-slick/
-//https://stackoverflow.com/questions/72999182/how-to-customize-previous-and-next-buttons-in-slick-slider
-//https://stackoverflow.com/questions/49018820/custom-arrows-react-slick
-
-// {Object.values(moviesOnWatchlist).forEach(
-//   (movieOnWatchlist) => (
-//     <li key={movieOnWatchlist.id}>{movieOnWatchlist.isFavorite}</li>
-//   )
-//   console.log("movieOnWatchlist: ", movieOnWatchlist)

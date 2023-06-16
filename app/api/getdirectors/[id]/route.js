@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// client-components cant be async
 
 export async function GET(req, context) {
   const id = context?.params?.id;
@@ -8,7 +7,7 @@ export async function GET(req, context) {
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
     );
     if (!res.ok) {
-      throw new Error("Failed to fetch director-data");
+      throw new Error("Failed to fetch director data");
     }
     const jsonData = await res.json();
     const directorData =
@@ -16,19 +15,35 @@ export async function GET(req, context) {
         ? jsonData.crew?.filter(({ job }) => job === "Director")
         : [];
 
-    const directors =
-      directorData !== []
-        ? directorData.map((director) =>
-            // add case for directorData.length > 2
-            directorData.length > 1
-              ? director === directorData[directorData.length - 1]
-                ? " and " + director.original_name
-                : director.original_name
-              : director.original_name
-          )
-        : "Unfortunately, no trace of any director.";
+    let directors = ""; 
 
-    return NextResponse.json(directors);
+    switch (directorData.length) {
+      case 0:
+        directors = "Unfortunately, no trace of any director.";
+        break;
+      case 1:
+        directors = directorData[0].original_name;
+        break;
+      case 2:
+        directors = `${directorData[0].original_name} and ${directorData[1].original_name}`;
+        break;
+        default:
+          const directorNames = directorData.map((director, index) => {
+            if (index === directorData.length - 2) {
+              return director.original_name;
+            } else if (index === directorData.length - 1) {
+              return `and ${director.original_name}`;
+            } else {
+              return director.original_name + ",";
+            }
+          });
+          directors = directorNames.join(" ");
+          break;
+    }
+
+    console.log("Directors: ", directors);
+
+    return NextResponse.json( directors );
   } catch (error) {
     return NextResponse.json({ message: error.message });
   }
