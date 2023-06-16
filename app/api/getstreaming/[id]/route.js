@@ -47,7 +47,7 @@ export async function GET(req, context) {
 // original code:
 // import { NextResponse } from "next/server";
 // import Image from "next/image";
-// // client-components cant be async
+// client-components cant be async
 
 // export async function GET(req, context) {
 //   const imagePath = "https://image.tmdb.org/t/p/original";
