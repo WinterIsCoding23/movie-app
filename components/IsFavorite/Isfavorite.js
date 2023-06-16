@@ -4,16 +4,10 @@ import Image from "next/image";
 import useSWR from "swr";
 
 import styles from "./IsFavorite.module.css";
-
 import ToggleButton from "../WatchlistButton/ToggleFunction";
-
-// --> fetch "movie" with SWR
-// https://github.com/spiced-academy/savory-web-dev/blob/main/sessions/react-data-fetching/react-data-fetching.md
 
 export default function MovieDetailsFavorites({ id }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  // fetcher from https://www.alanwsmith.com/posts/make-multiple-swr-data-fetch-calls-in-the-same-react-component--20eorx9pdiji
-  // const fetcher = (url) => fetch(url).then((res) => res.json());
 
   // get movie
   const { data: movieData, isLoading: isLoadingMovie } = useSWR(
@@ -189,43 +183,9 @@ export default function MovieDetailsFavorites({ id }) {
               {streaming}
             </p>
           )}
-          {/* <GetStreaming id={movie.id} imagePath={imagePath} movie={movie} /> */}
-        </div>
+                  </div>
       </div>
     </div>
   );
 }
 
-// set isFavorite-state
-// const [isFavorite, setFavorite] = useState({});
-
-// async function fetchMovieDetails() {
-//   const { data } = useSWR(`api/fetchmovie/${id}`, fetcher);
-// }
-
-// set isFavorite in mongoDB to the opposite value
-// function IsFavoriteToggle(id) {
-//   setFavorite((isFavorite) => {
-//     fetch(`/api/watchlist/${id}`, {
-//       method: "PUT",
-//       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
-//     });
-//     return !isFavorite;
-//   });
-// }
-// const imagePath = "https://image.tmdb.org/t/p/original";
-
-// const movieDetails = await getMovieDetails({ id });
-// console.log("movie in IsFavorite: ", movie.id);
-// console.log("id in IsFavorite: ", id);
-
-// toggle-button to change value of isFavorite in mongoDB:
-// const toggleFavorite = () => {
-//   setFavorite((isFavorite) => {
-//     fetch(`/api/watchlist/${id}`, {
-//       method: "PUT",
-//       body: JSON.stringify({ isFavorite: !movie.isFavorite }),
-//     });
-//     return !isFavorite;
-//   });
-// };
