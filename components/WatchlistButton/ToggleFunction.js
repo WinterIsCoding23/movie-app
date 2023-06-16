@@ -12,14 +12,11 @@ export default function ToggleButton({ id, movie }) {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-    console.log("response in ToggleButton:", response);
-
+    
     if (response.status === 404) {
       return null;
     }
-
     const jsonData = await response.json();
-    console.log("jsonData in ToggleButton:", jsonData);
     return jsonData;
   }
 
@@ -31,7 +28,6 @@ export default function ToggleButton({ id, movie }) {
       initialStateData !== 0 && initialStateData !== null
         ? initialStateData.isFavorite
         : null;
-
     return initialState;
   }
 
@@ -42,8 +38,6 @@ export default function ToggleButton({ id, movie }) {
       setWatchlistFavorite(initialState);
     });
   }, []);
-  console.log("watchlistFavorite in ToggleFunction: ", watchlistFavorite);
-  console.log("movie in ToggleFunction.js: ", movie);
 
   const toggleFavorite = () => {
     const imagePath = "https://image.tmdb.org/t/p/original";
@@ -66,12 +60,7 @@ export default function ToggleButton({ id, movie }) {
           );
         }
         // streamingSources is an array with as many strings as streaming-provider-logos
-        console.log("response in fetch api/getstreaming: ", streamingData);
-        console.log(
-          "streamingSources in fetch api/getstreaming: ",
-          streamingSources
-        );
-
+        
         fetch(`/api/watchlist/${id}`, {
           method: "PUT",
           body: JSON.stringify({
@@ -123,35 +112,3 @@ export default function ToggleButton({ id, movie }) {
     </button>
   );
 }
-
-
-/* before:
-const toggleFavorite = () => {
-    const imagePath = "https://image.tmdb.org/t/p/original";
-    const newIsFavorite = !watchlistFavorite;
-
-    fetch(`/api/watchlist/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        id: movie.id,
-        title: movie.title,
-        image: imagePath + movie.poster_path,
-        // streamingSources:
-        isFavorite: newIsFavorite,
-      }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-        return response.json();
-      })
-      .then((watchlistEntry) => {
-        setWatchlistFavorite(watchlistEntry.isFavorite);
-      })
-      .catch((error) => {
-        console.error("An error occurred:", error);
-      });
-  };
-  */
