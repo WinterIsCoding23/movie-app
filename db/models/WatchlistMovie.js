@@ -6,8 +6,6 @@ const watchlistSchema = new Schema({
   id: { type: Number },
   title: { type: String },
   image: { type: String },
-  // director: { type: String, required: true },
-  // genres: { type: String, required: true },
   synopsis: { type: String },
   streamingSources: { type: Array },
   isFavorite: { type: Boolean },
