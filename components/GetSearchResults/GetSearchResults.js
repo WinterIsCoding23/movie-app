@@ -71,6 +71,9 @@ export default function GetSearchResults({ url, searchParams }) {
           </div>
         ))}
       </div>}
+      {/* <Button back />
+      <pagination></pagination>
+      <Button forward /> */}
     </div>
   );
 }
