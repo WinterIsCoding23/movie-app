@@ -1,3 +1,6 @@
+import styles from "./Pagination.module.css";
+import Image from "next/image"; 
+
 export default function Pagination({ page, totalPages, onPageChange }) {
     function backwards() {
       if (page > 1) {
@@ -12,11 +15,24 @@ export default function Pagination({ page, totalPages, onPageChange }) {
     }
   
     return (
-      <div>
-        <button onClick={backwards}>Back</button>
+        
+
+      <div className={styles.container}>
+        <button className={styles.backButton} onClick={backwards}>{            <Image
+              src={"/../public/previous.png"}
+              width={20}
+              height={20}
+              alt={"previous"}
+            />}</button>
         <p>{page}/{totalPages}</p>
-        <button onClick={forward}>Forward</button>
+        <button className={styles.forwardButton} onClick={forward}>{            <Image
+              src={"/../public/next.png"}
+              width={20}
+              height={20}
+              alt={"next"}
+            />}</button>
       </div>
+        
     );
   }
   

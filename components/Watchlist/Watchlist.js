@@ -114,7 +114,7 @@ export default function Watchlist() {
               src={"/../public/next.png"}
               width={20}
               height={20}
-              alt={"previous"}
+              alt={"next"}
             />
           </button>
           <Slider
