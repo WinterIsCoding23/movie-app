@@ -12,7 +12,6 @@ export default function Pagination({ data, isLoading, page, totalPages, onPageCh
       if (page > 1) {
         onPageChange(page - 1);
       }
-      isLoading = true; 
     }
   
     function forward() {
