@@ -33,12 +33,13 @@ export default function GetSearchResults({ url, searchParams }) {
       <div className={styles.noResults}>
         <h2>No results</h2>
         <p>Unfortunately, no results matched your query. You may want to try again with a different keyword.</p>
-        <Image className={styles.poster}
-                    src={"/../public/404.jpg"}
-                    width={250}
-                    height={250}
-                    alt={"No resource found."}
-                  />
+        <Image 
+          className={styles.poster}
+          src={"/../public/404.jpg"}
+          width={250}
+          height={250}
+          alt={"No resource found."}
+        />
       </div>
       : <div className={styles.searchResultsContainer}>
         {data.results.map((result) => (
