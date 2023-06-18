@@ -79,7 +79,7 @@ export default function GetSearchResults({ url, page, searchParams }) {
           </div>
         ))}
       </div>}      
-      <Pagination data={data.results} page={currentPage} totalPages={data.total_pages} onPageChange={(newPage) => setCurrentPage(newPage)}/>       
+      <Pagination data={data.results} isLoading={isLoading} page={currentPage} totalPages={data.total_pages} onPageChange={(newPage) => setCurrentPage(newPage)}/>       
     </div>
   );
 }

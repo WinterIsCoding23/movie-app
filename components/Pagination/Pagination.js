@@ -5,8 +5,8 @@ import { useState } from "react";
 import styles from "./Pagination.module.css";
 import Image from "next/image"; 
 
-export default function Pagination({ data, page, totalPages, onPageChange }) {
-const [isLoading, setIsLoading] = useState(false);
+export default function Pagination({ data, isLoading, page, totalPages, onPageChange }) {
+// const [isLoading, setIsLoading] = useState(false);
 
     function backwards() {
       if (page > 1) {
@@ -23,7 +23,7 @@ const [isLoading, setIsLoading] = useState(false);
   
     return (      
         <div className={styles.container}>
-            <button className={styles.backButton} onClick={backwards}>{            
+            <button className={styles.backButton} disabled={isLoading} onClick={backwards}>{            
                 <Image
                 src={"/../public/previous.png"}
                 width={20}
@@ -31,13 +31,14 @@ const [isLoading, setIsLoading] = useState(false);
                 alt={"previous"}
                 />}</button>
             <p>{page}/{totalPages}</p>
-            <button className={styles.forwardButton} onClick={forward}>{            
+            <button className={styles.forwardButton} disabled={isLoading} onClick={forward}>{            
                 <Image
                 src={"/../public/next.png"}
                 width={20}
                 height={20}
                 alt={"next"}
                 />}</button>
+                {isLoading && <p>Loading data...</p>}
         </div>        
     );
   }
