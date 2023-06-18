@@ -18,14 +18,16 @@ export default function Pagination({ page, totalPages, onPageChange }) {
         
 
       <div className={styles.container}>
-        <button className={styles.backButton} onClick={backwards}>{            <Image
+        <button className={styles.backButton} onClick={backwards}>{            
+            <Image
               src={"/../public/previous.png"}
               width={20}
               height={20}
               alt={"previous"}
             />}</button>
         <p>{page}/{totalPages}</p>
-        <button className={styles.forwardButton} onClick={forward}>{            <Image
+        <button className={styles.forwardButton} onClick={forward}>{            
+            <Image
               src={"/../public/next.png"}
               width={20}
               height={20}
