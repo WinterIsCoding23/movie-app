@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
 
+import Pagination from "../Pagination/Pagination";
+
 import styles from "./GetSearchResults.module.css";
 
 const imagePath = "https://image.tmdb.org/t/p/original";
@@ -70,10 +72,8 @@ export default function GetSearchResults({ url, searchParams }) {
             <p>{result.overview}</p>
           </div>
         ))}
-      </div>}
-      {/* <Button back />
-      <pagination></pagination>
-      <Button forward /> */}
+      </div>}      
+      <Pagination />       
     </div>
   );
 }
