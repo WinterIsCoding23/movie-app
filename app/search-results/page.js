@@ -10,8 +10,11 @@ export default function SearchResults({ params, searchParams }) {
   const queryCast = searchParams.cast;
   console.log("query:", query);
 
+  // pagination:
+  const page = 1; 
+
   // Search by Title - but included additional query parameters dont work:
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&query=${query}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate&query=${query}`;
 
   // Disover-movie-API
   // https://developer.themoviedb.org/reference/discover-movie
@@ -35,7 +38,7 @@ export default function SearchResults({ params, searchParams }) {
   return (
     <div>
       <h2 className={styles.searchTitle}>Search-results:</h2>
-      <GetSearchResults url={url} searchParams={searchParams} />
+      <GetSearchResults url={url} page={page} searchParams={searchParams} />
     </div>
   );
 }

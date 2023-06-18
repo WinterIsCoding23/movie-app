@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
+import { useState } from "react";
 
 import Pagination from "../Pagination/Pagination";
 
@@ -10,10 +11,15 @@ import styles from "./GetSearchResults.module.css";
 
 const imagePath = "https://image.tmdb.org/t/p/original";
 
-export default function GetSearchResults({ url, searchParams }) {
+export default function GetSearchResults({ url, page, searchParams }) {
   console.log("searchParams in GetSearchResults:", searchParams);
 
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  // pagination:
+  const [currentPage, setCurrentPage] = useState(page);
+
+  // pagination: replace ...=> fetch(...args) 
+  // arg is an array; args[0] is the whole url; page is then appended to the url
+  const fetcher = (...args) => fetch(`${args[0]}&page=${currentPage}`).then((res) => res.json());
   const URL = url;
   const { data, error, isLoading } = useSWR(URL, fetcher);
 
@@ -73,7 +79,7 @@ export default function GetSearchResults({ url, searchParams }) {
           </div>
         ))}
       </div>}      
-      <Pagination />       
+      <Pagination page={currentPage} totalPages={data.total_pages} onPageChange={(newPage) => setCurrentPage(newPage)}/>       
     </div>
   );
 }
