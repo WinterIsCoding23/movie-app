@@ -24,10 +24,23 @@ export default function GetSearchResults({ url, searchParams }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
+  console.log("data: ", data);
+  console.log("data.results: ", data.results);
 
   return (
     <div>
-      <div className={styles.searchResultsContainer}>
+      {data.results.length === 0 ? 
+      <div className={styles.noResults}>
+        <h2>No results</h2>
+        <p>Unfortunately, no results matched your query. You may want to try again with a different keyword.</p>
+        <Image className={styles.poster}
+                    src={"/../public/404.jpg"}
+                    width={250}
+                    height={250}
+                    alt={"No resource found."}
+                  />
+      </div>
+      : <div className={styles.searchResultsContainer}>
         {data.results.map((result) => (
           <div className={styles.movieContainer} key={result.id}>
             <h2>{result.title}</h2>
@@ -56,7 +69,7 @@ export default function GetSearchResults({ url, searchParams }) {
             <p>{result.overview}</p>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 }
