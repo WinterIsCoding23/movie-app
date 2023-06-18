@@ -1,7 +1,13 @@
+"use client";
+
+import { useState } from "react";
+
 import styles from "./Pagination.module.css";
 import Image from "next/image"; 
 
-export default function Pagination({ page, totalPages, onPageChange }) {
+export default function Pagination({ data, page, totalPages, onPageChange }) {
+const [isLoading, setIsLoading] = useState(false);
+
     function backwards() {
       if (page > 1) {
         onPageChange(page - 1);
@@ -13,6 +19,7 @@ export default function Pagination({ page, totalPages, onPageChange }) {
         onPageChange(page + 1);
       }
     }
+    console.log("data: ", data);
   
     return (      
         <div className={styles.container}>

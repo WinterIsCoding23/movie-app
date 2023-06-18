@@ -32,8 +32,8 @@ export default function GetSearchResults({ url, page, searchParams }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
-  console.log("data: ", data);
-  console.log("data.results: ", data.results);
+  // console.log("data: ", data);
+  // console.log("data.results: ", data.results);
 
   return (
     <div>
@@ -79,7 +79,7 @@ export default function GetSearchResults({ url, page, searchParams }) {
           </div>
         ))}
       </div>}      
-      <Pagination page={currentPage} totalPages={data.total_pages} onPageChange={(newPage) => setCurrentPage(newPage)}/>       
+      <Pagination data={data.results} page={currentPage} totalPages={data.total_pages} onPageChange={(newPage) => setCurrentPage(newPage)}/>       
     </div>
   );
 }
