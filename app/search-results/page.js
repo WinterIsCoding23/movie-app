@@ -10,11 +10,13 @@ export default function SearchResults({ params, searchParams }) {
   const queryCast = searchParams.cast;
   console.log("query:", query);
 
-  // Search by Title:
-  // Works:
-  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
-  // Works too - including additional query parameters:
+  // Search by Title - but included additional query parameters dont work:
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&query=${query}`;
+
+  // Disover-movie-API
+  // https://developer.themoviedb.org/reference/discover-movie
+  // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&with_keywords=${query}`;
+
   // Sources:
   // https://themoviedb.api-docs.io/3/discover/movie-discover
   // https://www.themoviedb.org/talk/626ab3b0ec370c0d982a3ce6
