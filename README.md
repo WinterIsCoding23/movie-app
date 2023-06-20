@@ -12,5 +12,10 @@ To make the movie-night a success though, the App suggests a movie from your Wat
 
 So all that is left to say: Happy movie-watching! 
 
+## Important note
+
+To enjoy pure movie-bliss it is necessary to request an API-key from The Movie Database: https://developer.themoviedb.org/docs (please follow these instructions).
+As this project started as a pure demonstration-project, for the time being, it is connected to only one mongoDB-collection. In the future, it will be possible to log in as a registered user - and then access the user's private database. 
+
 ## Feedback
 Comments, feedback, suggestions and ideas are always more than welcome: markuswinter.dev@gmail.com.
